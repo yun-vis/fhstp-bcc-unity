@@ -1,0 +1,1325 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>File IO - C# CheatSheet</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Yun">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="C# CheatSheet">
+<meta property="og:title" content="File IO">
+<meta property="og:url" content="http://localhost:4000/pages/fileio/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser/teaser.png">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/pages/fileio/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          C# CheatSheet
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/basics">C# Basics</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/class">Class</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/inheritance">Inheritance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/polymorphism">Polymorphism</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/collection">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/dotnettype">.Net Type</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/fileio">File IO</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/performance">Performance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/assignment">Assignment</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/assets/images/teaser/teaser.png" alt="File IO" class="page__hero-image">
+  
+  
+    <span class="page__hero-caption">Image credit: <a href="http://yun-vis.net"><strong>Yun</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yun</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>This website collects my teaching material for C# development.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Vienna, Austria</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:hsiang.yun.wu@acm.org" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Contact</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://csharp-cheatsheet.github.io/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="http://yun-vis.net/" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="File IO">
+    
+    
+    <meta itemprop="dateModified" content="2022-03-30T00:00:00+02:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/pages/fileio/" class="u-url" itemprop="url">File IO
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          15 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="program-deployment">Program Deployment</h1>
+
+<h2 id="understanding-net-components">Understanding .NET components</h2>
+
+<ul>
+  <li>
+    <p><strong>Deployment:</strong> Software deployment is all of the activities that make a software system available for use.</p>
+  </li>
+  <li>
+    <p><strong>Language Compilers:</strong> These turn your source code written with languages C# into intermediate language (IL) code stored in assemblies.
+With C# 6.0 and later, Microsoft switched to an open source rewritten compiler known as <strong>Roslyn</strong> that is also used by Visual Basic.</p>
+  </li>
+  <li>
+    <p><strong>Assembly:</strong> Assemblies form the fundamental units of deployment, version control, reuse, activation scoping, and security permissions for .NET-based applications. An assembly is a collection of types and resources that are built to work together and form a logical unit of functionality. Assemblies take the form of executable (.exe) or dynamic link library (.dll) files, and are the building blocks of .NET applications. <a href="https://docs.microsoft.com/en-us/dotnet/standard/assembly/">Doc</a></p>
+  </li>
+  <li>
+    <p><strong>Common Language Runtime (CLR):</strong> This runtime loads assemblies, compiles
+the IL code stored in them into native code instructions for your computer’s CPU, and
+executes the code within an environment that manages resources such as threads and
+memory.</p>
+  </li>
+  <li>
+    <p><strong>Package (Class Library) Manager:</strong> A package manager or package-management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer in a consistent manner.</p>
+
+    <ul>
+      <li>Packages can ship on their own schedule.</li>
+      <li>Packages can be tested independently of other packages.</li>
+      <li>Packages can support different OSes and CPUs by including multiple versions of the same assembly built for different OSes and CPUs.</li>
+      <li>Packages can have dependencies specific to only one library.</li>
+      <li>Apps are smaller because unreferenced packages aren’t part of the distribution.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>NuGet Packages:</strong> NuGet is the package manager for .NET. Note that .NET is split into a set of packages, distributed using a Microsoft-supported package management technology named NuGet. <a href="https://www.nuget.org/">Doc</a></p>
+  </li>
+  <li>
+    <p><strong>Base Class Library (BCL):</strong> The BCL provides the most foundational types and utility functionality and is the base of all other .NET class libraries. <a href="https://docs.microsoft.com/en-us/dotnet/standard/framework-libraries">Doc</a></p>
+  </li>
+  <li>
+    <p><strong>Namespace:</strong> A namespace is the address of a type. Namespaces are a mechanism to uniquely identify a type by requiring a full address rather than just a short name.</p>
+  </li>
+  <li>
+    <p><strong>Dependency:</strong> A dependency in programming is an essential functionality, library or piece of code that is essential for a different part of the code to work.</p>
+  </li>
+</ul>
+
+<h2 id="understanding-the-microsoft-net-project-sdks">Understanding the Microsoft .NET project SDKs</h2>
+
+<p>By default, console applications have a dependency reference on the Microsoft .NET SDK. This platform contains thousands of types in NuGet packages that almost all applications would need, such as the int and string types.</p>
+
+<ul>
+  <li>
+    <p><strong>Software Development Kit (SDK):</strong> A software development kit (SDK) is a collection of software development tools in one installable package.</p>
+  </li>
+  <li>
+    <p><strong>Application Programming Interface (API):</strong> An application programming interface is a connection between computers or between computer programs.</p>
+  </li>
+</ul>
+
+<h2 id="understanding-frameworks">Understanding Frameworks</h2>
+
+<p>There is a two-way relationship between frameworks and packages. Packages define the APIs, while frameworks group packages. A framework without any packages would not define
+any APIs.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="n">Project</span> <span class="n">Sdk</span><span class="p">=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">OutputType</span><span class="p">&gt;</span><span class="n">Exe</span><span class="p">&lt;/</span><span class="n">OutputType</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">TargetFramework</span><span class="p">&gt;</span><span class="n">net6</span><span class="p">.</span><span class="m">0</span><span class="p">&lt;/</span><span class="n">TargetFramework</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">Nullable</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">Nullable</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="n">Project</span><span class="p">&gt;</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>C:<span class="se">\P</span>rogram Files<span class="se">\d</span>otnet<span class="se">\s</span>dk // Windows 10
+<span class="nv">$ </span><span class="nb">cd</span> /usr/local/share/dotnet/sdk // MacOS
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="c1">// using System.Xml.Linq;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// XDocument doc = new XDocument();</span>
+            <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">myStack</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="publishing-your-applications-for-deployment">Publishing your Applications for Deployment</h1>
+
+<ul>
+  <li>Framework-dependent Deployment (FDD).</li>
+  <li>Framework-dependent Executables (FDEs).</li>
+  <li>Self-contained.</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"I can run everywhere!"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="n">Project</span> <span class="n">Sdk</span><span class="p">=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">OutputType</span><span class="p">&gt;</span><span class="n">Exe</span><span class="p">&lt;/</span><span class="n">OutputType</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">TargetFramework</span><span class="p">&gt;</span><span class="n">net6</span><span class="p">.</span><span class="m">0</span><span class="p">&lt;/</span><span class="n">TargetFramework</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">Nullable</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">Nullable</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">RuntimeIdentifiers</span><span class="p">&gt;</span>
+      <span class="n">win10</span><span class="p">-</span><span class="n">x64</span><span class="p">;</span><span class="n">osx</span><span class="p">-</span><span class="n">x64</span><span class="p">;</span><span class="n">rhel</span><span class="p">.</span><span class="m">7.4</span><span class="p">-</span><span class="n">x64</span>
+    <span class="p">&lt;/</span><span class="n">RuntimeIdentifiers</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="n">Project</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The win10-x64 RID value means Windows 10 or Windows Server 2016.</li>
+  <li>The osx-x64 RID value means macOS High Sierra 10.13 or later.</li>
+  <li>The rhel.7.4-x64 RID value means Red Hat Enterprise Linux (RHEL) 7.4 or later.</li>
+</ul>
+
+<p>You can find the currently supported Runtime Identifier (RID) values from <a href="https://docs.microsoft.com/en-us/dotnet/articles/core/rid-catalog">Doc</a>.</p>
+
+<h2 id="understanding-dotnet-commands">Understanding dotnet Commands</h2>
+
+<ul>
+  <li>dotnet restore: This downloads dependencies for the project.</li>
+  <li>dotnet build: This compiles the project.</li>
+  <li>dotnet test: This runs unit tests on the project.</li>
+  <li>dotnet run: This runs the project.</li>
+  <li>dotnet pack: This creates a NuGet package for the project.</li>
+  <li>dotnet publish: This compiles and then publishes the project, either with dependencies
+or as a self-contained application.</li>
+  <li>dotnet add package: This adds a reference to a package or class library to the project.</li>
+  <li>dotnet remove package: This removes a reference to a package or class library from the project.</li>
+  <li>dotnet list package: This lists the package or class library references for the project.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet list package
+<span class="nv">$ </span>dotnet add package Newtonsoft.Json <span class="nt">--version</span> 13.0.1
+</code></pre></div></div>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="n">Project</span> <span class="n">Sdk</span><span class="p">=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">OutputType</span><span class="p">&gt;</span><span class="n">Exe</span><span class="p">&lt;/</span><span class="n">OutputType</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">TargetFramework</span><span class="p">&gt;</span><span class="n">net6</span><span class="p">.</span><span class="m">0</span><span class="p">&lt;/</span><span class="n">TargetFramework</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">Nullable</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">Nullable</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="n">ItemGroup</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">PackageReference</span> <span class="n">Include</span><span class="p">=</span><span class="s">"Newtonsoft.Json"</span> <span class="n">Version</span><span class="p">=</span><span class="s">"13.0.1"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="n">ItemGroup</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="n">Project</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="publishing-a-self-contained-app">Publishing a Self-Contained App</h2>
+
+<ul>
+  <li><strong>Debug Mode:</strong> Debug includes debugging information in the compiled files (allowing easy debugging).</li>
+  <li><strong>Release Mode:</strong> Release usually has optimizations enabled.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet publish <span class="nt">-c</span> Release <span class="nt">-r</span> osx-x64
+</code></pre></div></div>
+
+<h2 id="publishing-a-single-file-app">Publishing a Single-File App</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet publish <span class="nt">-r</span> osx-x64 <span class="nt">-c</span> Release <span class="nt">--self-contained</span><span class="o">=</span><span class="nb">false</span> <span class="nt">-p</span>:PublishSingleFile<span class="o">=</span><span class="nb">true</span>
+// The pdb is a program database file that stores debugging information.
+</code></pre></div></div>
+
+<h2 id="packaging-a-library-for-nuget">Packaging a Library for NuGet</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet build <span class="nt">-c</span> Release
+<span class="nv">$ </span>dotnet pack <span class="nt">-c</span> Release
+</code></pre></div></div>
+
+<h1 id="managing-the-filesystem">Managing the filesystem</h1>
+
+<h2 id="handling-cross-platform-environments-and-filesystems">Handling cross-platform environments and filesystems</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span> <span class="c1">// types for managing the filesystem</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">OutputFileSystemInfo</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">OutputFileSystemInfo</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">"Path.PathSeparator"</span><span class="p">,</span> <span class="n">PathSeparator</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">"Path.DirectorySeparatorChar"</span><span class="p">,</span>
+              <span class="n">DirectorySeparatorChar</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">"Directory.GetCurrentDirectory()"</span><span class="p">,</span>
+              <span class="nf">GetCurrentDirectory</span><span class="p">());</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">"Environment.CurrentDirectory"</span><span class="p">,</span>
+              <span class="n">CurrentDirectory</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">"Environment.SystemDirectory"</span><span class="p">,</span>
+              <span class="n">SystemDirectory</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">"Path.GetTempPath()"</span><span class="p">,</span> <span class="nf">GetTempPath</span><span class="p">());</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"GetFolderPath(SpecialFolder"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">" .System)"</span><span class="p">,</span>
+              <span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">System</span><span class="p">));</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">" .ApplicationData)"</span><span class="p">,</span>
+              <span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">ApplicationData</span><span class="p">));</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">" .MyDocuments)"</span><span class="p">,</span>
+              <span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">MyDocuments</span><span class="p">));</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-33} {1}"</span><span class="p">,</span> <span class="s">" .Personal)"</span><span class="p">,</span>
+              <span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">Personal</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>On Windows</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Path.PathSeparator                <span class="p">;</span>
+<span class="nv">$ </span>Path.DirectorySeparatorChar       <span class="se">\</span>
+<span class="nv">$ </span>Directory.GetCurrentDirectory<span class="o">()</span>   C:<span class="se">\U</span>sers<span class="se">\l</span>bwu<span class="se">\D</span>ropbox<span class="se">\F</span>H<span class="se">\B</span>CC<span class="se">\C</span><span class="nt">-Sharp</span><span class="se">\C</span>odes<span class="se">\C</span>RC_CSD-09<span class="se">\M</span>yBusiness
+<span class="nv">$ </span>Environment.CurrentDirectory      C:<span class="se">\U</span>sers<span class="se">\l</span>bwu<span class="se">\D</span>ropbox<span class="se">\F</span>H<span class="se">\B</span>CC<span class="se">\C</span><span class="nt">-Sharp</span><span class="se">\C</span>odes<span class="se">\C</span>RC_CSD-09<span class="se">\M</span>yBusiness
+<span class="nv">$ </span>Environment.SystemDirectory       C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32
+<span class="nv">$ </span>Path.GetTempPath<span class="o">()</span>                C:<span class="se">\U</span>sers<span class="se">\l</span>bwu<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp<span class="se">\</span>
+<span class="nv">$ </span>GetFolderPath<span class="o">(</span>SpecialFolder
+<span class="nv">$ </span> .System<span class="o">)</span>                         C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32
+<span class="nv">$ </span> .ApplicationData<span class="o">)</span>                C:<span class="se">\U</span>sers<span class="se">\l</span>bwu<span class="se">\A</span>ppData<span class="se">\R</span>oaming
+<span class="nv">$ </span> .MyDocuments<span class="o">)</span>                    C:<span class="se">\U</span>sers<span class="se">\l</span>bwu<span class="se">\D</span>ocuments
+<span class="nv">$ </span> .Personal<span class="o">)</span>                       C:<span class="se">\U</span>sers<span class="se">\l</span>bwu<span class="se">\D</span>ocuments
+</code></pre></div></div>
+<p>On MacOS</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Path.PathSeparator                :
+<span class="nv">$ </span>Path.DirectorySeparatorChar       /
+<span class="nv">$ </span>Directory.GetCurrentDirectory<span class="o">()</span>   /Users/yun/Dropbox/FH/BCC/C-Sharp/Codes/CRC_CSD-09/MyBusiness
+<span class="nv">$ </span>Environment.CurrentDirectory      /Users/yun/Dropbox/FH/BCC/C-Sharp/Codes/CRC_CSD-09/MyBusiness
+<span class="nv">$ </span>Environment.SystemDirectory       /System
+<span class="nv">$ </span>Path.GetTempPath<span class="o">()</span>                /var/folders/y_/jv3nd6kn7_v88vmf3378p6p40000gn/T/
+<span class="nv">$ </span>GetFolderPath<span class="o">(</span>SpecialFolder
+<span class="nv">$ </span> .System<span class="o">)</span>                         /System
+<span class="nv">$ </span> .ApplicationData<span class="o">)</span>                /Users/yun/.config
+<span class="nv">$ </span> .MyDocuments<span class="o">)</span>                    /Users/yun
+<span class="nv">$ </span> .Personal<span class="o">)</span>                       /Users/yun
+</code></pre></div></div>
+
+<h2 id="managing-drives">Managing drives</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span> <span class="c1">// types for managing the filesystem</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">WorkWithDrives</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">WorkWithDrives</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-30} | {1,-10} | {2,-7} | {3,18} | {4,18}"</span><span class="p">,</span>
+              <span class="s">"NAME"</span><span class="p">,</span> <span class="s">"TYPE"</span><span class="p">,</span> <span class="s">"FORMAT"</span><span class="p">,</span> <span class="s">"SIZE (BYTES)"</span><span class="p">,</span> <span class="s">"FREE SPACE"</span><span class="p">);</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">DriveInfo</span> <span class="n">drive</span> <span class="k">in</span> <span class="n">DriveInfo</span><span class="p">.</span><span class="nf">GetDrives</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">drive</span><span class="p">.</span><span class="n">IsReady</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="nf">WriteLine</span><span class="p">(</span>
+                            <span class="s">"{0,-30} | {1,-10} | {2,-7} | {3,18:N0} | {4,18:N0}"</span><span class="p">,</span>
+                            <span class="n">drive</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">drive</span><span class="p">.</span><span class="n">DriveType</span><span class="p">,</span> <span class="n">drive</span><span class="p">.</span><span class="n">DriveFormat</span><span class="p">,</span>
+                            <span class="n">drive</span><span class="p">.</span><span class="n">TotalSize</span><span class="p">,</span> <span class="n">drive</span><span class="p">.</span><span class="n">AvailableFreeSpace</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0,-30} | {1,-10}"</span><span class="p">,</span> <span class="n">drive</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">drive</span><span class="p">.</span><span class="n">DriveType</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>On Windows</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>NAME                           | TYPE       | FORMAT  |       SIZE <span class="o">(</span>BYTES<span class="o">)</span> |         FREE SPACE
+<span class="nv">$ </span>C:<span class="se">\ </span>                           | Fixed      | NTFS    |  1,023,551,021,056 |    776,903,106,560
+<span class="nv">$ </span>H:<span class="se">\ </span>                           | Network    | NTFS    |      2,147,483,648 |      2,147,479,552
+<span class="nv">$ </span>I:<span class="se">\ </span>                           | Network    | NTFS    |  6,596,932,399,104 |    260,713,881,600
+<span class="nv">$ </span>M:<span class="se">\ </span>                           | Network    | NTFS    |     53,687,091,200 |     53,687,091,200
+<span class="nv">$ </span>P:<span class="se">\ </span>                           | Network    | NTFS    |  2,199,005,425,664 |    834,980,163,584
+<span class="nv">$ </span>S:<span class="se">\ </span>                           | Network    | NTFS    |  6,596,932,399,104 |    260,713,881,600
+</code></pre></div></div>
+<p>On MacOS</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>NAME                           | TYPE       | FORMAT  |       SIZE <span class="o">(</span>BYTES<span class="o">)</span> |         FREE SPACE
+<span class="nv">$ </span>/                              | Fixed      | apfs    |    500,068,036,608 |      6,828,941,312
+<span class="nv">$ </span>/dev                           | Ram        | devfs   |            194,048 |                  0
+<span class="nv">$ </span>/private/var/vm                | Fixed      | apfs    |    500,068,036,608 |      6,828,941,312
+<span class="nv">$ </span>/net                           | Network    | autofs  |                  0 |                  0
+<span class="nv">$ </span>/home                          | Network    | autofs  |                  0 |                  0
+<span class="nv">$ </span>/Volumes/firmwaresyncd.J9xOfG  | Fixed      | msdos   |        206,472,192 |        182,210,048
+</code></pre></div></div>
+
+<h2 id="managing-directories">Managing directories</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span> <span class="c1">// types for managing the filesystem</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">WorkWithDirectories</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">WorkWithDirectories</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// define a directory path for a new folder // starting in the user's folder</span>
+            <span class="kt">var</span> <span class="n">newFolder</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span>
+                <span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">Personal</span><span class="p">),</span>
+                <span class="s">"Desktop"</span><span class="p">,</span> <span class="s">"MyNewFolder"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Working with: </span><span class="p">{</span><span class="n">newFolder</span><span class="p">}</span><span class="s">"</span><span class="p">);</span> <span class="c1">// check if it exists</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Does it exist? </span><span class="p">{</span><span class="nf">Exists</span><span class="p">(</span><span class="n">newFolder</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+            <span class="c1">// create directory</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Creating it..."</span><span class="p">);</span>
+            <span class="nf">CreateDirectory</span><span class="p">(</span><span class="n">newFolder</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Does it exist? </span><span class="p">{</span><span class="nf">Exists</span><span class="p">(</span><span class="n">newFolder</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+            <span class="nf">Write</span><span class="p">(</span><span class="s">"Confirm the directory exists, and then press ENTER: "</span><span class="p">);</span>
+            <span class="nf">ReadLine</span><span class="p">();</span>
+            <span class="c1">// delete directory</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Deleting it..."</span><span class="p">);</span>
+            <span class="nf">Delete</span><span class="p">(</span><span class="n">newFolder</span><span class="p">,</span> <span class="n">recursive</span><span class="p">:</span> <span class="k">true</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Does it exist? </span><span class="p">{</span><span class="nf">Exists</span><span class="p">(</span><span class="n">newFolder</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Working with: /Users/yun/Desktop/MyNewFolder
+<span class="nv">$ </span>Does it exist? False
+<span class="nv">$ </span>Creating it...
+<span class="nv">$ </span>Does it exist? True
+<span class="nv">$ </span>Confirm the directory exists, and <span class="k">then </span>press ENTER:
+<span class="nv">$ </span>Deleting it...
+<span class="nv">$ </span>Does it exist? False
+</code></pre></div></div>
+
+<h2 id="managing-files">Managing files</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span> <span class="c1">// types for managing the filesystem</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">WorkWithFiles</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">WorkWithFiles</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// define a directory path to output files // starting in the user's folder</span>
+            <span class="kt">var</span> <span class="n">dir</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span>
+                <span class="nf">GetFolderPath</span><span class="p">(</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">Personal</span><span class="p">),</span>
+                <span class="s">"Desktop"</span><span class="p">,</span> <span class="s">"MyNewFiles"</span><span class="p">);</span>
+            <span class="nf">CreateDirectory</span><span class="p">(</span><span class="n">dir</span><span class="p">);</span>
+            <span class="c1">// define file paths</span>
+            <span class="kt">string</span> <span class="n">textFile</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="s">"Dummy.txt"</span><span class="p">);</span>
+            <span class="kt">string</span> <span class="n">backupFile</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="s">"Dummy.bak"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Working with: </span><span class="p">{</span><span class="n">textFile</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+            <span class="c1">// check if a file exists</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Does it exist? </span><span class="p">{</span><span class="n">File</span><span class="p">.</span><span class="nf">Exists</span><span class="p">(</span><span class="n">textFile</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+            <span class="c1">// create a new text file and write a line to it</span>
+            <span class="n">StreamWriter</span> <span class="n">textWriter</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">CreateText</span><span class="p">(</span><span class="n">textFile</span><span class="p">);</span>
+            <span class="n">textWriter</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello, C#!"</span><span class="p">);</span>
+            <span class="n">textWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span> <span class="c1">// close file and release resources</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Does it exist? </span><span class="p">{</span><span class="n">File</span><span class="p">.</span><span class="nf">Exists</span><span class="p">(</span><span class="n">textFile</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+                                <span class="c1">// copy the file, and overwrite if it already exists</span>
+            <span class="n">File</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="n">sourceFileName</span><span class="p">:</span> <span class="n">textFile</span><span class="p">,</span>
+              <span class="n">destFileName</span><span class="p">:</span> <span class="n">backupFile</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="k">true</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span>
+              <span class="s">$"Does </span><span class="p">{</span><span class="n">backupFile</span><span class="p">}</span><span class="s"> exist? </span><span class="p">{</span><span class="n">File</span><span class="p">.</span><span class="nf">Exists</span><span class="p">(</span><span class="n">backupFile</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+            <span class="nf">Write</span><span class="p">(</span><span class="s">"Confirm the files exist, and then press ENTER: "</span><span class="p">);</span>
+            <span class="nf">ReadLine</span><span class="p">();</span>
+            <span class="c1">// delete file</span>
+            <span class="n">File</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="n">textFile</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Does it exist? </span><span class="p">{</span><span class="n">File</span><span class="p">.</span><span class="nf">Exists</span><span class="p">(</span><span class="n">textFile</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+            <span class="c1">// read from the text file backup</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Reading contents of </span><span class="p">{</span><span class="n">backupFile</span><span class="p">}</span><span class="s">:"</span><span class="p">);</span>
+            <span class="n">StreamReader</span> <span class="n">textReader</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">OpenText</span><span class="p">(</span><span class="n">backupFile</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="n">textReader</span><span class="p">.</span><span class="nf">ReadToEnd</span><span class="p">());</span>
+            <span class="n">textReader</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Working with: /Users/yun/Desktop/MyNewFiles/Dummy.txt
+<span class="nv">$ </span>Does it exist? False
+<span class="nv">$ </span>Does /Users/yun/Desktop/MyNewFiles/Dummy.bak exist? True
+<span class="nv">$ </span>Confirm the files exist, and <span class="k">then </span>press ENTER:
+<span class="nv">$ </span>Does it exist? False
+<span class="nv">$ </span>Reading contents of /Users/yun/Desktop/MyNewFiles/Dummy.bak:
+<span class="nv">$ </span>Hello, C#!
+</code></pre></div></div>
+
+<h2 id="managing-paths">Managing paths</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Managing paths</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Folder Name: </span><span class="p">{</span><span class="nf">GetDirectoryName</span><span class="p">(</span><span class="n">textFile</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"File Name: </span><span class="p">{</span><span class="nf">GetFileName</span><span class="p">(</span><span class="n">textFile</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">"File Name without Extension: {0}"</span><span class="p">,</span>
+  <span class="nf">GetFileNameWithoutExtension</span><span class="p">(</span><span class="n">textFile</span><span class="p">));</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"File Extension: </span><span class="p">{</span><span class="nf">GetExtension</span><span class="p">(</span><span class="n">textFile</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Random File Name: </span><span class="p">{</span><span class="nf">GetRandomFileName</span><span class="p">()}</span><span class="s">"</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Temporary File Name: </span><span class="p">{</span><span class="nf">GetTempFileName</span><span class="p">()}</span><span class="s">"</span><span class="p">);</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Folder Name: /Users/yun/Desktop/MyNewFiles
+<span class="nv">$ </span>File Name: Dummy.txt
+<span class="nv">$ </span>File Name without Extension: Dummy
+<span class="nv">$ </span>File Extension: .txt
+<span class="nv">$ </span>Random File Name: qh4j5vy2.kgn
+<span class="nv">$ </span>Temporary File Name: /var/folders/y_/jv3nd6kn7_v88vmf3378p6p40000gn/T/tmpfQQNS0.tmp
+</code></pre></div></div>
+
+<h2 id="getting-file-information">Getting file information</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">info</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">FileInfo</span><span class="p">(</span><span class="n">backupFile</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">backupFile</span><span class="p">}</span><span class="s">:"</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Contains </span><span class="p">{</span><span class="n">info</span><span class="p">.</span><span class="n">Length</span><span class="p">}</span><span class="s"> bytes"</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Last accessed </span><span class="p">{</span><span class="n">info</span><span class="p">.</span><span class="n">LastAccessTime</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Has readonly set to </span><span class="p">{</span><span class="n">info</span><span class="p">.</span><span class="n">IsReadOnly</span><span class="p">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>/Users/yun/Desktop/MyNewFiles/Dummy.bak:
+<span class="nv">$ </span>Contains 11 bytes
+<span class="nv">$ </span>Last accessed 3/30/2022 8:44:26 AM
+<span class="nv">$ </span>Has <span class="nb">readonly set </span>to False
+</code></pre></div></div>
+
+<h2 id="reading-and-writing-with-streams">Reading and writing with streams</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span> <span class="c1">// types for managing the filesystem</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">WorkWithText</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">// define an array of Viper pilot call signs</span>
+        <span class="k">static</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">callsigns</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span>
+            <span class="s">"Husker"</span><span class="p">,</span> <span class="s">"Starbuck"</span><span class="p">,</span> <span class="s">"Apollo"</span><span class="p">,</span> <span class="s">"Boomer"</span><span class="p">,</span>
+            <span class="s">"Bulldog"</span><span class="p">,</span> <span class="s">"Athena"</span><span class="p">,</span> <span class="s">"Helo"</span><span class="p">,</span> <span class="s">"Racetrack"</span> <span class="p">};</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">WorkWithText</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// define a file to write to</span>
+            <span class="kt">string</span> <span class="n">textFile</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span><span class="n">CurrentDirectory</span><span class="p">,</span> <span class="s">"streams.txt"</span><span class="p">);</span>
+            <span class="c1">// create a text file and return a helper writer</span>
+            <span class="n">StreamWriter</span> <span class="n">text</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">CreateText</span><span class="p">(</span><span class="n">textFile</span><span class="p">);</span>
+            <span class="c1">// enumerate the strings, writing each one</span>
+            <span class="c1">// to the stream on a separate line</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">item</span> <span class="k">in</span> <span class="n">callsigns</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">text</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">text</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span> <span class="c1">// release resources</span>
+                          <span class="c1">// output the contents of the file</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0} contains {1:N0} bytes."</span><span class="p">,</span>
+              <span class="n">arg0</span><span class="p">:</span> <span class="n">textFile</span><span class="p">,</span>
+              <span class="n">arg1</span><span class="p">:</span> <span class="k">new</span> <span class="nf">FileInfo</span><span class="p">(</span><span class="n">textFile</span><span class="p">).</span><span class="n">Length</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span><span class="n">textFile</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/yun/Dropbox/FH/BCC/C-Sharp/Codes/CRC_CSD-09/MyBusiness/streams.txt contains 60 bytes.
+<span class="nv">$ </span>Husker
+<span class="nv">$ </span>Starbuck
+<span class="nv">$ </span>Apollo
+<span class="nv">$ </span>Boomer
+<span class="nv">$ </span>Bulldog
+<span class="nv">$ </span>Athena
+<span class="nv">$ </span>Helo
+<span class="nv">$ </span>Racetrack
+</code></pre></div></div>
+
+<h2 id="writing-to-xml-streams">Writing to XML streams</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span> <span class="c1">// types for managing the filesystem</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Xml</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">WorkWithXml</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">// define an array of Viper pilot call signs</span>
+        <span class="k">static</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">callsigns</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span>
+            <span class="s">"Husker"</span><span class="p">,</span> <span class="s">"Starbuck"</span><span class="p">,</span> <span class="s">"Apollo"</span><span class="p">,</span> <span class="s">"Boomer"</span><span class="p">,</span>
+            <span class="s">"Bulldog"</span><span class="p">,</span> <span class="s">"Athena"</span><span class="p">,</span> <span class="s">"Helo"</span><span class="p">,</span> <span class="s">"Racetrack"</span> <span class="p">};</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">WorkWithXml</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// define a file to write to</span>
+            <span class="kt">string</span> <span class="n">xmlFile</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span><span class="n">CurrentDirectory</span><span class="p">,</span> <span class="s">"streams.xml"</span><span class="p">);</span>
+            <span class="c1">// create a file stream</span>
+            <span class="n">FileStream</span> <span class="n">xmlFileStream</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">xmlFile</span><span class="p">);</span>
+            <span class="c1">// wrap the file stream in an XML writer helper</span>
+            <span class="c1">// and automatically indent nested elements</span>
+            <span class="n">XmlWriter</span> <span class="n">xml</span> <span class="p">=</span> <span class="n">XmlWriter</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">xmlFileStream</span><span class="p">,</span>
+            <span class="k">new</span> <span class="n">XmlWriterSettings</span> <span class="p">{</span> <span class="n">Indent</span> <span class="p">=</span> <span class="k">true</span> <span class="p">});</span>
+            <span class="c1">// write the XML declaration</span>
+            <span class="n">xml</span><span class="p">.</span><span class="nf">WriteStartDocument</span><span class="p">();</span>
+            <span class="c1">// write a root element</span>
+            <span class="n">xml</span><span class="p">.</span><span class="nf">WriteStartElement</span><span class="p">(</span><span class="s">"callsigns"</span><span class="p">);</span>
+            <span class="c1">// enumerate the strings writing each one to the stream</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">item</span> <span class="k">in</span> <span class="n">callsigns</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">xml</span><span class="p">.</span><span class="nf">WriteElementString</span><span class="p">(</span><span class="s">"callsign"</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">// write the close root element</span>
+            <span class="n">xml</span><span class="p">.</span><span class="nf">WriteEndElement</span><span class="p">();</span>
+            <span class="c1">// close helper and stream</span>
+            <span class="n">xml</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+            <span class="n">xmlFileStream</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+            <span class="c1">// output all the contents of the file</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0} contains {1:N0} bytes."</span><span class="p">,</span>
+              <span class="n">arg0</span><span class="p">:</span> <span class="n">xmlFile</span><span class="p">,</span>
+              <span class="n">arg1</span><span class="p">:</span> <span class="k">new</span> <span class="nf">FileInfo</span><span class="p">(</span><span class="n">xmlFile</span><span class="p">).</span><span class="n">Length</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span><span class="n">xmlFile</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>/Users/yun/Dropbox/FH/BCC/C-Sharp/Codes/CRC_CSD-09/MyBusiness/streams.xml contains 310 bytes.
+<span class="nv">$ </span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
+<span class="nv">$ </span>&lt;callsigns&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Husker&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Starbuck&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Apollo&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Boomer&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Bulldog&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Athena&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Helo&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Racetrack&lt;/callsign&gt;
+<span class="nv">$ </span>&lt;/callsigns&gt;
+</code></pre></div></div>
+
+<h2 id="disposing-of-file-resources">Disposing of file resources</h2>
+
+<p>When you open a file to read or write to it, you are using resources outside of .NET. These are called unmanaged resources and must be disposed of when you are done working with them.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span> <span class="c1">// types for managing the filesystem</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Xml</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">WorkWithXml</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">// define an array of Viper pilot call signs</span>
+        <span class="k">static</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">callsigns</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span>
+            <span class="s">"Husker"</span><span class="p">,</span> <span class="s">"Starbuck"</span><span class="p">,</span> <span class="s">"Apollo"</span><span class="p">,</span> <span class="s">"Boomer"</span><span class="p">,</span>
+            <span class="s">"Bulldog"</span><span class="p">,</span> <span class="s">"Athena"</span><span class="p">,</span> <span class="s">"Helo"</span><span class="p">,</span> <span class="s">"Racetrack"</span> <span class="p">};</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">WorkWithXml</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FileStream</span><span class="p">?</span> <span class="n">xmlFileStream</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+            <span class="n">XmlWriter</span><span class="p">?</span> <span class="n">xml</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+            <span class="k">try</span>
+            <span class="p">{</span>
+                <span class="c1">// define a file to write to</span>
+                <span class="kt">string</span> <span class="n">xmlFile</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span><span class="n">CurrentDirectory</span><span class="p">,</span> <span class="s">"streams.xml"</span><span class="p">);</span>
+                <span class="c1">// create a file stream</span>
+                <span class="n">xmlFileStream</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">xmlFile</span><span class="p">);</span>
+                <span class="c1">// wrap the file stream in an XML writer helper</span>
+                <span class="c1">// and automatically indent nested elements</span>
+                <span class="n">xml</span> <span class="p">=</span> <span class="n">XmlWriter</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">xmlFileStream</span><span class="p">,</span>
+                <span class="k">new</span> <span class="n">XmlWriterSettings</span> <span class="p">{</span> <span class="n">Indent</span> <span class="p">=</span> <span class="k">true</span> <span class="p">});</span>
+                <span class="c1">// write the XML declaration</span>
+                <span class="n">xml</span><span class="p">.</span><span class="nf">WriteStartDocument</span><span class="p">();</span>
+                <span class="c1">// write a root element</span>
+                <span class="n">xml</span><span class="p">.</span><span class="nf">WriteStartElement</span><span class="p">(</span><span class="s">"callsigns"</span><span class="p">);</span>
+                <span class="c1">// enumerate the strings writing each one to the stream</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">item</span> <span class="k">in</span> <span class="n">callsigns</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">xml</span><span class="p">.</span><span class="nf">WriteElementString</span><span class="p">(</span><span class="s">"callsign"</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="c1">// write the close root element</span>
+                <span class="n">xml</span><span class="p">.</span><span class="nf">WriteEndElement</span><span class="p">();</span>
+                <span class="c1">// close helper and stream</span>
+                <span class="n">xml</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+                <span class="n">xmlFileStream</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+                <span class="c1">// output all the contents of the file</span>
+                <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="m">0</span><span class="p">}</span><span class="s"> contains </span><span class="p">{</span><span class="m">1</span><span class="p">:</span><span class="n">N0</span><span class="p">}</span><span class="s"> bytes."</span><span class="p">,</span>
+                  <span class="n">arg0</span><span class="p">:</span> <span class="n">xmlFile</span><span class="p">,</span>
+                  <span class="n">arg1</span><span class="p">:</span> <span class="k">new</span> <span class="nf">FileInfo</span><span class="p">(</span><span class="n">xmlFile</span><span class="p">).</span><span class="n">Length</span><span class="p">);</span>
+                <span class="nf">WriteLine</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span><span class="n">xmlFile</span><span class="p">));</span>
+            <span class="p">}</span>
+            <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">ex</span><span class="p">.</span><span class="nf">GetType</span><span class="p">()}</span><span class="s"> says </span><span class="p">{</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">finally</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">xml</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">xml</span><span class="p">.</span><span class="nf">Dispose</span><span class="p">();</span>
+                    <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"The XML writer's unmanaged resources have been disposed."</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">xmlFileStream</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">xmlFileStream</span><span class="p">.</span><span class="nf">Dispose</span><span class="p">();</span>
+                    <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"The file stream's unmanaged resources have been disposed."</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>0 contains 1 bytes.
+<span class="nv">$ </span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
+<span class="nv">$ </span>&lt;callsigns&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Husker&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Starbuck&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Apollo&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Boomer&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Bulldog&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Athena&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Helo&lt;/callsign&gt;
+<span class="nv">$ </span>  &lt;callsign&gt;Racetrack&lt;/callsign&gt;
+<span class="nv">$ </span>&lt;/callsigns&gt;
+<span class="nv">$ </span>The XML writer<span class="se">\'</span>s unmanaged resources have been disposed.
+<span class="nv">$ </span>The file stream<span class="se">\'</span>s unmanaged resources have been disposed.
+</code></pre></div></div>
+
+<h2 id="encoding-strings-as-byte-arrays">Encoding strings as byte arrays</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">WorkWithText</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">WorkWithText</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Encodings"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"[1] ASCII"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"[2] UTF-7"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"[3] UTF-8"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"[4] UTF-16 (Unicode)"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"[5] UTF-32"</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"[any other key] Default"</span><span class="p">);</span>
+            <span class="c1">// choose an encoding</span>
+            <span class="nf">Write</span><span class="p">(</span><span class="s">"Press a number to choose an encoding: "</span><span class="p">);</span>
+            <span class="n">ConsoleKey</span> <span class="n">number</span> <span class="p">=</span> <span class="nf">ReadKey</span><span class="p">(</span><span class="n">intercept</span><span class="p">:</span> <span class="k">false</span><span class="p">).</span><span class="n">Key</span><span class="p">;</span>
+            <span class="nf">WriteLine</span><span class="p">();</span>
+            <span class="nf">WriteLine</span><span class="p">();</span>
+            <span class="n">Encoding</span> <span class="n">encoder</span> <span class="p">=</span> <span class="n">number</span> <span class="k">switch</span>
+            <span class="p">{</span>
+                <span class="n">ConsoleKey</span><span class="p">.</span><span class="n">D1</span> <span class="p">=&gt;</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">,</span>
+                <span class="n">ConsoleKey</span><span class="p">.</span><span class="n">D2</span> <span class="p">=&gt;</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF7</span><span class="p">,</span>
+                <span class="n">ConsoleKey</span><span class="p">.</span><span class="n">D3</span> <span class="p">=&gt;</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">,</span>
+                <span class="n">ConsoleKey</span><span class="p">.</span><span class="n">D4</span> <span class="p">=&gt;</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">Unicode</span><span class="p">,</span>
+                <span class="n">ConsoleKey</span><span class="p">.</span><span class="n">D5</span> <span class="p">=&gt;</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF32</span><span class="p">,</span>
+                <span class="n">_</span> <span class="p">=&gt;</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span>
+            <span class="p">};</span>
+            <span class="c1">// define a string to encode</span>
+            <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"A pint of milk is £1.99"</span><span class="p">;</span>
+            <span class="c1">// encode the string into a byte array</span>
+            <span class="kt">byte</span><span class="p">[]</span> <span class="n">encoded</span> <span class="p">=</span> <span class="n">encoder</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+            <span class="c1">// check how many bytes the encoding needed</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0} uses {1:N0} bytes."</span><span class="p">,</span>
+              <span class="n">encoder</span><span class="p">.</span><span class="nf">GetType</span><span class="p">().</span><span class="n">Name</span><span class="p">,</span> <span class="n">encoded</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+            <span class="c1">// enumerate each byte</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"BYTE HEX CHAR"</span><span class="p">);</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="k">in</span> <span class="n">encoded</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="m">4</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">b</span><span class="p">.</span><span class="nf">ToString</span><span class="p">(</span><span class="s">"X"</span><span class="p">),</span><span class="m">4</span><span class="p">}</span><span class="s"> </span><span class="p">{(</span><span class="kt">char</span><span class="p">)</span><span class="n">b</span><span class="p">,</span><span class="m">5</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">// decode the byte array back into a string and display it</span>
+            <span class="kt">string</span> <span class="n">decoded</span> <span class="p">=</span> <span class="n">encoder</span><span class="p">.</span><span class="nf">GetString</span><span class="p">(</span><span class="n">encoded</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="n">decoded</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Encodings
+<span class="nv">$ </span><span class="o">[</span>1] ASCII
+<span class="nv">$ </span><span class="o">[</span>2] UTF-7
+<span class="nv">$ </span><span class="o">[</span>3] UTF-8
+<span class="nv">$ </span><span class="o">[</span>4] UTF-16 <span class="o">(</span>Unicode<span class="o">)</span>
+<span class="nv">$ </span><span class="o">[</span>5] UTF-32
+<span class="nv">$ </span><span class="o">[</span>any other key] Default
+<span class="nv">$ </span>Press a number to choose an encoding: 1
+
+<span class="nv">$ </span>ASCIIEncodingSealed uses 23 bytes.
+<span class="nv">$ </span>BYTE HEX CHAR
+<span class="nv">$ </span>  65   41     A
+<span class="nv">$ </span>  32   20      
+<span class="nv">$ </span> 112   70     p
+<span class="nv">$ </span> 105   69     i
+<span class="nv">$ </span> 110   6E     n
+<span class="nv">$ </span> 116   74     t
+<span class="nv">$ </span>  32   20      
+<span class="nv">$ </span> 111   6F     o
+<span class="nv">$ </span> 102   66     f
+<span class="nv">$ </span>  32   20      
+<span class="nv">$ </span> 109   6D     m
+<span class="nv">$ </span> 105   69     i
+<span class="nv">$ </span> 108   6C     l
+<span class="nv">$ </span> 107   6B     k
+<span class="nv">$ </span>  32   20      
+<span class="nv">$ </span> 105   69     i
+<span class="nv">$ </span> 115   73     s
+<span class="nv">$ </span>  32   20      
+<span class="nv">$ </span>  63   3F     ?
+<span class="nv">$ </span>  49   31     1
+<span class="nv">$ </span>  46   2E     <span class="nb">.</span>
+<span class="nv">$ </span>  57   39     9
+<span class="nv">$ </span>  57   39     9
+<span class="nv">$ </span>A pint of milk is ?1.99
+</code></pre></div></div>
+
+<h2 id="serializing-objects">Serializing Objects</h2>
+
+<ul>
+  <li><strong>Serialization:</strong> is the process of converting a live object into a sequence of bytes using a specified format.</li>
+  <li><strong>Deserialization:</strong> is the reverse process of <strong>Serialization:</strong>.</li>
+</ul>
+
+<p>There are dozens of formats you can specify, but the two most common ones are <strong>eXtensible Markup Language (XML)</strong> and <strong>JavaScript Object Notation (JSON)</strong>.</p>
+
+<h2 id="serializing-as-xml">Serializing as XML</h2>
+
+<p>In Program.cs,</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span> <span class="c1">// DateTime</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span> <span class="c1">// List&lt;T&gt;, HashSet&lt;T&gt;</span>
+<span class="k">using</span> <span class="nn">System.Xml.Serialization</span><span class="p">;</span> <span class="c1">// XmlSerializer</span>
+<span class="k">using</span> <span class="nn">System.Xml</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Environment</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// create an object graph</span>
+            <span class="kt">var</span> <span class="n">people</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">{</span>
+            <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="m">30000</span><span class="n">M</span><span class="p">)</span> <span class="p">{</span> <span class="n">FirstName</span> <span class="p">=</span> <span class="s">"Alice"</span><span class="p">,</span>
+                <span class="n">LastName</span> <span class="p">=</span> <span class="s">"Smith"</span><span class="p">,</span>
+                <span class="n">DateOfBirth</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">1974</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">14</span><span class="p">)</span> <span class="p">},</span>
+            <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="m">40000</span><span class="n">M</span><span class="p">)</span> <span class="p">{</span> <span class="n">FirstName</span> <span class="p">=</span> <span class="s">"Bob"</span><span class="p">,</span>
+                <span class="n">LastName</span> <span class="p">=</span> <span class="s">"Jones"</span><span class="p">,</span>
+                <span class="n">DateOfBirth</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">1969</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">23</span><span class="p">)</span> <span class="p">},</span>
+            <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="m">20000</span><span class="n">M</span><span class="p">)</span> <span class="p">{</span> <span class="n">FirstName</span> <span class="p">=</span> <span class="s">"Charlie"</span><span class="p">,</span>
+                <span class="n">LastName</span> <span class="p">=</span> <span class="s">"Cox"</span><span class="p">,</span>
+                <span class="n">DateOfBirth</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">1984</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span>
+                <span class="n">Children</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">{</span>
+                    <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="m">0</span><span class="n">M</span><span class="p">)</span> <span class="p">{</span> <span class="n">FirstName</span> <span class="p">=</span> <span class="s">"Sally"</span><span class="p">,</span>
+                    <span class="n">LastName</span> <span class="p">=</span> <span class="s">"Cox"</span><span class="p">,</span>
+                    <span class="n">DateOfBirth</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2000</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">12</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+            <span class="p">};</span>
+            <span class="c1">// create object that will format a List of Persons as XML</span>
+            <span class="kt">var</span> <span class="n">xs</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">XmlSerializer</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;));</span>
+            <span class="c1">// create a file to write to</span>
+            <span class="kt">string</span> <span class="n">path</span> <span class="p">=</span> <span class="nf">Combine</span><span class="p">(</span><span class="n">CurrentDirectory</span><span class="p">,</span> <span class="s">"people.xml"</span><span class="p">);</span>
+            <span class="k">using</span> <span class="p">(</span><span class="n">FileStream</span> <span class="n">stream</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="c1">// serialize the object graph to the stream</span>
+                <span class="n">xs</span><span class="p">.</span><span class="nf">Serialize</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">people</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Written {0:N0} bytes of XML to {1}"</span><span class="p">,</span>
+              <span class="n">arg0</span><span class="p">:</span> <span class="k">new</span> <span class="nf">FileInfo</span><span class="p">(</span><span class="n">path</span><span class="p">).</span><span class="n">Length</span><span class="p">,</span>
+              <span class="n">arg1</span><span class="p">:</span> <span class="n">path</span><span class="p">);</span>
+            <span class="nf">WriteLine</span><span class="p">();</span>
+            <span class="c1">// Display the serialized object graph</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="nf">ReadAllText</span><span class="p">(</span><span class="n">path</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>In Animals.cs,</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Person</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="nf">Person</span><span class="p">()</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+        <span class="k">public</span> <span class="nf">Person</span><span class="p">(</span><span class="kt">decimal</span> <span class="n">initialSalary</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Salary</span> <span class="p">=</span> <span class="n">initialSalary</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">FirstName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">LastName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">DateOfBirth</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="n">Children</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">protected</span> <span class="kt">decimal</span> <span class="n">Salary</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;&lt;ArrayOfPerson xmlns:xsi<span class="o">=</span><span class="s2">"http://www.w3.org/2001/XMLSchema-instance"</span> xmlns:xsd<span class="o">=</span><span class="s2">"http://www.w3.org/2001/XMLSchema"</span><span class="o">&gt;</span>&lt;Person&gt;&lt;FirstName&gt;Alice&lt;/FirstName&gt;&lt;LastName&gt;Smith&lt;/LastName&gt;&lt;DateOfBirth&gt;1974-03-14T00:00:00&lt;/DateOfBirth&gt;&lt;/Person&gt;&lt;Person&gt;&lt;FirstName&gt;Bob&lt;/FirstName&gt;&lt;LastName&gt;Jones&lt;/LastName&gt;&lt;DateOfBirth&gt;1969-11-23T00:00:00&lt;/DateOfBirth&gt;&lt;/Person&gt;&lt;Person&gt;&lt;FirstName&gt;Charlie&lt;/FirstName&gt;&lt;LastName&gt;Cox&lt;/LastName&gt;&lt;DateOfBirth&gt;1984-05-04T00:00:00&lt;/DateOfBirth&gt;&lt;Children&gt;&lt;Person&gt;&lt;FirstName&gt;Sally&lt;/FirstName&gt;&lt;LastName&gt;Cox&lt;/LastName&gt;&lt;DateOfBirth&gt;2000-07-12T00:00:00&lt;/DateOfBirth&gt;&lt;/Person&gt;&lt;/Children&gt;&lt;/Person&gt;&lt;/ArrayOfPerson&gt;
+</code></pre></div></div>
+
+<h2 id="deserializing-xml-files">Deserializing XML files</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="p">(</span><span class="n">FileStream</span> <span class="n">xmlLoad</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// deserialize and cast the object graph into a List of Person</span>
+    <span class="kt">var</span> <span class="n">loadedPeople</span> <span class="p">=</span> <span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;)</span><span class="n">xs</span><span class="p">.</span><span class="nf">Deserialize</span><span class="p">(</span><span class="n">xmlLoad</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">loadedPeople</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0} has {1} children."</span><span class="p">,</span>
+          <span class="n">item</span><span class="p">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">item</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Smith has 0 children.
+<span class="nv">$ </span>Jones has 0 children.
+<span class="nv">$ </span>Cox has 1 children.
+</code></pre></div></div>
+
+<hr />
+<h1 id="selected-theory">Selected Theory</h1>
+
+<h1 id="file-system">File System</h1>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-03-30">March 30, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=File+IO%20http%3A%2F%2Flocalhost%3A4000%2Fpages%2Ffileio%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Ffileio%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Ffileio%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/yun-vis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/hsiangyun.wu.3/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/wuhsiangyun/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/hsiangyunwu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hsiang-yun-wu-162758ba/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 C# CheatSheet. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

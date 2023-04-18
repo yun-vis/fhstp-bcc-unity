@@ -1,0 +1,1295 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Collections - C# CheatSheet</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Yun">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="C# CheatSheet">
+<meta property="og:title" content="Collections">
+<meta property="og:url" content="http://localhost:4000/pages/collection/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser/teaser.png">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/pages/collection/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          C# CheatSheet
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/basics">C# Basics</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/class">Class</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/inheritance">Inheritance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/polymorphism">Polymorphism</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/collection">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/dotnettype">.Net Type</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/fileio">File IO</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/performance">Performance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/assignment">Assignment</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/assets/images/teaser/teaser.png" alt="Collections" class="page__hero-image">
+  
+  
+    <span class="page__hero-caption">Image credit: <a href="http://yun-vis.net"><strong>Yun</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yun</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>This website collects my teaching material for C# development.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Vienna, Austria</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:hsiang.yun.wu@acm.org" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Contact</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://csharp-cheatsheet.github.io/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="http://yun-vis.net/" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Collections">
+    
+    
+    <meta itemprop="dateModified" content="2022-03-13T00:00:00+01:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/pages/collection/" class="u-url" itemprop="url">Collections
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          9 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="static-and-dynamic-data-structure">Static and Dynamic Data Structure</h1>
+
+<h2 id="arraystatic-at-runtime--list-dynamic-at-runtime">Array (Static at Runtime) / List (Dynamic at Runtime)</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Cat</span><span class="p">[]</span> <span class="n">catArray</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
+            <span class="n">List</span><span class="p">&lt;</span><span class="n">Cat</span><span class="p">&gt;</span> <span class="n">catList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Cat</span><span class="p">&gt;();</span>
+
+            <span class="c1">// Initialize an array</span>
+            <span class="n">catArray</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">);</span>
+            <span class="n">catArray</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Coffee"</span><span class="p">);</span>
+            <span class="n">catArray</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Kiwi"</span><span class="p">);</span>
+
+            <span class="c1">// Iterate the array to create cats</span>
+            <span class="n">catList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">));</span>
+            <span class="n">catList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Coffee"</span><span class="p">));</span>
+            <span class="n">catList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Kiwi"</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"unknown"</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">(</span> <span class="kt">string</span> <span class="n">name</span> <span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="collections">Collections</h1>
+
+<p>If you need to store multiple values in a variable, then you can use a collection. A <strong>collection</strong> is a data structure in memory that can manage multiple items in different ways. In comparison to an <strong>array</strong>, collections enable dynamic changes.</p>
+
+<h1 id="systemcollectionsgeneric-namespace-doc">System.Collections.Generic Namespace <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic?view=net-6.0">Doc</a></h1>
+
+<ul>
+  <li><strong>System.Collections:</strong> Interfaces and base classes used by collections.</li>
+  <li><strong>System.Collections.Generic:</strong> Introduced in C# 2.0 with .NET Framework 2.0. These collections allow you to specify the type you want to store using a generic type parameter (which is safer, faster, and more efficient).</li>
+  <li><strong>System.Collections.Concurrent</strong></li>
+  <li><strong>System.Collections.Immutable</strong></li>
+</ul>
+
+<h1 id="common-features-of-all-collections">Common Features of All Collections</h1>
+
+<p>All collections implement the <strong>ICollection</strong> interface; this means that they must have a Count property to tell you how many objects are in them.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">listCount</span> <span class="p">=</span> <span class="n">catList</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The total elements in the list is </span><span class="p">{</span><span class="n">listCount</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>All collections implement the IEnumerable interface, which means that they must have a
+GetEnumerator method that returns an object that implements IEnumerator; this means that
+the returned object must have a MoveNext method and a Current property so that they can be
+iterated using the foreach statement.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// The foreach statement</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="n">Cat</span> <span class="n">cat</span> <span class="k">in</span> <span class="n">catList</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// do something with each cat</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The name of the cat is </span><span class="p">{</span><span class="n">cat</span><span class="p">.</span><span class="n">Name</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="list-class-doc">List Class <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-6.0">Doc</a></h2>
+
+<p>Represents a strongly typed list of objects that can be accessed by index. Provides methods to search, sort, and manipulate lists. Lists are a good choice when you want to <strong>manually</strong> control the order of items in a collection.</p>
+
+<p>Non-generic type: ArrayList <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.arraylist?view=net-6.0">Doc</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Item</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Taiwan</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Germany</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">countryList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+            <span class="n">countryList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Austria"</span><span class="p">);</span>
+            <span class="n">countryList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Taiwan"</span><span class="p">);</span>
+            <span class="n">countryList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Austria"</span><span class="p">);</span>
+            <span class="n">countryList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Germany"</span><span class="p">);</span>
+
+            <span class="c1">// Print the current list</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">item</span> <span class="k">in</span> <span class="n">countryList</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Contain method</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">countryList</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="s">"Taiwan"</span><span class="p">));</span>
+
+            <span class="c1">// Insert method</span>
+            <span class="n">countryList</span><span class="p">.</span><span class="nf">Insert</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">"Japan"</span><span class="p">);</span>
+
+            <span class="c1">// Print the current list</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">item</span> <span class="k">in</span> <span class="n">countryList</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Insert method</span>
+            <span class="n">countryList</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="s">"Japan"</span><span class="p">);</span>
+            <span class="c1">// countryList.RemoveAt(2);</span>
+
+            <span class="c1">// Print the current list</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">item</span> <span class="k">in</span> <span class="n">countryList</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Austria
+<span class="nv">$ </span>Taiwan
+<span class="nv">$ </span>Austria
+<span class="nv">$ </span>Germany
+
+<span class="nv">$ </span>True
+
+<span class="nv">$ </span>Austria
+<span class="nv">$ </span>Taiwan
+<span class="nv">$ </span>Japan
+<span class="nv">$ </span>Austria
+<span class="nv">$ </span>Germany
+
+<span class="nv">$ </span>Austria
+<span class="nv">$ </span>Taiwan
+<span class="nv">$ </span>Austria
+<span class="nv">$ </span>Germany
+</code></pre></div></div>
+
+<h2 id="dictionarytkey-tvalueclass-doc">Dictionary&lt;TKey, TValue&gt; Class <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0">Doc</a></h2>
+
+<p>Non-generic type: HashTable <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-6.0">Doc</a></p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Create a new dictionary of strings, with string keys.</span>
+            <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">numberNames</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="c1">// Adding a key/value using the Add() method</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">"One"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">"Two"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">"Three"</span><span class="p">);</span>
+            <span class="c1">// Runtime error: An item with the same key has already been added.</span>
+            <span class="c1">// numberNames.Add(3, "Three");</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">numberNames</span><span class="p">)</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Key: {0}, Value: {1}"</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+
+            <span class="c1">//creating a dictionary using collection-initializer syntax</span>
+            <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">cities</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(){</span>
+                <span class="p">{</span><span class="s">"UK"</span><span class="p">,</span> <span class="s">"London, Manchester, Birmingham"</span><span class="p">},</span>
+                <span class="p">{</span><span class="s">"USA"</span><span class="p">,</span> <span class="s">"Chicago, New York, Washington"</span><span class="p">},</span>
+                <span class="p">{</span><span class="s">"India"</span><span class="p">,</span> <span class="s">"Mumbai, New Delhi, Pune"</span><span class="p">}</span>
+            <span class="p">};</span>
+
+            <span class="c1">// foreach (KeyValuePair&lt;string, string&gt; kvp in cities)</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">cities</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Key: {0}, Value: {1}"</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="cm">/*
+            Access elements
+            */</span>
+            <span class="c1">//prints value of UK key</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">cities</span><span class="p">[</span><span class="s">"UK"</span><span class="p">]);</span>
+            <span class="c1">// run-time exception: Key does not exist      </span>
+            <span class="c1">// Console.WriteLine(cities["France"]);       </span>
+            <span class="c1">//use ContainsKey() to check for an unknown key</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cities</span><span class="p">.</span><span class="nf">ContainsKey</span><span class="p">(</span><span class="s">"France"</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">cities</span><span class="p">[</span><span class="s">"France"</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"The key \"France\" does not exist!"</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="c1">//use ElementAt() to retrieve key-value pair using index</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">cities</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Key: {0}, Value: {1}"</span><span class="p">,</span>
+                                                        <span class="n">cities</span><span class="p">.</span><span class="nf">ElementAt</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">Key</span><span class="p">,</span>
+                                                        <span class="n">cities</span><span class="p">.</span><span class="nf">ElementAt</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="cm">/*
+            Update Dictionary
+            */</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cities</span><span class="p">.</span><span class="nf">ContainsKey</span><span class="p">(</span><span class="s">"USA"</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">cities</span><span class="p">[</span><span class="s">"USA"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"Seattle"</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">cities</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Key: {0}, Value: {1}"</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Key: 1, Value: One
+<span class="nv">$ </span>Key: 2, Value: Two
+<span class="nv">$ </span>Key: 3, Value: Three
+
+<span class="nv">$ </span>Key: UK, Value: London, Manchester, Birmingham
+<span class="nv">$ </span>Key: USA, Value: Chicago, New York, Washington
+<span class="nv">$ </span>Key: India, Value: Mumbai, New Delhi, Pune
+
+<span class="nv">$ </span>London, Manchester, Birmingham
+<span class="nv">$ </span>The key <span class="s2">"France"</span> does not exist!
+
+<span class="nv">$ </span>Key: UK, Value: London, Manchester, Birmingham
+<span class="nv">$ </span>Key: USA, Value: Chicago, New York, Washington
+<span class="nv">$ </span>Key: India, Value: Mumbai, New Delhi, Pune
+
+<span class="nv">$ </span>Key: UK, Value: London, Manchester, Birmingham
+<span class="nv">$ </span>Key: USA, Value: Seattle
+<span class="nv">$ </span>Key: India, Value: Mumbai, New Delhi, Pune
+</code></pre></div></div>
+
+<h2 id="hashset-class-doc">HashSet Class <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=net-6.0">Doc</a></h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Create a new dictionary of strings, with string keys.</span>
+            <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">evenNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+            <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">oddNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="c1">// Adding a key/value using the Add() method</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="c1">// Populate numbers with just even numbers.</span>
+                <span class="n">evenNumbers</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">i</span> <span class="p">*</span> <span class="m">2</span><span class="p">);</span>
+
+                <span class="c1">// Populate oddNumbers with just odd numbers.</span>
+                <span class="n">oddNumbers</span><span class="p">.</span><span class="nf">Add</span><span class="p">((</span><span class="n">i</span> <span class="p">*</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="cm">/*
+            Count method
+            */</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"evenNumbers contains {0} elements: "</span><span class="p">,</span> <span class="n">evenNumbers</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+            <span class="nf">DisplaySet</span><span class="p">(</span><span class="n">evenNumbers</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"oddNumbers contains {0} elements: "</span><span class="p">,</span> <span class="n">oddNumbers</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+            <span class="nf">DisplaySet</span><span class="p">(</span><span class="n">oddNumbers</span><span class="p">);</span>
+
+            <span class="cm">/*
+            Set operation union
+            */</span>
+            <span class="c1">// Create a new HashSet populated with even numbers.</span>
+            <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="n">evenNumbers</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"numbers UnionWith oddNumbers..."</span><span class="p">);</span>
+            <span class="n">numbers</span><span class="p">.</span><span class="nf">UnionWith</span><span class="p">(</span><span class="n">oddNumbers</span><span class="p">);</span>
+            <span class="c1">// numbers.IntersectWith(oddNumbers);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"numbers contains {0} elements: "</span><span class="p">,</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+            <span class="nf">DisplaySet</span><span class="p">(</span><span class="n">numbers</span><span class="p">);</span>
+
+            <span class="c1">// Local function</span>
+            <span class="k">void</span> <span class="nf">DisplaySet</span><span class="p">(</span><span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">collection</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"{"</span><span class="p">);</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="k">in</span> <span class="n">collection</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">" {0}"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">" }"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>evenNumbers contains 5 elements: <span class="o">{</span> 0 2 4 6 8 <span class="o">}</span>
+<span class="nv">$ </span>oddNumbers contains 5 elements: <span class="o">{</span> 1 3 5 7 9 <span class="o">}</span>
+<span class="nv">$ </span>numbers UnionWith oddNumbers...
+<span class="nv">$ </span>numbers contains 10 elements: <span class="o">{</span> 0 2 4 6 8 1 3 5 7 9 <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="sortedlisttkeytvalue-classdoc">SortedList&lt;TKey,TValue&gt; Class <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2?view=net-6.0">Doc</a></h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//SortedList of int keys, string values</span>
+            <span class="n">SortedList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">numberNames</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortedList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span>
+
+            <span class="c1">//using collection-initializer syntax</span>
+            <span class="c1">// SortedList&lt;int, string&gt; numberNames = new SortedList&lt;int, string&gt;()</span>
+            <span class="c1">//                 {</span>
+            <span class="c1">//                     {3, "Three"},</span>
+            <span class="c1">//                     {1, "One"},</span>
+            <span class="c1">//                     {2, "Two"},</span>
+            <span class="c1">//                 };</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">"Three"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">"One"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">"Two"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="s">"Ten"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="s">"Five"</span><span class="p">);</span>
+
+            <span class="c1">//The following will throw exceptions</span>
+            <span class="c1">//Compile-time error: key must be int type</span>
+            <span class="c1">// numberNames.Add("Three", 3);</span>
+            <span class="c1">//Run-time exception: duplicate key</span>
+            <span class="c1">// numberNames.Add(1, "One");</span>
+            <span class="c1">//Run-time exception: key cannot be null</span>
+            <span class="c1">// numberNames.Add(null, "Five");</span>
+
+            <span class="cm">/*
+            Access
+            */</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">numberNames</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"key: {0}, value: {1}"</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">numberNames</span><span class="p">[</span><span class="m">2</span><span class="p">]);</span>
+            <span class="c1">// for (int i = 0; i &lt; numberNames.Count; i++)</span>
+            <span class="c1">// {</span>
+            <span class="c1">//     Console.WriteLine("key: {0}, value: {1}", numberNames.Keys[i], numberNames.Values[i]);</span>
+            <span class="c1">// }</span>
+
+            <span class="cm">/*
+            Remove
+            */</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+
+            <span class="c1">//removes key-value pair from index 0</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">RemoveAt</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+            <span class="c1">//run-time exception: ArgumentOutOfRangeException</span>
+            <span class="c1">// numberNames.RemoveAt(10);</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">numberNames</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"key: {0}, value: {1}"</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>key: 1, value: One
+<span class="nv">$ </span>key: 2, value: Two
+<span class="nv">$ </span>key: 3, value: Three
+<span class="nv">$ </span>key: 4, value:
+<span class="nv">$ </span>key: 5, value: Five
+<span class="nv">$ </span>key: 10, value: Ten
+<span class="nv">$ </span>Two
+<span class="nv">$ </span>key: 3, value: Three
+<span class="nv">$ </span>key: 4, value:
+<span class="nv">$ </span>key: 5, value: Five
+</code></pre></div></div>
+
+<h2 id="sorteddictionarytkey-tvaluedoc">SortedDictionary&lt;TKey, TValue&gt; <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sorteddictionary-2?view=net-6.0">Doc</a></h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// SortedDictionary of int keys, string values</span>
+            <span class="n">SortedDictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">numberNames</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortedDictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span>
+
+            <span class="c1">// Using collection-initializer syntax</span>
+            <span class="c1">// SortedDictionary&lt;int, string&gt; numberNames = new SortedDictionary&lt;int, string&gt;()</span>
+            <span class="c1">//                 {</span>
+            <span class="c1">//                     {3, "Three"},</span>
+            <span class="c1">//                     {1, "One"},</span>
+            <span class="c1">//                     {2, "Two"},</span>
+            <span class="c1">//                 };</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">"Three"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">"One"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">"Two"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="s">"Ten"</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="s">"Five"</span><span class="p">);</span>
+
+            <span class="c1">//The following will throw exceptions</span>
+            <span class="c1">//Compile-time error: key must be int type</span>
+            <span class="c1">// numberNames.Add("Three", 3);</span>
+            <span class="c1">//Run-time exception: duplicate key</span>
+            <span class="c1">// numberNames.Add(1, "One");</span>
+            <span class="c1">//Run-time exception: key cannot be null</span>
+            <span class="c1">// numberNames.Add(null, "Five");</span>
+
+            <span class="cm">/*
+            Access
+            */</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">numberNames</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"key: {0}, value: {1}"</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">numberNames</span><span class="p">[</span><span class="m">2</span><span class="p">]);</span>
+            <span class="c1">// Compile error!</span>
+            <span class="c1">// for (int i = 0; i &lt; numberNames.Count; i++)</span>
+            <span class="c1">// {</span>
+            <span class="c1">//     Console.WriteLine("key: {0}, value: {1}", numberNames.Keys[i], numberNames.Values[i]);</span>
+            <span class="c1">// }</span>
+
+            <span class="cm">/*
+            Remove
+            */</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+            <span class="n">numberNames</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+
+            <span class="c1">// There is no RemoveAt method</span>
+            <span class="c1">// numberNames.RemoveAt(0);</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">numberNames</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"key: {0}, value: {1}"</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>key: 1, value: One
+<span class="nv">$ </span>key: 2, value: Two
+<span class="nv">$ </span>key: 3, value: Three
+<span class="nv">$ </span>key: 4, value:
+<span class="nv">$ </span>key: 5, value: Five
+<span class="nv">$ </span>key: 10, value: Ten
+<span class="nv">$ </span>Two
+<span class="nv">$ </span>key: 2, value: Two
+<span class="nv">$ </span>key: 3, value: Three
+<span class="nv">$ </span>key: 4, value:
+<span class="nv">$ </span>key: 5, value: Five
+</code></pre></div></div>
+
+<h2 id="sortedset-doc">SortedSet <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedset-1?view=net-6.0">Doc</a></h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// SortedSet of string values</span>
+            <span class="n">SortedSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">sortedSetDemo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortedSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+
+            <span class="c1">//using collection-initializer syntax</span>
+            <span class="c1">// SortedSet&lt;string&gt; sortedSetDemo = new SortedSet&lt;string&gt;()</span>
+            <span class="c1">//                 {</span>
+            <span class="c1">//                     {"Mumbai"},</span>
+            <span class="c1">//                     {"Surat"},</span>
+            <span class="c1">//                     {"Vadodara"},</span>
+            <span class="c1">//                     {"Dabhoi"},</span>
+            <span class="c1">//                     {"Pune"},</span>
+            <span class="c1">//                 };</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="n">sortedSetDemo</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Mumbai"</span><span class="p">);</span>
+            <span class="n">sortedSetDemo</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Surat"</span><span class="p">);</span>
+            <span class="n">sortedSetDemo</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Vadodara"</span><span class="p">);</span>
+            <span class="n">sortedSetDemo</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Dabhoi"</span><span class="p">);</span>
+            <span class="n">sortedSetDemo</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Pune"</span><span class="p">);</span>
+
+            <span class="cm">/*
+            Access
+            */</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">sortedSetDemo</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="cm">/*
+            Remove
+            */</span>
+            <span class="n">sortedSetDemo</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="s">"Surat"</span><span class="p">);</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">sortedSetDemo</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Clean up the sortedSet</span>
+            <span class="n">sortedSetDemo</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">sortedSetDemo</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Dabhoi
+<span class="nv">$ </span>Mumbai
+<span class="nv">$ </span>Pune
+<span class="nv">$ </span>Surat
+<span class="nv">$ </span>Vadodara
+
+<span class="nv">$ </span>Dabhoi
+<span class="nv">$ </span>Mumbai
+<span class="nv">$ </span>Pune
+<span class="nv">$ </span>Vadodara
+</code></pre></div></div>
+
+<h2 id="queue-doc">Queue <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1?view=net-6.0">Doc</a></h2>
+
+<p>A <strong>queue</strong> is a collection of entities that are maintained in a sequence and can be modified by the addition of entities at one end of the sequence and the removal of entities from the other end of the sequence.</p>
+
+<ul>
+  <li>First-In First-Out</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//Queue of int values</span>
+            <span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">intQueue</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="n">intQueue</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+            <span class="n">intQueue</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+            <span class="n">intQueue</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+            <span class="n">intQueue</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+
+            <span class="cm">/*
+            Access
+            */</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">id</span> <span class="k">in</span> <span class="n">intQueue</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+
+            <span class="c1">// Peek(): Return the first item from the queue without removing it.</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">intQueue</span><span class="p">.</span><span class="nf">Peek</span><span class="p">());</span>
+
+            <span class="cm">/*
+            Remove
+            */</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">intQueue</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">intQueue</span><span class="p">.</span><span class="nf">Dequeue</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>1234
+<span class="nv">$ </span>1
+<span class="nv">$ </span>1
+<span class="nv">$ </span>2
+<span class="nv">$ </span>3
+<span class="nv">$ </span>4
+</code></pre></div></div>
+
+<h2 id="stackdoc">Stack <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1?view=net-6.0">Doc</a></h2>
+
+<ul>
+  <li>First-In Last-Out</li>
+</ul>
+
+<p>A <strong>Stack</strong> is a linear data structure that follows the LIFO (Last-In-First-Out) principle. Stack has one end, whereas the Queue has two ends (front and rear). It contains only one pointer top pointer pointing to the topmost element of the stack.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//Stack of int values</span>
+            <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">intStack</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="n">intStack</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+            <span class="n">intStack</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+            <span class="n">intStack</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+            <span class="n">intStack</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+
+            <span class="cm">/*
+            Access
+            */</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">id</span> <span class="k">in</span> <span class="n">intStack</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+
+            <span class="c1">// Peek(): Return the first item from the queue without removing it.</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">intStack</span><span class="p">.</span><span class="nf">Peek</span><span class="p">());</span>
+
+            <span class="cm">/*
+            Remove
+            */</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">intStack</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">intStack</span><span class="p">.</span><span class="nf">Pop</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>4321
+<span class="nv">$ </span>4
+<span class="nv">$ </span>4
+<span class="nv">$ </span>3
+<span class="nv">$ </span>2
+<span class="nv">$ </span>1
+</code></pre></div></div>
+
+<h2 id="linkedlist-doc">LinkedList <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.linkedlist-1?view=net-6.0">Doc</a></h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// LinkedList of int values</span>
+            <span class="n">LinkedList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+
+            <span class="cm">/*
+            Add
+            */</span>
+            <span class="n">list</span><span class="p">.</span><span class="nf">AddLast</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+            <span class="n">list</span><span class="p">.</span><span class="nf">AddLast</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+            <span class="n">LinkedListNode</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">middle</span> <span class="p">=</span> <span class="n">list</span><span class="p">.</span><span class="nf">AddLast</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+            <span class="n">list</span><span class="p">.</span><span class="nf">AddLast</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+            <span class="n">list</span><span class="p">.</span><span class="nf">AddLast</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+
+            <span class="n">list</span><span class="p">.</span><span class="nf">AddAfter</span><span class="p">(</span><span class="n">middle</span><span class="p">,</span> <span class="m">32</span><span class="p">);</span>
+            <span class="n">list</span><span class="p">.</span><span class="nf">AddAfter</span><span class="p">(</span><span class="n">middle</span><span class="p">,</span> <span class="m">31</span><span class="p">);</span>
+
+            <span class="cm">/*
+            Access
+            */</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="k">in</span> <span class="n">list</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"{0}, "</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+            <span class="c1">// Console.WriteLine(middle.Value);</span>
+            <span class="c1">// Console.WriteLine(middle.Next.Value);</span>
+
+            <span class="cm">/*
+            Remove
+            */</span>
+            <span class="n">list</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">middle</span><span class="p">);</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="k">in</span> <span class="n">list</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"{0}, "</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>1, 2, 3, 31, 32, 4, 5,
+<span class="nv">$ </span>1, 2, 31, 32, 4, 5,
+</code></pre></div></div>
+
+<hr />
+<h1 id="selected-theory">Selected Theory</h1>
+
+<h1 id="complexity-theory">Complexity Theory</h1>
+<h2 id="sequentiallinear-search-vs-binary-search-doc">Sequential/Linear Search vs. Binary Search <a href="https://www.tutorialspoint.com/comparison-of-searching-methods-in-data-structures">Doc</a></h2>
+
+<h2 id="big-o-notation-doc">Big O Notation <a href="https://en.wikipedia.org/wiki/Big_O_notation">Doc</a></h2>
+<p>Big O notation is a mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or infinity.</p>
+
+<h2 id="sortedlist-vs-sorteddictionary">SortedList vs. SortedDictionary</h2>
+
+<p>The SortedDictionary&lt;TKey, TValue&gt; generic class is a binary search tree with O(log n) retrieval, where n is the number of elements in the dictionary. In this, it is similar to the  SortedList&lt;TKey, TValue&gt; generic class. The two classes have similar object models, and both have O(log n) retrieval. Where the two classes differ is in memory use and speed of insertion and removal:</p>
+
+<ul>
+  <li>SortedList&lt;TKey, TValue&gt; uses less memory than SortedDictionary&lt;TKey, TValue&gt;.</li>
+  <li>SortedDictionary&lt;TKey, TValue&gt; has faster insertion and removal operations for unsorted data, O(log n) as opposed to O(n) for  SortedList&lt;TKey, TValue&gt;.</li>
+  <li>If the list is populated all at once from sorted data, SortedList&lt;TKey, TValue&gt; is faster than  SortedDictionary&lt;TKey, TValue&gt;.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Collection</th>
+      <th>Indexed</th>
+      <th>Keyed</th>
+      <th>Value</th>
+      <th>Addition</th>
+      <th>Removal</th>
+      <th>Memory</th>
+    </tr>
+    <tr>
+      <th> </th>
+      <th>lookup</th>
+      <th>lookup</th>
+      <th>lookup</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SortedList</td>
+      <td>O(1)</td>
+      <td>O(log n)</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+      <td>O(n)</td>
+      <td>Lesser</td>
+    </tr>
+    <tr>
+      <td>SortedDictionary</td>
+      <td>O(n)</td>
+      <td>O(log n)</td>
+      <td>O(n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>Greater</td>
+    </tr>
+  </tbody>
+</table>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-03-13">March 13, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Collections%20http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fcollection%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fcollection%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fcollection%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/yun-vis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/hsiangyun.wu.3/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/wuhsiangyun/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/hsiangyunwu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hsiang-yun-wu-162758ba/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 C# CheatSheet. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

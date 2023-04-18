@@ -1,0 +1,1077 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>.Net Type - C# CheatSheet</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Yun">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="C# CheatSheet">
+<meta property="og:title" content=".Net Type">
+<meta property="og:url" content="http://localhost:4000/pages/dotnettype/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser/teaser.png">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/pages/dotnettype/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          C# CheatSheet
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/basics">C# Basics</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/class">Class</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/inheritance">Inheritance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/polymorphism">Polymorphism</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/collection">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/dotnettype">.Net Type</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/fileio">File IO</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/performance">Performance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/assignment">Assignment</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/assets/images/teaser/teaser.png" alt=".Net Type" class="page__hero-image">
+  
+  
+    <span class="page__hero-caption">Image credit: <a href="http://yun-vis.net"><strong>Yun</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yun</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>This website collects my teaching material for C# development.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Vienna, Austria</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:hsiang.yun.wu@acm.org" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Contact</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://csharp-cheatsheet.github.io/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="http://yun-vis.net/" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content=".Net Type">
+    
+    
+    <meta itemprop="dateModified" content="2022-03-23T00:00:00+01:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/pages/dotnettype/" class="u-url" itemprop="url">.Net Type
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="how-to-improve-code-readability">How to improve code readability?</h1>
+
+<h1 id="lambda-expression-doc">Lambda Expression <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions">Doc</a></h1>
+
+<p>You use a lambda expression to create an anonymous function. Use the lambda declaration operator <strong>=&gt;</strong> to separate the lambda’s parameter list from its body. A lambda expression can be of any of the following two forms:</p>
+
+<ul>
+  <li><strong>Expression lambda</strong> that has an expression as its body:</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">input</span><span class="p">-</span><span class="n">parameters</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">expression</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Statement lambda</strong> that has a statement block as its body:</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">input</span><span class="p">-</span><span class="n">parameters</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="p">&lt;</span><span class="n">sequence</span><span class="p">-</span><span class="n">of</span><span class="p">-</span><span class="n">statements</span><span class="p">&gt;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Lambda Expression</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Local function</span>
+            <span class="kt">bool</span> <span class="nf">compareMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">a</span> <span class="p">==</span> <span class="n">b</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Expression lambda</span>
+            <span class="kt">bool</span> <span class="nf">compareLambda</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="n">b</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">compareMethod</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">));</span>
+            <span class="c1">// Console.WriteLine(compareLambda(3, 4));</span>
+
+            <span class="c1">// Print a Fibonacci sequence</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"The {0} term of the Fibonacci sequence is {1:N0}."</span><span class="p">,</span>
+                  <span class="n">arg0</span><span class="p">:</span> <span class="n">i</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span>
+                  <span class="n">arg1</span><span class="p">:</span> <span class="nf">FibLambda</span><span class="p">(</span><span class="n">term</span><span class="p">:</span> <span class="n">i</span><span class="p">));</span>
+                <span class="c1">//   arg1: FibMethod(term: i));</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Fibonacci sequence</span>
+        <span class="k">static</span> <span class="kt">int</span> <span class="nf">FibMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">term</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">switch</span> <span class="p">(</span><span class="n">term</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">case</span> <span class="m">0</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+                <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="m">1</span><span class="p">;</span>
+                <span class="k">default</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="nf">FibMethod</span><span class="p">(</span><span class="n">term</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">+</span> <span class="nf">FibMethod</span><span class="p">(</span><span class="n">term</span> <span class="p">-</span> <span class="m">2</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Fibonacci sequence</span>
+        <span class="c1">// Statement lambda</span>
+        <span class="k">static</span> <span class="kt">int</span> <span class="nf">FibLambda</span><span class="p">(</span><span class="kt">int</span> <span class="n">term</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">term</span> <span class="k">switch</span>
+        <span class="p">{</span>
+            <span class="m">0</span> <span class="p">=&gt;</span> <span class="m">0</span><span class="p">,</span>
+            <span class="m">1</span> <span class="p">=&gt;</span> <span class="m">1</span><span class="p">,</span>
+            <span class="n">_</span> <span class="p">=&gt;</span> <span class="nf">FibLambda</span><span class="p">(</span><span class="n">term</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">+</span> <span class="nf">FibLambda</span><span class="p">(</span><span class="n">term</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="delegates-doc">Delegates <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/">Doc</a></h1>
+
+<h2 id="basic-delegates">Basic Delegates</h2>
+
+<p>A delegate is a type that represents references to methods with a particular parameter list and return type. When you instantiate a delegate, you can associate its instance with any method with a compatible signature (the method name, and the type and order of parameters) and return type. You can invoke (or call) the method through the delegate instance.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">GenerateMyNumbers</span> <span class="n">generateRandom</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GenerateMyNumbers</span><span class="p">(</span><span class="n">GetRandomNumber</span><span class="p">);</span>
+            <span class="n">GenerateMyNumbers</span> <span class="n">generateOrdered</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GenerateMyNumbers</span><span class="p">(</span><span class="n">GetOrderedNumber</span><span class="p">);</span>
+
+            <span class="c1">// int[] numbers = generateRandom(10, 3);</span>
+            <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="nf">generateOrdered</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">n</span> <span class="p">+</span> <span class="s">" "</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="c1">// My first delegate</span>
+        <span class="k">public</span> <span class="k">delegate</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">GenerateMyNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+        <span class="c1">// Create an arry with size amount and assign a random value 0-maxNum in this array</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">GetRandomNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">maxNum</span><span class="p">,</span> <span class="kt">int</span> <span class="n">amount</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Random</span> <span class="n">random</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Random</span><span class="p">();</span>
+            <span class="kt">int</span><span class="p">[]</span> <span class="n">nums</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">amount</span><span class="p">];</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">amount</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="c1">// 0 ~ maxNum-1</span>
+                <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="nf">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">maxNum</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">nums</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Get an ordered integer sequence from min to max</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">GetOrderedNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">max</span><span class="p">,</span> <span class="kt">int</span> <span class="n">min</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Avoid when max is smaller than min</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="p">&lt;</span> <span class="n">min</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span><span class="p">[]</span> <span class="n">noNum</span> <span class="p">=</span> <span class="p">{</span> <span class="m">0</span> <span class="p">};</span>
+                <span class="k">return</span> <span class="n">noNum</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Create an ordered sequence</span>
+            <span class="kt">int</span><span class="p">[]</span> <span class="n">nums</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">max</span> <span class="p">-</span> <span class="n">min</span> <span class="p">+</span> <span class="m">1</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="n">max</span> <span class="p">-</span> <span class="n">min</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">min</span> <span class="p">+</span> <span class="n">i</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">nums</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>3 4 5 6 7 8 9 10
+</code></pre></div></div>
+
+<ul>
+  <li>Delegates are used to pass methods as arguments to other methods.</li>
+  <li>Delegates can be used to define callback methods.</li>
+  <li>Delegates can be chained together; for example, multiple methods can be called on a single event.</li>
+  <li>Lambda expressions (in certain contexts) are compiled to delegate types.</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span> <span class="p">};</span>
+
+            <span class="c1">// string.Join: method that lets you concatenate each element in an</span>
+            <span class="c1">// object array without explicitly converting its elements to strings</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span> <span class="nf">Change1</span><span class="p">(</span><span class="n">array</span><span class="p">)));</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span> <span class="nf">Change2</span><span class="p">(</span><span class="n">array</span><span class="p">)));</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span> <span class="nf">Change3</span><span class="p">(</span><span class="n">array</span><span class="p">)));</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Take out each elemnt in an array and +1</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">Change1</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">_array</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">c</span> <span class="p">=</span> <span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Take out each elemnt in an array and *2</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">Change2</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">_array</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">c</span> <span class="p">=</span> <span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">*</span> <span class="m">2</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Take out each elemnt in an array and square it</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">Change3</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">_array</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">c</span> <span class="p">=</span> <span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">*</span> <span class="n">_array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>2,3,4,5,6,7,8,9,10
+<span class="nv">$ </span>2,4,6,8,10,12,14,16,18
+<span class="nv">$ </span>1,4,9,16,25,36,49,64,81
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span> <span class="p">};</span>
+
+            <span class="c1">// Create three delegate objects that take differentmethods as parameters</span>
+            <span class="n">MyDelegate</span> <span class="n">myDelegate1</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MyDelegate</span><span class="p">(</span><span class="n">AddOne</span><span class="p">);</span>
+            <span class="n">MyDelegate</span> <span class="n">myDelegate2</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MyDelegate</span><span class="p">(</span><span class="n">MultipleTwo</span><span class="p">);</span>
+            <span class="n">MyDelegate</span> <span class="n">myDelegate3</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MyDelegate</span><span class="p">(</span><span class="n">Square</span><span class="p">);</span>
+            <span class="c1">// Syntactic sugar</span>
+            <span class="c1">// syntactic sugar is syntax within a programming language that is</span>
+            <span class="c1">// designed to make things easier to read or to express.</span>
+            <span class="c1">// The following is also a valid syntax;</span>
+            <span class="c1">// MyDelegate myDelegate3 = Square;</span>
+
+            <span class="c1">// string.Join: method that lets you concatenate each element in an</span>
+            <span class="c1">// object array without explicitly converting its elements to strings</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span> <span class="nf">Change</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">myDelegate1</span><span class="p">)));</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span> <span class="nf">Change</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">myDelegate2</span><span class="p">)));</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span> <span class="nf">Change</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">myDelegate3</span><span class="p">)));</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Declaration of the delegete</span>
+        <span class="k">public</span> <span class="k">delegate</span> <span class="kt">int</span> <span class="nf">MyDelegate</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">AddOne</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">number</span><span class="p">+</span><span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">MultipleTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">number</span><span class="p">*</span><span class="m">2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Square</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">number</span> <span class="p">*</span> <span class="n">number</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// A method Change that takes another method as the input parameters</span>
+        <span class="c1">// In this case, the method (as a parameter) should be defined as a delegate</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">Change</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">_array</span><span class="p">,</span> <span class="n">MyDelegate</span> <span class="n">myDelegate</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">c</span> <span class="p">=</span> <span class="n">_array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="nf">myDelegate</span><span class="p">(</span><span class="n">_array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>2,3,4,5,6,7,8,9,10
+<span class="nv">$ </span>2,4,6,8,10,12,14,16,18
+<span class="nv">$ </span>1,4,9,16,25,36,49,64,81
+</code></pre></div></div>
+
+<h2 id="lambda-expression-with-delegates">Lambda Expression with Delegates</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Square</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">number</span> <span class="p">*</span> <span class="n">number</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="func-action-and-predicate-delegates">Func, Action and Predicate Delegates</h2>
+
+<ul>
+  <li><strong>Action Delegate:</strong> Encapsulates a method that has a single parameter and does not return a value. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-1?view=net-6.0">Doc</a></li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Action</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;</span> <span class="n">Addition</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;(</span><span class="n">AddNumbers</span><span class="p">);</span>
+            <span class="c1">// Alternative</span>
+            <span class="c1">// Action&lt;int, int&gt; Addition = AddNumbers;  </span>
+            <span class="nf">Addition</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// add param1 and param2 and return the sum</span>
+        <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">AddNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">param1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">param2</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="n">param1</span> <span class="p">+</span> <span class="n">param2</span><span class="p">;</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Addition = </span><span class="p">{</span><span class="n">result</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Addition <span class="o">=</span> 30
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Func&lt;T,TResult&gt; Delegate:</strong> Encapsulates a method that has one parameter and returns a value of the type specified by the TResult parameter. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-2?view=net-6.0">Doc</a></li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Declare a Func delegate</span>
+            <span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;</span> <span class="n">Addition</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;(</span><span class="n">AddNumbers</span><span class="p">);</span>
+            <span class="c1">// Func&lt;int, int, int&gt; Addition = AddNumbers;</span>
+            <span class="c1">// Using Lambda Expression</span>
+            <span class="c1">// Func&lt;int, int, int&gt; Addition = (param1, param2) =&gt; param1 + param2;  </span>
+
+            <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="nf">Addition</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Addition = </span><span class="p">{</span><span class="n">result</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// add param1 and param2 and return the sum</span>
+        <span class="k">private</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">AddNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">param1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">param2</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">param1</span> <span class="p">+</span> <span class="n">param2</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Addition <span class="o">=</span> 30
+</code></pre></div></div>
+
+<ul>
+  <li>Advantages of Action and Func Delegates
+    <ul>
+      <li>Easy and quick to define delegates.</li>
+      <li>Makes code short.</li>
+      <li>Compatible type throughout the application.</li>
+    </ul>
+  </li>
+  <li><strong>Predicate Delegate:</strong> Represents the method that defines a set of criteria and determines whether the specified object meets those criteria. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.predicate-1?view=net-6.0">Doc</a></li>
+</ul>
+
+<p>Syntax difference between predicate &amp; func is that here in predicate, you don’t specify a return type because it is always a <strong>bool</strong>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Predicate</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">CheckIfApple</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="n">IsApple</span><span class="p">);</span>
+            <span class="c1">// Predicate&lt;string&gt; CheckIfApple = IsApple;</span>
+            <span class="kt">bool</span> <span class="n">result</span> <span class="p">=</span> <span class="nf">IsApple</span><span class="p">(</span><span class="s">"I Phone X"</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">){</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"It's an IPhone"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsApple</span><span class="p">(</span><span class="kt">string</span> <span class="n">modelName</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Check if the model name an iPhone</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">modelName</span> <span class="p">==</span> <span class="s">"I Phone X"</span><span class="p">)</span>
+                <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>It<span class="se">\'</span>s an IPhone
+</code></pre></div></div>
+
+<h1 id="type-testing-operators-and-cast-expression">Type-testing Operators and Cast Expression</h1>
+
+<h2 id="implicit-casting">Implicit Casting</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">WildCat</span> <span class="n">leopard</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">WildCat</span><span class="p">();</span>
+<span class="n">Cat</span> <span class="n">petCat</span> <span class="p">=</span> <span class="n">leopard</span><span class="p">;</span>
+<span class="c1">// compile error</span>
+<span class="c1">// WildCat wCat = petCat;  </span>
+</code></pre></div></div>
+
+<h2 id="explicit-casting">Explicit Casting</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">WildCat</span> <span class="n">wCat</span> <span class="p">=</span> <span class="p">(</span><span class="n">WildCat</span><span class="p">)</span><span class="n">petCat</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="avoiding-casting-exceptions">Avoiding Casting Exceptions</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// WildCat wCat = (WildCat)petCat;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">petCat</span> <span class="k">is</span> <span class="n">WildCat</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="k">nameof</span><span class="p">(</span><span class="n">petCat</span><span class="p">)}</span><span class="s"> IS an WildCat"</span><span class="p">);</span>
+    <span class="n">WildCat</span> <span class="n">wCat</span> <span class="p">=</span> <span class="p">(</span><span class="n">WildCat</span><span class="p">)</span><span class="n">petCat</span><span class="p">;</span>
+    <span class="c1">// safely do something with wCat</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="is-operator">is Operator</h2>
+
+<p>The <strong>is</strong> operator will check if the run-time type of an expression is compatible with a given type. The <strong>as</strong> operator considers only reference, nullable, boxing, and unboxing conversions.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">petCat</span> <span class="k">is</span> <span class="n">WildCat</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="as-operator">as Operator</h2>
+
+<p>The <strong>as</strong> operator is used to explicitly convert an expression to a given type if its run-time type is compatible with that type. The as operator returns null if the conversion is not possible.</p>
+
+<p>In MyBusiness/Program.cs,</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// object is a base class of all derived classes in C#</span>
+            <span class="kt">object</span><span class="p">[]</span> <span class="n">myObjects</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[</span><span class="m">4</span><span class="p">];</span>
+            <span class="n">myObjects</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Dog</span><span class="p">();</span>
+            <span class="n">myObjects</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">();</span>
+            <span class="n">myObjects</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="p">=</span> <span class="s">"Dog"</span><span class="p">;</span>
+            <span class="n">myObjects</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="p">=</span> <span class="s">"Cat"</span><span class="p">;</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">myObjects</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="c1">// Convert an element in the myobjects array to a string element</span>
+                <span class="kt">string</span><span class="p">?</span> <span class="n">s</span> <span class="p">=</span> <span class="n">myObjects</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">as</span> <span class="kt">string</span><span class="p">;</span>
+                <span class="c1">// Print out the current element</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">$"Inspecting element: </span><span class="p">{</span><span class="n">myObjects</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span><span class="s">"</span><span class="p">);</span>
+
+                <span class="c1">// If converted successfully, s will be a string, otherwise return null.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">" --&gt; Incompatible type"</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">" --&gt; Compatible type"</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">", with string!"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In PetLibrary/Animals.cs,</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Animal</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">Speak</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Dog</span> <span class="p">:</span> <span class="n">Animal</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Speak</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Woof!"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="p">:</span> <span class="n">Animal</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Speak</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Meow!"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h1 id="inheriting-and-extending-net-types">Inheriting and Extending .NET Types</h1>
+
+<h2 id="try-catch-doc">try-catch <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-catch">Doc</a></h2>
+
+<p>The try-catch statement consists of a try block followed by one or more catch clauses, which specify handlers for different exceptions.</p>
+
+<p>When an exception is thrown, the common language runtime (CLR) looks for the catch statement that handles this exception.</p>
+
+<p>In MyBusiness/Program.cs,</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Create a cat</span>
+            <span class="n">Cat</span> <span class="n">coffee</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Coffee"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">));</span>
+
+            <span class="k">try</span>
+            <span class="p">{</span>
+                <span class="n">coffee</span><span class="p">.</span><span class="nf">TimeTravel</span><span class="p">(</span><span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2023</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">31</span><span class="p">));</span>
+                <span class="n">coffee</span><span class="p">.</span><span class="nf">TimeTravel</span><span class="p">(</span><span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">1950</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">25</span><span class="p">));</span>
+            <span class="p">}</span>
+            <span class="k">catch</span> <span class="p">(</span><span class="n">CatException</span> <span class="n">ex</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In PetLibrary/Animals.cs,</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span>
+    <span class="p">{</span>
+        <span class="cm">/*
+        Class field, including different variables
+        they can be organized by similar characteristics
+        */</span>
+
+        <span class="c1">// The name of the cat</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+        <span class="c1">// The birthday of the cat</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">DateOfBirth</span><span class="p">;</span>
+
+        <span class="cm">/*
+        Class methods, where functions should be implemented
+        */</span>
+
+        <span class="c1">// Constructors</span>
+        <span class="c1">// Default constructor. It will be called by default</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+            <span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Parameterized Constructor</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">DateTime</span> <span class="n">dateOfBirth</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">dateOfBirth</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Finalizer</span>
+        <span class="p">~</span><span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="c1">// method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">TimeTravel</span><span class="p">(</span><span class="n">DateTime</span> <span class="n">when</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">when</span> <span class="p">&lt;=</span> <span class="n">DateOfBirth</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="c1">// It is a handler</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">CatException</span><span class="p">(</span><span class="s">"If you travel back in time to a date earlier than your own birth, then the universe will explode!"</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Welcome to </span><span class="p">{</span><span class="n">when</span><span class="p">:</span><span class="n">yyyy</span><span class="p">}</span><span class="s">!"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Print out method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">WriteToConsole</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> was born on a </span><span class="p">{</span><span class="n">DateOfBirth</span><span class="p">:</span><span class="n">dddd</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">WildCat</span> <span class="p">:</span> <span class="n">Cat</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">string</span><span class="p">?</span> <span class="n">CountryCode</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">FoundDate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="c1">// hidden methods</span>
+        <span class="c1">// based on the keyword new</span>
+        <span class="k">public</span> <span class="k">new</span> <span class="k">void</span> <span class="nf">WriteToConsole</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">format</span><span class="p">:</span>
+              <span class="s">"{0} was born on {1:dd/MM/yy} and found on {2:dd/MM/yy}"</span><span class="p">,</span>
+              <span class="n">arg0</span><span class="p">:</span> <span class="n">Name</span><span class="p">,</span>
+              <span class="n">arg1</span><span class="p">:</span> <span class="n">DateOfBirth</span><span class="p">,</span>
+              <span class="n">arg2</span><span class="p">:</span> <span class="n">FoundDate</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">CatException</span> <span class="p">:</span> <span class="n">Exception</span>
+    <span class="p">{</span>
+        <span class="c1">// Unlike ordinary methods, constructors are not inherited,</span>
+        <span class="c1">// so we must explicitly declare and explicitly call the base constructor implementations in System.Exception</span>
+        <span class="k">public</span> <span class="nf">CatException</span><span class="p">()</span> <span class="p">:</span> <span class="k">base</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="nf">CatException</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="nf">CatException</span><span class="p">(</span>
+          <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="n">Exception</span> <span class="n">innerException</span><span class="p">)</span>
+          <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">innerException</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Welcome to 2023!
+<span class="nv">$ </span>If you travel back <span class="k">in </span><span class="nb">time </span>to a <span class="nb">date </span>earlier than your own birth, <span class="k">then </span>the universe will explode!
+</code></pre></div></div>
+
+<h1 id="other-interesting-types">Other Interesting Types</h1>
+
+<ul>
+  <li>System.Numerics (BigInteger, Complex, Quaternion)</li>
+</ul>
+
+<hr />
+<h1 id="selected-theory">Selected Theory</h1>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-03-23">March 23, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=.Net+Type%20http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fdotnettype%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fdotnettype%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fdotnettype%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/yun-vis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/hsiangyun.wu.3/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/wuhsiangyun/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/hsiangyunwu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hsiang-yun-wu-162758ba/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 C# CheatSheet. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,106 @@
+{
+  "OC-Members": [
+    {
+      "Role": "General Conference Chair",
+      "First": "Takayuki",
+      "Given": "Itoh",
+      "Affiliation": "Ochanomizu University, Japan",
+      "Photo": "yes",
+      "Website": "http://itolab.is.ocha.ac.jp/~itot/"
+    },
+    {
+      "Role": "Program Co-chairs",
+      "First": "Patrizio",
+      "Given": "Angelini",
+      "Affiliation": "John Cabot Universityi, Italy",
+      "Photo": "yes",
+      "Website": "https://www.johncabot.edu/faculty/patrizio-angelini"
+    },
+    {
+      "Role": "Program Co-chairs",
+      "First": "Reinhard",
+      "Given": "von Hanxleden",
+      "Affiliation": "Kiel University, Germany",
+      "Photo": "yes",
+      "Website": "https://www.rtsys.informatik.uni-kiel.de/en/team/rvh"
+    },
+    {
+      "Role": "Local Co-organizer (Local Arrangement)",
+      "First": "Ken",
+      "Given": "Wakita",
+      "Affiliation": "Tokyo Institute of Technology, Japan",
+      "Photo": "yes",
+      "Website": "https://kwakita.blog"
+    },
+    {
+      "Role": "Local Co-organizer (Finance)",
+      "First": "Masahiko",
+      "Given": "Itoh",
+      "Affiliation": "Hokkaido Information University, Japan",
+      "Photo": "yes",
+      "Website": "http://masahiko-itoh.blogspot.com/p/profile.html"
+    },
+    {
+      "Role": "Local Co-organizer (Publicity)",
+      "First": "Hsiang-Yun",
+      "Given": "Wu",
+      "Affiliation": "St. Pölten University of Applied Sciences, Austria",
+      "Photo": "yes",
+      "Website": "http://yun-vis.net"
+    },
+    {
+      "Role": "Local Co-organizer (Administration)",
+      "First": "Rina",
+      "Given": "Nakazawa",
+      "Affiliation": "IBM Research, Japan",
+      "Photo": "yes",
+      "Website": "https://researcher.watson.ibm.com/researcher/view.php?person=jp-RINA"
+    }
+  ],
+  "PC-Memers": [
+    {
+      "Role": "PC members",
+      "First": "Hsiang-Yun",
+      "Given": "Wu",
+      "Affiliation": "St. Pölten University of Applied Sciences, Austria"
+    }
+  ],
+  "ImportantDates": [
+    {
+      "Event": "Abstract submission",
+      "Date": "Wednesday, 1 June 2022"
+    },
+    {
+      "Event": "Paper deadline",
+      "Date": "Wednesday, 8 June 2022"
+    },
+    {
+      "Event": "Paper notification",
+      "Date": "Monday, 18 July 2022"
+    },
+    {
+      "Event": "Poster deadline",
+      "Date": "Wednesday, 10 August 2022"
+    },
+    {
+      "Event": "Poster notification",
+      "Date": "Friday, 19 August 2022"
+    },
+    {
+      "Event": "Final versions due",
+      "Date": "Monday, 5 September 2022"
+    },
+    {
+      "Event": "Contest deadline",
+      "Date": "Tuesday, 6 September 2022"
+    },
+    {
+      "Event": "PhD School",
+      "Date": "12 (Mon)-13 (Tue) September 2022"
+    },
+    {
+      "Event": "Symposium",
+      "Date": "14 (Wed)-16 (Fri) September 2022"
+    }
+  ]
+}

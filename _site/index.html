@@ -1,0 +1,630 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>C# CheatSheet - C# CheatSheet</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Yun">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="C# CheatSheet">
+<meta property="og:title" content="C# CheatSheet">
+<meta property="og:url" content="http://localhost:4000/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser/teaser.png">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide - landing">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          C# CheatSheet
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/basics">C# Basics</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/class">Class</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/inheritance">Inheritance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/polymorphism">Polymorphism</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/collection">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/dotnettype">.Net Type</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/fileio">File IO</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/performance">Performance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/assignment">Assignment</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/assets/images/teaser/teaser.png" alt="C# CheatSheet" class="page__hero-image">
+  
+  
+    <span class="page__hero-caption">Image credit: <a href="http://yun-vis.net"><strong>Yun</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yun</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>This website collects my teaching material for C# development.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Vienna, Austria</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:hsiang.yun.wu@acm.org" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Contact</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://csharp-cheatsheet.github.io/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="http://yun-vis.net/" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="C# CheatSheet">
+    
+    
+    <meta itemprop="dateModified" content="2022-03-12T00:00:00+01:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/" class="u-url" itemprop="url">C# CheatSheet
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>C# CheatSheet is a website storing teaching material for c# development.</p>
+
+<hr />
+<h1 id="c-environment-setup">C# Environment Setup</h1>
+
+<p>Windows:</p>
+<ul>
+  <li>Visual Studio 2019, 2022: .Net 6, support Class Diagram</li>
+  <li>Visual Studio Code: .Net 5, support PUML Class Diagram</li>
+</ul>
+
+<p>MacOS:</p>
+<ul>
+  <li>Visual Studio 2022: not yet support</li>
+  <li>Visual Studio 2019: .Net 5, support Class Diagram</li>
+  <li>Visual Studio Code: .Net 5, .Net 6, support PUML Class Diagram (tested on Mojave)</li>
+</ul>
+
+<p>Linux:</p>
+<ul>
+  <li>Visual Studio Code: .Net 5, support PUML Class Diagram (not yet tested)</li>
+</ul>
+
+<h2 id="install-ide-and-net-framework">Install IDE and .NET Framework</h2>
+
+<ul>
+  <li><a href="https://visualstudio.microsoft.com/vs/community/">Visual Studio Community</a></li>
+  <li><a href="https://code.visualstudio.com">Visual Studio Code</a>, <a href="https://dotnet.microsoft.com/en-us/download/visual-studio-sdks">.Net 5 or .Net 6 Runtime</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp">Debugger Extension</a>, <a href="https://www.c-sharpcorner.com/article/how-to-setup-visual-studio-code-for-c-sharp-10-and-net-6-0/">Tutorial</a></li>
+</ul>
+
+<h2 id="csharp-to-plantuml-for-visual-studio-code-users">CSharp to PlantUML (For Visual Studio Code Users)</h2>
+
+<ul>
+  <li><a href="https://github.com/pierre3/PlantUmlClassDiagramGenerator">CSharp to PlantUML</a></li>
+  <li>Install
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>dotnet tool <span class="nb">install</span> <span class="nt">--global</span> PlantUmlClassDiagramGenerator
+</code></pre></div>    </div>
+  </li>
+  <li>Use
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>puml-gen ./Program.cs <span class="nt">-public</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Copy the text from *.puml and visualize using <a href="https://www.planttext.com">PUML Viewer</a></li>
+</ul>
+
+<h2 id="first-program">First Program</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet <span class="nt">--info</span> // check the version installed <span class="k">in </span>your system
+<span class="nv">$ </span>dotnet new console
+</code></pre></div></div>
+
+<p>In Program.cs</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="c1">// Where the application begins</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
+            <span class="c1">// Equal to System.Console.WriteLine("Hello World!");</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In MyBusiness.csproj <a href="https://docs.microsoft.com/en-us/aspnet/web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file">Doc</a></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="n">Project</span> <span class="n">Sdk</span><span class="p">=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">OutputType</span><span class="p">&gt;</span><span class="n">Exe</span><span class="p">&lt;/</span><span class="n">OutputType</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">TargetFramework</span><span class="p">&gt;</span><span class="n">net6</span><span class="p">.</span><span class="m">0</span><span class="p">&lt;/</span><span class="n">TargetFramework</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">ImplicitUsings</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="n">Nullable</span><span class="p">&gt;</span><span class="n">enable</span><span class="p">&lt;/</span><span class="n">Nullable</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="n">PropertyGroup</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="n">Project</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="how-to-check-the-net-version">How to Check the .Net Version</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h2 id="how-to-build-the-program">How to Build the Program</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet build
+</code></pre></div></div>
+
+<h2 id="how-to-run-the-program-including-build">How to Run the Program (Including Build)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dotnet run
+</code></pre></div></div>
+
+<h2 id="namespace">Namespace</h2>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>         <span class="c1">// System namespace (defined by C#)</span>
+                      <span class="c1">// The "using" Directive</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>  <span class="c1">// Application namespace (defined by the programmer)</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="c1">// static: shared method of all instances by the class</span>
+        <span class="c1">// void: return "nothing" in the method</span>
+        <span class="c1">// string[] args: parameters passed to the main function.</span>
+        <span class="c1">// The parameters can be taken when lauching the application.</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="c1">// Where the application begins</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>  <span class="c1">// Console is a system class</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">static</span> <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>  <span class="c1">// Console is a static system class</span>
+<span class="cm">/*
+A static class is basically the same as a non-static class,
+but there is one difference: a static class cannot be instantiated.
+*/</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>  <span class="c1">// Application namespace (defined by the programmer)</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="c1">// static: shared method of all instances by the class</span>
+        <span class="c1">// void: return "nothing" in the method</span>
+        <span class="c1">// string[] args: parameters passed to the main function.</span>
+        <span class="c1">// The parameters can be taken when lauching the application.</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="c1">// Where the application begins</span>
+        <span class="p">{</span>
+            <span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h1 id="selected-theory">Selected Theory</h1>
+
+<h2 id="naming-convention-doc">Naming Convention <a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions">Doc</a></h2>
+
+<h3 id="pascal-case">Pascal Case</h3>
+<p>Use pascal casing (“PascalCasing”) when naming a class, record, or struct. When naming public members of types, such as fields, properties, events, methods, and local functions, use pascal casing. When naming an interface, use pascal casing in addition to prefixing the name with an I. This clearly indicates to consumers that it’s an interface.</p>
+
+<h3 id="camel-case">Camel Case</h3>
+<p>Use camel casing (“camelCasing”) when naming private or internal fields, and prefix them with _.</p>
+
+<h2 id="comments">Comments</h2>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This is a single line comment</span>
+
+<span class="cm">/*
+This is a multi-line comment
+and continues until the end
+of comment symbol is reached
+*/</span>
+
+<span class="cm">/*
+The following codes show how I often add comments to my programs.
+This is a my application namespace, called My Business.
+*/</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="cm">/*
+    The class of my main program
+    */</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="cm">/*
+        Main: The class of my main program, where the application begins.
+        Input:
+          args: input parameters
+        Output:
+          none
+        */</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h1 id="external-resources">External Resources</h1>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-03-12">March 12, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=C%23+CheatSheet%20http%3A%2F%2Flocalhost%3A4000%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/yun-vis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/hsiangyun.wu.3/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/wuhsiangyun/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/hsiangyunwu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hsiang-yun-wu-162758ba/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 C# CheatSheet. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

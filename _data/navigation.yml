@@ -1,0 +1,9 @@
+# main links
+main:
+  - title: "Setup"
+    url: /pages/setup
+  - title: "Mesh"
+    url: /pages/mesh
+  - title: "Rasterization"
+    url: /pages/rasterization
+

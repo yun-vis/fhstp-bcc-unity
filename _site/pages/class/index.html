@@ -1,0 +1,945 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Class - C# CheatSheet</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Yun">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="C# CheatSheet">
+<meta property="og:title" content="Class">
+<meta property="og:url" content="http://localhost:4000/pages/class/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser/teaser.png">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/pages/class/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          C# CheatSheet
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/basics">C# Basics</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/class">Class</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/inheritance">Inheritance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/polymorphism">Polymorphism</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/collection">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/dotnettype">.Net Type</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/fileio">File IO</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/performance">Performance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/assignment">Assignment</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/assets/images/teaser/teaser.png" alt="Class" class="page__hero-image">
+  
+  
+    <span class="page__hero-caption">Image credit: <a href="http://yun-vis.net"><strong>Yun</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yun</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>This website collects my teaching material for C# development.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Vienna, Austria</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:hsiang.yun.wu@acm.org" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Contact</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://csharp-cheatsheet.github.io/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="http://yun-vis.net/" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Class">
+    
+    
+    <meta itemprop="dateModified" content="2022-03-13T00:00:00+01:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/pages/class/" class="u-url" itemprop="url">Class
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="class-and-members-in-a-class">Class and Members in a Class</h1>
+<p>In C#, classes are used to create custom types.</p>
+
+<h2 id="c-fields-and-methods">C# Fields and Methods</h2>
+<p><strong>Fields:</strong> are variables and <strong>Methods:</strong> are functions in a class.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="c1">// An animal class</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Animal</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="c1">// A cat class</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span>
+    <span class="p">{</span>
+        <span class="c1">// Class fields</span>
+        <span class="c1">// The name of the cat</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+        <span class="c1">// The birthday of the cat</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">DateOfBirth</span><span class="p">;</span>
+
+        <span class="c1">// Class methods</span>
+        <span class="c1">// Print out method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">WriteToConsole</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> was born on a </span><span class="p">{</span><span class="n">DateOfBirth</span><span class="p">:</span><span class="n">dddd</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// A dog class</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Dog</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="c-class-constructor-and-finalizer-destructor">C# Class Constructor and Finalizer (Destructor)</h2>
+
+<p><strong>this</strong> is a keyword refers to the current instance of a class.
+<strong>Dot notation .</strong> is an operator to access a member (a field or a method) of a clas.
+An <strong>object</strong> is an <strong>instance</strong> of a class. An object can be created from a class using the <strong>new</strong> keyword.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Cat</span> <span class="n">myCat</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">();</span>
+            <span class="n">Cat</span> <span class="n">nana</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">));</span>
+
+            <span class="n">myCat</span><span class="p">.</span><span class="nf">WriteToConsole</span><span class="p">();</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">nana</span><span class="p">.</span><span class="n">Name</span><span class="p">}</span><span class="s"> was born on a </span><span class="p">{</span><span class="n">nana</span><span class="p">.</span><span class="n">DateOfBirth</span><span class="p">:</span><span class="n">dddd</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+            <span class="n">nana</span><span class="p">.</span><span class="nf">WriteToConsole</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="c1">// A cat class</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span>
+    <span class="p">{</span>
+        <span class="c1">// Class fields</span>
+        <span class="c1">// The name of the cat</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+        <span class="c1">// The birthday of the cat</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">DateOfBirth</span><span class="p">;</span>
+
+        <span class="c1">// Class methods</span>
+        <span class="c1">// Constructors</span>
+        <span class="c1">// Default constructor. It will be called by default</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">;</span>
+            <span class="c1">// You can use the following instread</span>
+            <span class="c1">// name = "Unknown";</span>
+            <span class="c1">// dateOfBirth = DateTime.Today;</span>
+        <span class="p">}</span>
+        <span class="c1">// Parameterized Constructor</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">DateTime</span> <span class="n">dateOfBirth</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">dateOfBirth</span><span class="p">;</span>
+            <span class="c1">// You "cannot" use the following instread!</span>
+            <span class="c1">// name = name;</span>
+            <span class="c1">// dateOfBirth = dateOfBirth;</span>
+        <span class="p">}</span>
+        <span class="c1">// Finalizer</span>
+        <span class="p">~</span><span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// This function will be called when the object is desctroyed.</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Print out method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">WriteToConsole</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> was born on a </span><span class="p">{</span><span class="n">DateOfBirth</span><span class="p">:</span><span class="n">dddd</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Unknown was born on a Sunday.
+<span class="nv">$ </span>Nana was born on a Monday.
+</code></pre></div></div>
+
+<h2 id="c-access-modifiers-doc">C# Access Modifiers <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers">Doc</a></h2>
+
+<p><strong>Accessibility Levels <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/accessibility-levels">Doc</a>:</strong> Depending on the context in which a member declaration occurs, only certain declared accessibilities are permitted. If no access modifier is specified in a member declaration, a default accessibility is used.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Cat</span> <span class="n">nana</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">));</span>
+
+            <span class="n">nana</span><span class="p">.</span><span class="nf">Poop</span><span class="p">();</span> <span class="c1">// Compile error</span>
+            <span class="n">nana</span><span class="p">.</span><span class="nf">Speak</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="c1">// A cat class</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span>
+    <span class="p">{</span>
+        <span class="c1">// Class fields</span>
+        <span class="c1">// The name of the cat</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+        <span class="c1">// The birthday of the cat</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">DateOfBirth</span><span class="p">;</span>
+
+        <span class="c1">// Class methods</span>
+        <span class="c1">// Constructors</span>
+        <span class="c1">// Default constructor. It will be called by default</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">;</span>
+            <span class="c1">// You can use the following instread</span>
+            <span class="c1">// name = "Unknown";</span>
+            <span class="c1">// dateOfBirth = DateTime.Today;</span>
+        <span class="p">}</span>
+        <span class="c1">// Parameterized Constructor</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">DateTime</span> <span class="n">dateOfBirth</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">dateOfBirth</span><span class="p">;</span>
+            <span class="c1">// You "cannot" use the following instread!</span>
+            <span class="c1">// name = name;</span>
+            <span class="c1">// dateOfBirth = dateOfBirth;</span>
+        <span class="p">}</span>
+        <span class="c1">// Finalizer</span>
+        <span class="p">~</span><span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// This function will be called when the object is desctroyed.</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Public method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Speak</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Meow!"</span><span class="p">);</span>
+            <span class="nf">Poop</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Private method</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Poop</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> is pooping!"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Print out method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">WriteToConsole</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> was born on a </span><span class="p">{</span><span class="n">DateOfBirth</span><span class="p">:</span><span class="n">dddd</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Meow!
+<span class="nv">$ </span>Nana is pooping!
+</code></pre></div></div>
+
+<h2 id="c-property-doc">C# Property <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties">Doc</a></h2>
+
+<p><strong>Read-only property:</strong> they have a get accessor but no set accessor. <br />
+<strong>Write only property:</strong> they have a set accessor, but no get accessor. <br />
+<strong>Read Write property:</strong> they have both a get and a set accessor. <br />
+<strong>Auto-implemented property:</strong> auto-implemented properties make property-declaration more concise when no additional logic is required in the property accessors.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Cat</span> <span class="n">nana</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">));</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">nana</span><span class="p">.</span><span class="n">Name</span><span class="p">}</span><span class="s">'s age is </span><span class="p">{</span><span class="n">nana</span><span class="p">.</span><span class="n">Age</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>            
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="c1">// A cat class</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span>
+    <span class="p">{</span>
+        <span class="c1">// Class fields</span>
+        <span class="c1">// The name of the cat</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+        <span class="c1">// The birthday of the cat</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">DateOfBirth</span><span class="p">;</span>
+
+        <span class="c1">// Auto-implemented property</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="c1">// private int _age;            // Camel Case for a private fields and prefix with _</span>
+
+        <span class="c1">// Read-Write property</span>
+        <span class="c1">// public int Age              // Pascal Case for a public fields or methods</span>
+        <span class="c1">// {</span>
+        <span class="c1">//     get { return _age; }</span>
+        <span class="c1">//     set { _age = value; }   // Must use the keyword value</span>
+        <span class="c1">// }</span>
+
+        <span class="c1">// Read-only property</span>
+        <span class="c1">// public int Age              // Pascal Case for a public fields or methods</span>
+        <span class="c1">// {</span>
+        <span class="c1">//     get { return _age; }</span>
+        <span class="c1">// }</span>
+
+        <span class="c1">// Write only property</span>
+        <span class="c1">// public int Age              // Pascal Case for a public fields or methods</span>
+        <span class="c1">// {</span>
+        <span class="c1">//     set { _age = value; }   // Must use the keyword value</span>
+        <span class="c1">// }</span>
+
+        <span class="c1">// Class methods</span>
+        <span class="c1">// Constructors</span>
+        <span class="c1">// Default constructor. It will be called by default</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Parameterized Constructor</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">DateTime</span> <span class="n">dateOfBirth</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">dateOfBirth</span><span class="p">;</span>
+            <span class="c1">// Calculate the age of the cat instance</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Age</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="n">Year</span> <span class="p">-</span> <span class="n">dateOfBirth</span><span class="p">.</span><span class="n">Year</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Finalizer</span>
+        <span class="p">~</span><span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// This function will be called when the object is desctroyed.</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Public method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Speak</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Meow!"</span><span class="p">);</span>
+            <span class="nf">Poop</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Private method</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Poop</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> is pooping!"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Print out method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">WriteToConsole</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> was born on a </span><span class="p">{</span><span class="n">DateOfBirth</span><span class="p">:</span><span class="n">dddd</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Nana<span class="se">\'</span>s age is 3.
+</code></pre></div></div>
+
+<h2 id="overloading-methods">Overloading Methods</h2>
+
+<p>Another way to simplify methods is to makeparameters optional.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// The function describes what happens if a cat speaks</span>
+<span class="k">public</span> <span class="kt">string</span> <span class="nf">Meow</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="s">"Meow!"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Overloaded function of Meow(), while the input parameters are different</span>
+<span class="k">public</span> <span class="kt">string</span> <span class="nf">Meow</span><span class="p">(</span><span class="kt">string</span> <span class="n">target</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="s">$"</span><span class="p">{</span><span class="n">name</span><span class="p">}</span><span class="s"> says 'Meow </span><span class="p">{</span><span class="n">target</span><span class="p">}</span><span class="s">!'"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Another function that does the same thing as the above one,</span>
+<span class="c1">// but with a different method name</span>
+<span class="k">public</span> <span class="kt">string</span> <span class="nf">SayMeowTo</span><span class="p">(</span><span class="kt">string</span> <span class="n">target</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="s">$"</span><span class="p">{</span><span class="n">name</span><span class="p">}</span><span class="s"> says 'Meow </span><span class="p">{</span><span class="n">target</span><span class="p">}</span><span class="s">!'"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="properties-and-indexers">Properties and Indexers</h2>
+
+<p>In namespace Animals, add</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span> <span class="c1">// To be able to use the data structure "list"</span>
+<span class="k">using</span> <span class="nn">Animals</span><span class="p">;</span>
+
+<span class="c1">// namespace</span>
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="c1">// main program</span>
+    <span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Declare a cat</span>
+            <span class="n">Cat</span> <span class="n">nana</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">));</span>
+            <span class="c1">// Declare a cat array, static at runtime</span>
+            <span class="n">Cat</span><span class="p">[]</span> <span class="n">catArray</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
+            <span class="c1">// Declare a cat list, dynamic at runtime, more flexible</span>
+            <span class="n">List</span><span class="p">&lt;</span><span class="n">Cat</span><span class="p">&gt;</span> <span class="n">catList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Cat</span><span class="p">&gt;();</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">catArray</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="n">catArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">));</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span> <span class="n">catArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Coffee"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">));</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">==</span> <span class="m">2</span><span class="p">)</span> <span class="n">catArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Kiwi"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2018</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">19</span><span class="p">));</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Iterate the array to create cats</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">catArray</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">catList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Nana"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">)));</span>
+                <span class="n">catList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Coffee"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">)));</span>
+                <span class="n">catList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Kiwi"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2018</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">19</span><span class="p">)));</span>
+            <span class="p">}</span>
+
+            <span class="c1">// indexers, are another way to access a list-like data structure through indices</span>
+            <span class="n">catList</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Naffee"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">)));</span>
+            <span class="n">catList</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Cat</span><span class="p">(</span><span class="s">"Kiffee"</span><span class="p">,</span> <span class="k">new</span> <span class="nf">DateTime</span><span class="p">(</span><span class="m">2019</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">9</span><span class="p">)));</span>
+
+            <span class="c1">// Iterate the list to create cats, and you can access children like an array</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">catList</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Children</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The children of </span><span class="p">{</span><span class="n">catList</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Name</span><span class="p">}</span><span class="s"> include </span><span class="p">{</span><span class="n">catList</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Children</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Name</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+                <span class="c1">// The statement above and below show the same information.</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The children of </span><span class="p">{</span><span class="n">catList</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Name</span><span class="p">}</span><span class="s"> include </span><span class="p">{</span><span class="n">catList</span><span class="p">[</span><span class="m">0</span><span class="p">][</span><span class="n">i</span><span class="p">].</span><span class="n">Name</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+The animal namespace
+*/</span>
+<span class="k">namespace</span> <span class="nn">Animals</span>
+<span class="p">{</span>
+    <span class="c1">// A cat class</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Cat</span>
+    <span class="p">{</span>
+        <span class="c1">// Class fields</span>
+        <span class="c1">// The name of the cat</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+        <span class="c1">// The birthday of the cat</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">DateOfBirth</span><span class="p">;</span>
+
+        <span class="c1">// Auto-implemented property</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">_sharedToilet</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Cat</span><span class="p">&gt;</span> <span class="n">Children</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Cat</span><span class="p">&gt;();</span>
+
+        <span class="c1">// Class methods</span>
+        <span class="c1">// Constructors</span>
+        <span class="c1">// Default constructor. It will be called by default</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"Unknown"</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Parameterized Constructor</span>
+        <span class="k">public</span> <span class="nf">Cat</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">DateTime</span> <span class="n">dateOfBirth</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">=</span> <span class="n">dateOfBirth</span><span class="p">;</span>
+            <span class="c1">// Calculate the age of the cat instance</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Age</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="n">Year</span> <span class="p">-</span> <span class="n">dateOfBirth</span><span class="p">.</span><span class="n">Year</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Finalizer</span>
+        <span class="p">~</span><span class="nf">Cat</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// This function will be called when the object is desctroyed.</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Public method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Speak</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Meow!"</span><span class="p">);</span>
+            <span class="nf">Poop</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Private method</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Poop</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> is pooping!"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Self-implemented property method, if you want to achieve something more than</span>
+        <span class="c1">// getting and setting the variables, if necessary</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">SharedToilet</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">_sharedToilet</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">set</span>
+            <span class="p">{</span>
+                <span class="n">_sharedToilet</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// If you want to get or set a specific content in a list, you can use indexers</span>
+        <span class="k">public</span> <span class="n">Cat</span> <span class="k">this</span><span class="p">[</span><span class="kt">int</span> <span class="n">index</span><span class="p">]</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">Children</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+            <span class="p">}</span>
+            <span class="k">set</span>
+            <span class="p">{</span>
+                <span class="n">Children</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Print out method</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">WriteToConsole</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> was born on a </span><span class="p">{</span><span class="n">DateOfBirth</span><span class="p">:</span><span class="n">dddd</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="the-keyword-static-doc">The keyword static <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static">Doc</a></h2>
+<p>The static keyword is also part of the using static directive. It is a member shared by all class instance.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">sharedToilet</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+<h1 id="selected-theory">Selected Theory</h1>
+
+<h2 id="useful-advanced-c-data-structure">Useful Advanced C# Data Structure</h2>
+
+<ul>
+  <li>Collections <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections">Doc</a>. We will introduce one-by-one later.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-03-13">March 13, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Class%20http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fclass%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fclass%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fclass%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/yun-vis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/hsiangyun.wu.3/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/wuhsiangyun/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/hsiangyunwu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hsiang-yun-wu-162758ba/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 C# CheatSheet. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

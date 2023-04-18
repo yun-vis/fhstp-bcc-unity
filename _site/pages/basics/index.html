@@ -1,0 +1,986 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>C# Basics - C# CheatSheet</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Yun">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="C# CheatSheet">
+<meta property="og:title" content="C# Basics">
+<meta property="og:url" content="http://localhost:4000/pages/basics/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/teaser/teaser.png">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/pages/basics/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          C# CheatSheet
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/basics">C# Basics</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/class">Class</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/inheritance">Inheritance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/polymorphism">Polymorphism</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/collection">Collections</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/dotnettype">.Net Type</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/fileio">File IO</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/performance">Performance</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/assignment">Assignment</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/assets/images/teaser/teaser.png" alt="C# Basics" class="page__hero-image">
+  
+  
+    <span class="page__hero-caption">Image credit: <a href="http://yun-vis.net"><strong>Yun</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yun</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>This website collects my teaching material for C# development.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Vienna, Austria</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:hsiang.yun.wu@acm.org" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Contact</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://csharp-cheatsheet.github.io/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="http://yun-vis.net/" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="C# Basics">
+    
+    
+    <meta itemprop="dateModified" content="2022-03-12T00:00:00+01:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/pages/basics/" class="u-url" itemprop="url">C# Basics
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>C# is a general-purpose, type-safe, object-oriented programming language.</p>
+
+<h1 id="c-basic-syntax">C# Basic Syntax</h1>
+
+<h2 id="hello-world-example">Hello, world! Example</h2>
+
+<h3 id="consolewriteline">Console.WriteLine()</h3>
+<p>The Console.WriteLine() method is used to print text to the console.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">);</span>
+
+<span class="kt">string</span> <span class="n">myName</span> <span class="p">=</span> <span class="s">"Yun"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Hello, world! </span><span class="p">{</span><span class="n">myName</span><span class="p">}</span><span class="s">!"</span><span class="p">);</span>  <span class="c1">// {} allows you to</span>
+                                                <span class="c1">// add variable in the string.</span>
+</code></pre></div></div>
+
+<h3 id="consolereadline">Console.ReadLine()</h3>
+<p>The Console.ReadLine() method is used to get user input.</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Enter your name: "</span><span class="p">);</span>
+<span class="kt">string</span><span class="p">?</span> <span class="n">name</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>  <span class="c1">// The ? symbol makes the name variable nullable</span>
+</code></pre></div></div>
+
+<h2 id="data-types-and-variables">Data Types and Variables</h2>
+<p>C# is a type-safe language. When variables are declared it is necessary to define their data type.
+Types are categorized as <strong>Value</strong> or <strong>Reference</strong> by definition, but not its usage.</p>
+
+<h3 id="int-integer">int (integer)</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="bool-boolean">bool (boolean)</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">b</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="string-text">string (text)</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">myName</span> <span class="p">=</span> <span class="s">"FirstName FamilyName"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="float-double-and-decimal-real-number">float, double, and decimal (real number)</h3>
+<p>The type of a real literal is determined by its suffix: The literal without suffix or with the d or D suffix is of type double. The literal with the f or F suffix is of type float. The literal with the m or M suffix is of type decimal.</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Using doubles:"</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">a</span> <span class="p">=</span> <span class="m">0.1</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">b</span> <span class="p">=</span> <span class="m">0.2</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">+</span> <span class="n">b</span> <span class="p">==</span> <span class="m">0.3</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> + </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> equals 0.3"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> + </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> does NOT equal 0.3"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>What is the difference between these two code pieces?</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Using decimals:"</span><span class="p">);</span>
+<span class="kt">decimal</span> <span class="n">c</span> <span class="p">=</span> <span class="m">0.1</span><span class="n">M</span><span class="p">;</span> <span class="c1">// M suffix means a decimal literal value</span>
+<span class="kt">decimal</span> <span class="n">d</span> <span class="p">=</span> <span class="m">0.2</span><span class="n">M</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="p">+</span> <span class="n">d</span> <span class="p">==</span> <span class="m">0.3</span><span class="n">M</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">c</span><span class="p">}</span><span class="s"> + </span><span class="p">{</span><span class="n">d</span><span class="p">}</span><span class="s"> equals 0.3"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">c</span><span class="p">}</span><span class="s"> + </span><span class="p">{</span><span class="n">d</span><span class="p">}</span><span class="s"> does NOT equal 0.3"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="using-array-to-store-multiple-variables">Using array to Store Multiple Variables</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Declare an integer array of length 3 without setting the values.</span>
+<span class="kt">int</span><span class="p">[]</span> <span class="n">integers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
+
+<span class="c1">// `numbers` array that stores 3 integers</span>
+<span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">3</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">59</span> <span class="p">};</span>
+
+<span class="c1">// 'characters' array that stores 3 strings</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">characters</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Nana"</span><span class="p">,</span> <span class="s">"Coffee"</span><span class="p">,</span> <span class="s">"Kiwi"</span> <span class="p">};</span>
+
+<span class="c1">// 2D array</span>
+<span class="kt">int</span><span class="p">[,]</span> <span class="n">twoDArray</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">];</span>
+</code></pre></div></div>
+
+<h3 id="var">var</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="p">=</span> <span class="m">1</span><span class="p">+</span><span class="m">2</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">totalPrice</span> <span class="p">=</span> <span class="n">subTotal</span> <span class="p">+</span> <span class="n">salesTax</span><span class="p">;</span>   <span class="c1">// ambigious, can be float, double, or decimal</span>
+                                        <span class="c1">// based on the types of subTotal and  salesTax.</span>
+</code></pre></div></div>
+
+<h3 id="null-value">null value</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">myNum</span> <span class="p">=</span> <span class="m">4</span><span class="p">;</span>
+<span class="kt">int</span><span class="p">?</span> <span class="n">yourNum</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>  <span class="c1">// yourNum can be empty.</span>
+</code></pre></div></div>
+
+<h3 id="enum">enum</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// A self-defined type that contains ten cat types</span>
+<span class="k">enum</span> <span class="n">WorldCatTypes</span>
+<span class="p">{</span>
+    <span class="n">Polydactyl</span><span class="p">,</span>
+    <span class="n">Snowshoe</span><span class="p">,</span>
+    <span class="n">Calico</span><span class="p">,</span>
+    <span class="n">BritishShorthair</span><span class="p">,</span>
+    <span class="n">Siamese</span><span class="p">,</span>
+    <span class="n">NorwegianForestCat</span><span class="p">,</span>
+    <span class="n">JapaneseBobtail</span><span class="p">,</span>
+    <span class="n">Persian</span><span class="p">,</span>
+    <span class="n">ScottishFold</span><span class="p">,</span>
+    <span class="n">GrayTabby</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="using-operators-symbolic-version-of-methods">Using Operators (Symbolic Version of Methods)</h2>
+
+<h3 id="equality-operators">Equality Operators</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="n">b</span><span class="p">);</span>  <span class="c1">// Return and print "false" because a is not equal to b.</span>
+</code></pre></div></div>
+
+<h3 id="arithmetic-operators">Arithmetic Operators</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>   <span class="c1">// initialization</span>
+<span class="n">result</span> <span class="p">=</span> <span class="m">10</span> <span class="p">+</span> <span class="m">5</span><span class="p">;</span>  <span class="c1">// addition operator</span>
+<span class="n">result</span> <span class="p">=</span> <span class="m">10</span> <span class="p">-</span> <span class="m">5</span><span class="p">;</span>  <span class="c1">// subtraction operator</span>
+<span class="n">result</span> <span class="p">=</span> <span class="m">10</span> <span class="p">*</span> <span class="m">5</span><span class="p">;</span>  <span class="c1">// multiplication operator</span>
+<span class="n">result</span> <span class="p">=</span> <span class="m">10</span> <span class="p">/</span> <span class="m">5</span><span class="p">;</span>  <span class="c1">// division operator</span>
+<span class="n">result</span> <span class="p">=</span> <span class="m">10</span> <span class="p">%</span> <span class="m">5</span><span class="p">;</span>  <span class="c1">// modulo operator (returns the remainder)</span>
+</code></pre></div></div>
+<h3 id="unary-operators">Unary Operators</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="n">a</span><span class="p">++;</span> <span class="c1">// a = a+1</span>
+<span class="n">a</span><span class="p">--;</span> <span class="c1">// a = a-1</span>
+</code></pre></div></div>
+
+<h3 id="logical-operators-doc">Logical Operators <a href="https://en.wikipedia.org/wiki/Truth_table">Doc</a></h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">b</span> <span class="p">=</span> <span class="k">false</span> <span class="p">||</span> <span class="k">true</span><span class="p">;</span> <span class="c1">// true;</span>
+</code></pre></div></div>
+
+<h3 id="comparisonrelational-operators">Comparison/Relational Operators</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">f</span> <span class="p">=</span> <span class="s">"first"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">f</span> <span class="p">==</span> <span class="s">"first"</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">x</span> <span class="p">&lt;</span> <span class="m">15</span><span class="p">);</span>  <span class="c1">// Return and print "true" because 10 is less than 15.</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">x</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">);</span>   <span class="c1">// Return and print "false" because 10 is larger than 5.</span>
+</code></pre></div></div>
+
+<h3 id="bitwise-operators-doc">Bitwise Operators <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators">Doc</a></h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint</span> <span class="n">a</span> <span class="p">=</span> <span class="m">0</span><span class="n">b_1010_0000</span><span class="p">;</span>  <span class="c1">// 0b tells the compiler that a is a binary literal</span>
+<span class="kt">uint</span> <span class="n">b</span> <span class="p">=</span> <span class="m">0</span><span class="n">b_1001_0001</span><span class="p">;</span>  <span class="c1">// _ is used as a digit separator.</span>
+                        <span class="c1">// 0b_1010_0000 is equal to 0b10100000, just easier to read.</span>
+<span class="kt">uint</span> <span class="n">c</span> <span class="p">=</span> <span class="n">a</span> <span class="p">|</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">Convert</span><span class="p">.</span><span class="nf">ToString</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">toBase</span><span class="p">:</span> <span class="m">2</span><span class="p">));</span>
+<span class="c1">// Output:</span>
+<span class="c1">// 10110001</span>
+</code></pre></div></div>
+
+<h2 id="conditional-control-selection">Conditional Control (Selection)</h2>
+
+<h3 id="if-statements--if-and-else--if-and-ilse-if">if Statements / if and else / if and ilse if</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+
+<span class="c1">// if statement</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">==</span> <span class="m">10</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Yes, the num is 10."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// if and else statement</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">==</span> <span class="m">10</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Yes, the num is 10."</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"No, the num is not 10."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// if and else if statement</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">==</span> <span class="m">10</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Yes, the num is 10."</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">==</span> <span class="m">20</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Yes, the num is 20."</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"No, the num is neither 10 nor 20."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="switch">switch</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="nf">DisplayNum</span><span class="p">(</span><span class="kt">double</span> <span class="n">num</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"1"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="m">2</span><span class="p">:</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"2"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="m">3</span><span class="p">:</span>
+        <span class="k">case</span> <span class="m">4</span><span class="p">:</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"3 or 4"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="m">5</span><span class="p">:</span>
+            <span class="k">goto</span> <span class="k">case</span> <span class="m">1</span><span class="p">;</span>  <span class="c1">// jump</span>
+        <span class="k">default</span><span class="p">:</span>  <span class="c1">// Usually for debug purpose.</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The num is </span><span class="p">{</span><span class="n">num</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="conditional-control-repetitioniteration">Conditional Control (Repetition/Iteration)</h2>
+
+<h3 id="while">while</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="p">&gt;</span> <span class="m">5</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Do something here.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="do">do</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span>
+<span class="p">{</span>
+    <span class="c1">// Do something here at least once.</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="p">&gt;</span> <span class="m">5</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="for">for</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// for( initializer; condition; iterator )</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="c1">// Do something here.</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">3</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">59</span> <span class="p">};</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="c1">// Do something here.</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="foreach">foreach</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">fibNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">13</span> <span class="p">};</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">element</span> <span class="k">in</span> <span class="n">fibNumbers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">element</span><span class="p">}</span><span class="s"> "</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// Output:</span>
+<span class="c1">// 0 1 1 2 3 5 8 13</span>
+</code></pre></div></div>
+
+<h3 id="c-jump-statements-doc">C# Jump Statements <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements">Doc</a></h3>
+
+<h3 id="collatz-conjecture-as-an-example">Collatz Conjecture as an example</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">CollatzConjecture</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Please input a positive number:"</span><span class="p">);</span>
+
+            <span class="kt">int</span><span class="p">?</span> <span class="n">num</span> <span class="p">=</span> <span class="n">Int32</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">num</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Sorry, the number should be larger than 1!"</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="kt">int</span> <span class="n">steps</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">num</span> <span class="p">!=</span> <span class="m">1</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">steps</span> <span class="p">+=</span> <span class="m">1</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">%</span> <span class="m">2</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">num</span> <span class="p">=</span> <span class="n">num</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">num</span> <span class="p">=</span> <span class="n">num</span> <span class="p">*</span> <span class="m">3</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Oh yeah, we reach 1 with </span><span class="p">{</span><span class="n">steps</span><span class="p">}</span><span class="s"> steps!"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="using-methods">Using Methods</h2>
+
+<p>A method is a code block that contains a series of statements.</p>
+
+<h3 id="variables-inside-methods-the-scope-of-methods">Variables Inside Methods (The Scope of Methods)</h3>
+
+<p>Parameters and variables declared inside of a method can be only used under the scope of the method.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Any of the following are valid method calls.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>          <span class="c1">// Returns 6.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>       <span class="c1">// Returns 4.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>    <span class="c1">// Returns 9.</span>
+
+            <span class="n">a</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span> <span class="c1">// compile error!</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="kt">int</span> <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span> <span class="p">+</span> <span class="n">z</span> <span class="p">+</span> <span class="n">a</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="return-type">Return Type</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Any of the following are valid method calls.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>          <span class="c1">// Returns 6.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>       <span class="c1">// Returns 4.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>    <span class="c1">// Returns 9.</span>
+
+            <span class="nf">PrintMyName</span><span class="p">(</span><span class="s">"Yun"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// return int</span>
+        <span class="k">static</span> <span class="kt">int</span> <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span> <span class="p">+</span> <span class="n">z</span> <span class="p">+</span> <span class="n">a</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// return void, nothing to return</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">PrintMyName</span><span class="p">(</span><span class="kt">string</span> <span class="n">myName</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"My name is </span><span class="p">{</span><span class="n">myName</span><span class="p">}</span><span class="s">."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Any of the following are valid method calls.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>          <span class="c1">// Returns 6.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>       <span class="c1">// Returns 4.</span>
+            <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>    <span class="c1">// Returns 9.</span>
+        <span class="p">}</span>
+
+        <span class="cm">/*
+        Main: The class of my main program, where the application begins.
+        Input:
+          x: int
+          y: int, optional
+          z: int, optional
+        Output:
+          int
+        */</span>
+        <span class="k">static</span> <span class="kt">int</span> <span class="nf">AddSomeNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span> <span class="p">=</span> <span class="m">2</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span> <span class="p">+</span> <span class="n">z</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="system-methods">System Methods</h3>
+
+<p>Math.Sqrt() is a Math class method to calculate the square root of a value. “.” operator allows us to access a method of a class.</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="m">9</span><span class="p">));</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>3
+</code></pre></div></div>
+
+<h3 id="method-declaration">Method Declaration</h3>
+
+<p>In C#, a method declaration includes</p>
+
+<p>OptionalModifier ReturnType TheMethodName( ParameterType parameterName )</p>
+
+<p>Also note that <strong>return</strong> only takes one parameter.</p>
+
+<h3 id="call-by-value-vs-call-by-reference">Call by Value vs. Call by Reference</h3>
+<p>Passing parameters in a method can be done by deep copying or referencing.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">4</span><span class="p">;</span>
+            <span class="nf">SquareVal</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+            <span class="c1">// Output: 4</span>
+
+            <span class="nf">SquareRef</span><span class="p">(</span><span class="k">ref</span> <span class="n">number</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+            <span class="c1">// Output: 16</span>
+        <span class="p">}</span>
+
+        <span class="cm">/*
+        SquareVal: square a number.
+        Input:
+          num: int
+        Output:
+          none
+        */</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">SquareVal</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">num</span> <span class="p">*=</span> <span class="n">num</span><span class="p">;</span> <span class="c1">// num = num * num</span>
+        <span class="p">}</span>
+
+        <span class="cm">/*
+        SquareVal: square a number.
+        Input:
+          num: ref int
+        Output:
+          none
+        */</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">SquareRef</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">num</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">num</span> <span class="p">*=</span> <span class="n">num</span><span class="p">;</span> <span class="c1">// num = num * num</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>4
+<span class="nv">$ </span>16
+</code></pre></div></div>
+
+<hr />
+<h1 id="selected-theory">Selected Theory</h1>
+
+<h2 id="recursion-vs-iteration">Recursion vs. Iteration</h2>
+
+<p>Factorial of a Given Number can be implemented using <strong>Recursion</strong> or <strong>Iteration</strong>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyBusiness</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">num</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Factorial of "</span> <span class="p">+</span> <span class="n">num</span> <span class="p">+</span>
+                              <span class="s">" using Recursion is: "</span> <span class="p">+</span>
+                              <span class="nf">FactorialUsingRecursion</span><span class="p">(</span><span class="m">5</span><span class="p">));</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Factorial of "</span> <span class="p">+</span> <span class="n">num</span> <span class="p">+</span>
+                              <span class="s">" using Iteration is: "</span> <span class="p">+</span>
+                              <span class="nf">FactorialUsingIteration</span><span class="p">(</span><span class="m">5</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="cm">/*
+        SquareVal: find factorial of given number.
+        Input:
+          num: int
+        Output:
+          int
+        */</span>
+        <span class="k">static</span> <span class="kt">int</span> <span class="nf">FactorialUsingRecursion</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+                <span class="k">return</span> <span class="m">1</span><span class="p">;</span>
+
+            <span class="c1">// recursion call</span>
+            <span class="k">return</span> <span class="n">n</span> <span class="p">*</span> <span class="nf">FactorialUsingRecursion</span><span class="p">(</span><span class="n">n</span> <span class="p">-</span> <span class="m">1</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="cm">/*
+        SquareVal: find factorial of given number.
+        Input:
+          num: ref int
+        Output:
+          int
+        */</span>
+        <span class="k">static</span> <span class="kt">int</span> <span class="nf">FactorialUsingIteration</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">res</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+            <span class="c1">// using iteration</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+                <span class="n">res</span> <span class="p">*=</span> <span class="n">i</span><span class="p">;</span>
+
+            <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Factorial of 5 using Recursion is: 120
+<span class="nv">$ </span>Factorial of 5 using Iteration is: 120
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-03-12">March 12, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=C%23+Basics%20http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fbasics%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fbasics%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpages%2Fbasics%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/yun-vis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/hsiangyun.wu.3/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/wuhsiangyun/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/hsiangyunwu" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/hsiang-yun-wu-162758ba/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 C# CheatSheet. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
