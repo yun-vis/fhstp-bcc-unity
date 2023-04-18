@@ -1,6 +1,6 @@
-# CSharpCheatSheet
+# UnityCheatSheet
 
-Teaching material for C#
+Teaching materials for Computer Graphics using Unity
 
 
 # Installation

@@ -10,6 +10,6 @@ header:
 last_modified_at: 2023-04-18
 ---
 
-Unity CheatSheet is a website storing teaching material for COmputer Graphics using Unity.
+Unity CheatSheet is a website storing teaching material for Computer Graphics using Unity.
 
 ---
