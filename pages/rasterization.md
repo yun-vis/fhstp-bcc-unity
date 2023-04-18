@@ -196,13 +196,12 @@ public class DDA : MonoBehaviour
         float dz = targetPos.z - sourcePos.z;
         float m = dz / dx;
 
+        float x = sourcePos.x;
+        float z = sourcePos.z;
+        DrawPixel(colors, (int)Math.Round(x), (int)Math.Round(z));
         // m <= 1
         if ( m <= 1)
         {
-            float x = sourcePos.x;
-            float z = sourcePos.z;
-            DrawPixel(colors, (int)Math.Round(x), (int)Math.Round(z));
-
             for (int i = 0; i < dx; i++)
             {
                 x += 1;
@@ -214,10 +213,6 @@ public class DDA : MonoBehaviour
         else
         {
             m = dx/dz;
-            float x = sourcePos.x;
-            float z = sourcePos.z;
-            DrawPixel(colors, (int)Math.Round(x), (int)Math.Round(z));
-
             for (int i = 0; i < dz; i++)
             {
                 x += m;
@@ -238,11 +233,143 @@ public class DDA : MonoBehaviour
         //Debug.Log($"vertices.Length = {vertices.Length}");
         // assign the array of colors to the Mesh.
         int v = 4 * (x * gridSize + z);
-        if (v + 3 >= 400)
+
+        colors[v] = new Color(0, 0, 0, 1);
+        colors[v + 1] = new Color(0, 0, 0, 1);
+        colors[v + 2] = new Color(0, 0, 0, 1);
+        colors[v + 3] = new Color(0, 0, 0, 1);
+    }
+}
+```
+
+## Bresenham's Line Algorithm
+
+Bresenham.cs
+```csharp
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Bresenham : MonoBehaviour
+{
+    private GameObject _source;
+    private GameObject _target;
+    private GameObject _gridMesh;
+
+    // Use this for initialization
+    void Awake()
+    {
+        _source = GameObject.Find("Source");
+        _target = GameObject.Find("Target");
+        _gridMesh = GameObject.Find("Grid");
+
+        Vector3 gridPosition = _gridMesh.transform.position;
+        float cellSize = _gridMesh.GetComponent<GridMesh>().cellSize;
+        float vertexOffset = cellSize * 0.5f;
+
+        Vector3 sourcePos = new Vector3(
+            0,
+            gridPosition.y,
+            0
+        );
+        Vector3 targetPos = new Vector3(
+            (_gridMesh.GetComponent<GridMesh>().gridSize - 1) * cellSize,
+            gridPosition.y,
+            (_gridMesh.GetComponent<GridMesh>().gridSize - 1) * cellSize
+        );
+
+        // Initialize positions
+        _source.transform.position = sourcePos;
+        _target.transform.position = targetPos;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 gridPosition = _gridMesh.transform.position;
+
+        // Update positions
+        Vector3 sourcePos = _source.transform.position;
+        sourcePos.y = gridPosition.y;
+        Vector3 targetPos = _target.transform.position;
+        targetPos.y = gridPosition.y;
+
+        // Debug.Log($"sourcePos = {sourcePos }");
+        _source.transform.position = sourcePos;
+        _target.transform.position = targetPos;
+
+        ComputeBresenham();
+    }
+
+    void ComputeBresenham()
+    {
+        Vector3 sourcePos = _source.transform.position;
+        Vector3 targetPos = _target.transform.position;
+
+        // Create new colors array where the colors will be created.
+        Color[] colors = _gridMesh.GetComponent<GridMesh>().mesh.colors;
+        // Reset colors to white
+        for (int i = 0; i < colors.Length; i++)
         {
-            Debug.Log($"v = {v}");
-            Debug.Log($"(x,z) = ({x},{z})");
+            colors[i].r = colors[i].g = colors[i].b = colors[i].a = 1;
         }
+
+        // 1. store left line endpoint in (x0,y0)
+        int x = (int)sourcePos.x;
+        int z = (int)sourcePos.z;
+        // 2. draw pixel  (x0,y0) 
+        DrawPixel(colors, x, z);
+
+        // 3. calculate constants  Dx, Dy, 2Dy, 2Dy - 2Dx, and obtain  p0 = 2Dy - Dx
+        int dx = (int)(targetPos.x - sourcePos.x);
+        int dz = (int)(targetPos.z - sourcePos.z);
+        int twodz_twodx = 2 * dz - 2 * dx;
+        int twodz = 2 * dz;
+        int p0 = 2 * dz - dx;
+        int pk = p0;
+        int xk = dx;
+        int zk = dz;
+
+        // 4. at each xk along the line, perform test:
+        // if pk<0 
+        // then draw pixel (xk+1,yk);  pk+1 = pk+ 2Dy
+        // else draw pixel (xk+1,yk+1);  pk+1= pk+ 2Dy - 2Dx
+        for (int i = 0; i < dx; i++)
+        {
+            if (pk < 0)
+            {
+                DrawPixel(colors, xk+1, zk);
+                pk = pk + twodz;
+            }
+            else
+            {
+                DrawPixel(colors, xk+1, zk+1);
+                zk++;
+                pk = pk + twodz_twodx;
+            }
+
+            xk++;
+        }
+
+        // 5. perform “step 4”  (Dx - 1) times.
+        _gridMesh.GetComponent<GridMesh>().mesh.colors = colors;
+    }
+
+    void DrawPixel(Color[] colors, int x, int z)
+    {
+        //Debug.Log($"(x,z) = ({x},{z})");
+        int gridSize = _gridMesh.GetComponent<GridMesh>().gridSize;
+        if (x >= gridSize || z >= gridSize) return;
+
+        //Debug.Log($"vertices.Length = {vertices.Length}");
+        // assign the array of colors to the Mesh.
+        int v = 4 * (x * gridSize + z);
 
         colors[v] = new Color(0, 0, 0, 1);
         colors[v + 1] = new Color(0, 0, 0, 1);
