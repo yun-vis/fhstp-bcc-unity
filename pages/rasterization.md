@@ -118,9 +118,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Pre-setting before scripts
-// Step1: Create an empty game object, name Source and add material
-// Step2: Create an empty game object, name Target and add material
-// Step3: Create an empty game object, name Grid and attach GridMesh script and add material
+// Step1: Create an empty game object, name Source and add material blue
+// Step2: Create an empty game object, name Target and add material red
+// Step3: Create an empty game object, name Grid and attach GridMesh script and add material white
 // Step4: Create an empty game object, name DDA and attach DDA script
 
 public class DDA : MonoBehaviour
@@ -128,27 +128,33 @@ public class DDA : MonoBehaviour
     private GameObject _source;
     private GameObject _target;
     private GameObject _gridMesh;
+    private Mesh _mesh;
+    private int _gridSize;
 
     // Use this for initialization
     void Awake()
     {
+        // Get the GameObject information
         _source = GameObject.Find("Source");
         _target = GameObject.Find("Target");
         _gridMesh = GameObject.Find("Grid");
+        _mesh = _gridMesh.GetComponent<MeshFilter>().mesh;
+        _gridSize = _gridMesh.GetComponent<GridMesh>().gridSize;
 
-        Vector3 gridPosition = _gridMesh.transform.position;
+        // Reset grid position
+        Vector3 gridPosition = _gridMesh.transform.position = new Vector3(0, 0, 0);
+
+        // Reset source and target position
         float cellSize = _gridMesh.GetComponent<GridMesh>().cellSize;
-        float vertexOffset = cellSize * 0.5f;
-
         Vector3 sourcePos = new Vector3(
-            0,
+            gridPosition.x,
             gridPosition.y,
-            0
+            gridPosition.z
         );
         Vector3 targetPos = new Vector3(
-            (_gridMesh.GetComponent<GridMesh>().gridSize - 1) * cellSize,
+            (_gridSize - 1) * cellSize,
             gridPosition.y,
-            (_gridMesh.GetComponent<GridMesh>().gridSize - 1) * cellSize
+            (_gridSize - 1) * cellSize
         );
 
         // Initialize positions
@@ -185,8 +191,8 @@ public class DDA : MonoBehaviour
         Vector3 targetPos = _target.transform.position;
 
         // Create new colors array where the colors will be created.
-        Color[] colors = _gridMesh.GetComponent<GridMesh>().mesh.colors;
-        // Reset colors to white
+        Color[] colors = _mesh.colors;
+        // Reset colors of the grid mesh to white
         for (int i = 0; i < colors.Length; i++)
         {
             colors[i].r = colors[i].g = colors[i].b = colors[i].a = 1;
@@ -200,7 +206,7 @@ public class DDA : MonoBehaviour
         float z = sourcePos.z;
         DrawPixel(colors, (int)Math.Round(x), (int)Math.Round(z));
         // m <= 1
-        if ( m <= 1)
+        if (m <= 1)
         {
             for (int i = 0; i < dx; i++)
             {
@@ -212,7 +218,7 @@ public class DDA : MonoBehaviour
         // m > 1
         else
         {
-            m = dx/dz;
+            m = dx / dz;
             for (int i = 0; i < dz; i++)
             {
                 x += m;
@@ -220,19 +226,19 @@ public class DDA : MonoBehaviour
                 DrawPixel(colors, (int)Math.Round(x), (int)Math.Round(z));
             }
         }
-        
-        _gridMesh.GetComponent<GridMesh>().mesh.colors = colors;
+
+        // Update the grid colors
+        _mesh.colors = colors;
     }
 
     void DrawPixel(Color[] colors, int x, int z)
     {
-        //Debug.Log($"(x,z) = ({x},{z})");
-        int gridSize = _gridMesh.GetComponent<GridMesh>().gridSize;
-        if (x >= gridSize || z >= gridSize) return;
+        // Debug.Log($"(x,z) = ({x},{z})");
+        if (x >= _gridSize || z >= _gridSize) return;
 
-        //Debug.Log($"vertices.Length = {vertices.Length}");
-        // assign the array of colors to the Mesh.
-        int v = 4 * (x * gridSize + z);
+        // Debug.Log($"vertices.Length = {vertices.Length}");
+        // Assign the array of colors to the Mesh.
+        int v = 4 * (x * _gridSize + z);
 
         colors[v] = new Color(0, 0, 0, 1);
         colors[v + 1] = new Color(0, 0, 0, 1);
@@ -251,32 +257,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Pre-setting before scripts
+// Step1: Create an empty game object, name Source and add material blue
+// Step2: Create an empty game object, name Target and add material red
+// Step3: Create an empty game object, name Grid and attach GridMesh script and add material white
+// Step4: Create an empty game object, name DDA and attach Bresenham script
+
 public class Bresenham : MonoBehaviour
 {
     private GameObject _source;
     private GameObject _target;
     private GameObject _gridMesh;
+    private Mesh _mesh;
+    private int _gridSize;
 
     // Use this for initialization
     void Awake()
     {
+        // Get the GameObject information
         _source = GameObject.Find("Source");
         _target = GameObject.Find("Target");
         _gridMesh = GameObject.Find("Grid");
+        _mesh = _gridMesh.GetComponent<MeshFilter>().mesh;
+        _gridSize = _gridMesh.GetComponent<GridMesh>().gridSize;
 
-        Vector3 gridPosition = _gridMesh.transform.position;
+        // Reset grid position
+        Vector3 gridPosition = _gridMesh.transform.position = new Vector3(0, 0, 0);
+
+        // Reset source and target position
         float cellSize = _gridMesh.GetComponent<GridMesh>().cellSize;
-        float vertexOffset = cellSize * 0.5f;
-
         Vector3 sourcePos = new Vector3(
-            0,
+            gridPosition.x,
             gridPosition.y,
-            0
+            gridPosition.z
         );
         Vector3 targetPos = new Vector3(
-            (_gridMesh.GetComponent<GridMesh>().gridSize - 1) * cellSize,
+            (_gridSize - 1) * cellSize,
             gridPosition.y,
-            (_gridMesh.GetComponent<GridMesh>().gridSize - 1) * cellSize
+            (_gridSize - 1) * cellSize
         );
 
         // Initialize positions
@@ -313,63 +331,95 @@ public class Bresenham : MonoBehaviour
         Vector3 targetPos = _target.transform.position;
 
         // Create new colors array where the colors will be created.
-        Color[] colors = _gridMesh.GetComponent<GridMesh>().mesh.colors;
-        // Reset colors to white
+        Color[] colors = _mesh.colors;
+        // Reset colors of the grid mesh to white
         for (int i = 0; i < colors.Length; i++)
         {
             colors[i].r = colors[i].g = colors[i].b = colors[i].a = 1;
         }
 
         // 1. store left line endpoint in (x0,y0)
-        int x = (int)sourcePos.x;
-        int z = (int)sourcePos.z;
-        // 2. draw pixel  (x0,y0) 
-        DrawPixel(colors, x, z);
-
-        // 3. calculate constants  Dx, Dy, 2Dy, 2Dy - 2Dx, and obtain  p0 = 2Dy - Dx
+        int xk = (int)sourcePos.x;
+        int zk = (int)sourcePos.z;
         int dx = (int)(targetPos.x - sourcePos.x);
         int dz = (int)(targetPos.z - sourcePos.z);
-        int twodz_twodx = 2 * dz - 2 * dx;
-        int twodz = 2 * dz;
-        int p0 = 2 * dz - dx;
-        int pk = p0;
-        int xk = dx;
-        int zk = dz;
 
-        // 4. at each xk along the line, perform test:
-        // if pk<0 
-        // then draw pixel (xk+1,yk);  pk+1 = pk+ 2Dy
-        // else draw pixel (xk+1,yk+1);  pk+1= pk+ 2Dy - 2Dx
-        for (int i = 0; i < dx; i++)
+        // 2. draw pixel  (x0,y0) 
+        DrawPixel(colors, xk, zk);
+
+        // m <= 1
+        if (dz <= dx)
         {
-            if (pk < 0)
-            {
-                DrawPixel(colors, xk+1, zk);
-                pk = pk + twodz;
-            }
-            else
-            {
-                DrawPixel(colors, xk+1, zk+1);
-                zk++;
-                pk = pk + twodz_twodx;
-            }
+            // 3. calculate constants  Dx, Dy, 2Dy, 2Dy - 2Dx, and obtain  p0 = 2Dy - Dx
+            int twodz_twodx = 2 * dz - 2 * dx;
+            int twodz = 2 * dz;
+            int pk = 2 * dz - dx;
 
-            xk++;
+            // 4. at each xk along the line, perform test:
+            // if pk<0 
+            // then draw pixel (xk+1,yk);  pk+1 = pk+ 2Dy
+            // else draw pixel (xk+1,yk+1);  pk+1= pk+ 2Dy - 2Dx
+            // 5. perform “step 4”  (Dx - 1) times.
+            for (int i = 0; i < dx; i++)
+            {
+                if (pk < 0)
+                {
+                    DrawPixel(colors, xk + 1, zk);
+                    pk = pk + twodz;
+                }
+                else
+                {
+                    DrawPixel(colors, xk + 1, zk + 1);
+                    zk++;
+                    pk = pk + twodz_twodx;
+                }
+
+                xk++;
+            }
+        }
+        // m <= 1
+        else
+        {
+            // 3. calculate constants  Dx, Dy, 2Dy, 2Dy - 2Dx, and obtain  p0 = 2Dy - Dx
+            int twodx_twodz = 2 * dx - 2 * dz;
+            int twodx = 2 * dx;
+            int pk = 2 * dx - dz;
+
+            // 4. at each xk along the line, perform test:
+            // if pk<0 
+            // then draw pixel (xk+1,yk);  pk+1 = pk+ 2Dy
+            // else draw pixel (xk+1,yk+1);  pk+1= pk+ 2Dy - 2Dx
+            // 5. perform “step 4”  (Dx - 1) times.
+            for (int i = 0; i < dz; i++)
+            {
+                if (pk < 0)
+                {
+                    DrawPixel(colors, xk, zk + 1);
+                    pk = pk + twodx;
+                }
+                else
+                {
+                    DrawPixel(colors, xk + 1, zk + 1);
+                    xk++;
+                    pk = pk + twodx_twodz;
+                }
+
+                zk++;
+            }
         }
 
-        // 5. perform “step 4”  (Dx - 1) times.
-        _gridMesh.GetComponent<GridMesh>().mesh.colors = colors;
+        // Update the grid colors
+        _mesh.colors = colors;
     }
 
     void DrawPixel(Color[] colors, int x, int z)
     {
-        //Debug.Log($"(x,z) = ({x},{z})");
-        int gridSize = _gridMesh.GetComponent<GridMesh>().gridSize;
-        if (x >= gridSize || z >= gridSize) return;
+        // Debug.Log($"(x,z) = ({x},{z})");
+        if (x >= _gridSize || z >= _gridSize) return;
 
-        //Debug.Log($"vertices.Length = {vertices.Length}");
-        // assign the array of colors to the Mesh.
-        int v = 4 * (x * gridSize + z);
+        // Debug.Log($"vertices.Length = {vertices.Length}");
+        // Assign the array of colors to the Mesh.
+        int v = 4 * (x * _gridSize + z);
 
         colors[v] = new Color(0, 0, 0, 1);
         colors[v + 1] = new Color(0, 0, 0, 1);
