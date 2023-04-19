@@ -130,6 +130,7 @@ public class DDA : MonoBehaviour
     private GameObject _gridMesh;
     private Mesh _mesh;
     private int _gridSize;
+    private float _cellSize;
 
     // Use this for initialization
     void Awake()
@@ -140,21 +141,21 @@ public class DDA : MonoBehaviour
         _gridMesh = GameObject.Find("Grid");
         _mesh = _gridMesh.GetComponent<MeshFilter>().mesh;
         _gridSize = _gridMesh.GetComponent<GridMesh>().gridSize;
+        _cellSize = _gridMesh.GetComponent<GridMesh>().cellSize;
 
         // Reset grid position
         Vector3 gridPosition = _gridMesh.transform.position = new Vector3(0, 0, 0);
 
         // Reset source and target position
-        float cellSize = _gridMesh.GetComponent<GridMesh>().cellSize;
         Vector3 sourcePos = new Vector3(
             gridPosition.x,
             gridPosition.y,
             gridPosition.z
         );
         Vector3 targetPos = new Vector3(
-            (_gridSize - 1) * cellSize,
+            (_gridSize - 1) * _cellSize,
             gridPosition.y,
-            (_gridSize - 1) * cellSize
+            (_gridSize - 1) * _cellSize
         );
 
         // Initialize positions
@@ -198,12 +199,16 @@ public class DDA : MonoBehaviour
             colors[i].r = colors[i].g = colors[i].b = colors[i].a = 1;
         }
 
-        float dx = targetPos.x - sourcePos.x;
-        float dz = targetPos.z - sourcePos.z;
+        float dx = (targetPos.x - sourcePos.x);
+        float dz = (targetPos.z - sourcePos.z);
+        //float dx = (targetPos.x - sourcePos.x) / _cellSize;
+        //float dz = (targetPos.z - sourcePos.z) / _cellSize;
         float m = dz / dx;
 
         float x = sourcePos.x;
         float z = sourcePos.z;
+        //float x = sourcePos.x / _cellSize;
+        //float z = sourcePos.z / _cellSize;
         DrawPixel(colors, (int)Math.Round(x), (int)Math.Round(z));
         // m <= 1
         if (m <= 1)
@@ -270,7 +275,8 @@ public class Bresenham : MonoBehaviour
     private GameObject _gridMesh;
     private Mesh _mesh;
     private int _gridSize;
-
+    private float _cellSize;
+    
     // Use this for initialization
     void Awake()
     {
@@ -280,21 +286,21 @@ public class Bresenham : MonoBehaviour
         _gridMesh = GameObject.Find("Grid");
         _mesh = _gridMesh.GetComponent<MeshFilter>().mesh;
         _gridSize = _gridMesh.GetComponent<GridMesh>().gridSize;
+        _cellSize = _gridMesh.GetComponent<GridMesh>().cellSize;
 
         // Reset grid position
         Vector3 gridPosition = _gridMesh.transform.position = new Vector3(0, 0, 0);
 
         // Reset source and target position
-        float cellSize = _gridMesh.GetComponent<GridMesh>().cellSize;
         Vector3 sourcePos = new Vector3(
             gridPosition.x,
             gridPosition.y,
             gridPosition.z
         );
         Vector3 targetPos = new Vector3(
-            (_gridSize - 1) * cellSize,
+            (_gridSize - 1) * _cellSize,
             gridPosition.y,
-            (_gridSize - 1) * cellSize
+            (_gridSize - 1) * _cellSize
         );
 
         // Initialize positions
@@ -339,10 +345,10 @@ public class Bresenham : MonoBehaviour
         }
 
         // 1. store left line endpoint in (x0,y0)
-        int xk = (int)sourcePos.x;
-        int zk = (int)sourcePos.z;
-        int dx = (int)(targetPos.x - sourcePos.x);
-        int dz = (int)(targetPos.z - sourcePos.z);
+        int xk = (int)(sourcePos.x / _cellSize);
+        int zk = (int)(sourcePos.z / _cellSize);
+        int dx = (int)((targetPos.x - sourcePos.x) / _cellSize);
+        int dz = (int)((targetPos.z - sourcePos.z) / _cellSize);
 
         // 2. draw pixel  (x0,y0) 
         DrawPixel(colors, xk, zk);
