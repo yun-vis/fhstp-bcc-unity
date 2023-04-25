@@ -437,3 +437,6 @@ public class Bresenham : MonoBehaviour
 
 ---
 # External Resources
+
+## [SerializeField] annotation [Doc](https://mobidictum.com/game-industry/unity-serializefield/)
+

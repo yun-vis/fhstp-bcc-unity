@@ -439,6 +439,17 @@ public class Grid : MonoBehaviour
 }
 ```
 
+UnityPlane.cs
+```csharp
+```
 
 ---
 # External Resources
+
+## Data Annotation [Doc](https://www.codeproject.com/Articles/256183/DataAnnotations-Validation-for-Beginner)
+
+Data annotations (available as part of the System. ComponentModel. DataAnnotations namespace) are attributes that can be applied to classes or class members to specify the relationship between classes, describe how the data is to be displayed in the UI, and specify validation rules.
+
+## Component-Based Architecture [Doc](https://www.tutorialspoint.com/software_architecture_design/component_based_architecture.htm)
+
+Component-Oriented Versus Object-Oriented Programming [Doc](https://www.oreilly.com/library/view/programming-net-components/0596102070/ch01s02.html)
