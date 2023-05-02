@@ -6,4 +6,8 @@ main:
     url: /pages/mesh
   - title: "Rasterization"
     url: /pages/rasterization
+  - title: "Transformation"
+    url: /pages/transformation
+  - title: "Linear Primitives"
+    url: /pages/linear
 

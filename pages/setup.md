@@ -38,9 +38,25 @@ Add player Input component > Creat Actions (/Inputs/)
 
 ## Version Control
 
-### Unity Version Control (Previously Plastic SCM)
+### Unity Version Control (Previously Plastic SCM) [Doc](https://unity.com/solutions/version-control)
+
+- Window > Package Manager > Version Control
+- Setup guide [Doc](https://unity.com/support-services/redeem/plastic-scm)
+- Step1: Login to Unity Version Control
 
 ### Git
+
+- What are Git version control best practices? [Doc](https://about.gitlab.com/topics/version-control/version-control-best-practices/)
+- Managing Large Files [Doc](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
+- Git Large File Storage [Website](https://git-lfs.com/)
+- Configuring Git Large File Storage [Doc](https://docs.github.com/en/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage)
+- GitLab@FH [Website](https://gitlab.fhstp.ac.at/)
+
+### WWise Integration
+
+- Using Wwise with Your Source Control System [Doc](https://www.audiokinetic.com/en/library/edge/?source=Help&id=using_wwise_with_source_control_system)
+- Wwise-Unity integration causing mass wwise event ScriptableObjects to be deleted [Doc](https://www.audiokinetic.com/qa/9772/critical-integration-causing-scriptableobjects-deleted)
+
 
 ---
 # External Resources
