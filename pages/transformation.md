@@ -36,25 +36,25 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-    private GameObject otherObject;
+    private GameObject _otherObject;
 
-    public Transform objectToOrbit;
-    float degreesPerSecond = 20;
-    public Vector3 direction;
-    public float angle;
-    public float radius;
+    private Transform _objectToOrbit;
+    private float _degreesPerSecond = 20;
+    private Vector3 _direction;
+    private float _angle;
+    private float _radius;
     
     // Initialization
     private void Awake()
     {
-        otherObject = new GameObject();
+        _otherObject = new GameObject();
         // transform.position = new Vector3(0, 0, 0);
-        objectToOrbit = transform.parent.transform;
+        _objectToOrbit = transform.parent.transform;
         
         // Unit vector
-        direction = (transform.position - objectToOrbit.transform.position).normalized;
+        _direction = (transform.position - _objectToOrbit.transform.position).normalized;
         // Distance between the parent and the object
-        radius = Vector3.Distance(objectToOrbit.transform.position, transform.position);
+        _radius = Vector3.Distance(_objectToOrbit.transform.position, transform.position);
     }
 
     // Start is called before the first frame update
@@ -124,13 +124,14 @@ public class Rotation : MonoBehaviour
         // Time.deltaTime (the duration of the last frame) to make sure that the rotation is smooth and consistent.
         // This is to make sure that, even if the framerate changes, the amount of movement over time remains the same.
         // In this case, it changes the amount of rotation from 20 degrees per frame to 20 degrees per second.
-        /*
-        transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
-        */
+
+        
+        transform.Rotate(new Vector3(0, _degreesPerSecond* Time.deltaTime, 0));
+        
         
         // RotateAroundPoint();
         // RotateOrbit();
-        RotateOrbitSlant();
+        // RotateOrbitSlant();
     }
     
     Vector3 _pivotPoint = new Vector3 (-0.5f,0,0.5f);
@@ -138,14 +139,14 @@ public class Rotation : MonoBehaviour
     {
         // Rotates around the pivot point and the Y-Axis by 90 degrees
         // Vector3.left for the X-Axis, Vector3.up for the Y-Axis and Vector3.forward for the Z-Axis.
-        transform.RotateAround(_pivotPoint, Vector3.up, degreesPerSecond* Time.deltaTime);
+        transform.RotateAround(_pivotPoint, Vector3.up, _degreesPerSecond* Time.deltaTime);
     }
     
     void RotateOrbit()
     {
         // Debug.Log( objectToOrbit.position );
         // Revolution
-        transform.RotateAround(objectToOrbit.position, Vector3.up, degreesPerSecond * Time.deltaTime);
+        transform.RotateAround(_objectToOrbit.position, Vector3.up, _degreesPerSecond * Time.deltaTime);
         // Rotation
         // Difference with RotateOrbitSlant(): the parent angle will be added to children angle
         // transform.Rotate( Vector3.up, 0.5f);
@@ -157,15 +158,15 @@ public class Rotation : MonoBehaviour
         // Debug.Log( objectToOrbit.position );
         // transform.RotateAround(objectToOrbit.position, Vector3.up, degreesPerSecond * Time.deltaTime);
         
-        angle += degreesPerSecond * Time.deltaTime;
-        angle %= 360;
+        _angle += _degreesPerSecond * Time.deltaTime;
+        _angle %= 360;
         // Debug.Log("angle = " + angle);
         // Vector3.forward Z-Axis unit vector
-        Vector3 orbit = Vector3.forward * radius;
+        Vector3 orbit = Vector3.forward * _radius;
         // orbit = Quaternion.Euler(0, angle, 0) * orbit;
-        orbit = Quaternion.LookRotation(direction) * Quaternion.Euler(0, angle, 0) * orbit;
+        orbit = Quaternion.LookRotation(_direction) * Quaternion.Euler(0, _angle, 0) * orbit;
         // Revolution
-        transform.position = objectToOrbit.transform.position + orbit;
+        transform.position = _objectToOrbit.transform.position + orbit;
         // Rotation
         // transform.Rotate( Vector3.up, 0.5f);
     }
