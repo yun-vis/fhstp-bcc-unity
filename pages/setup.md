@@ -57,6 +57,12 @@ Add player Input component > Creat Actions (/Inputs/)
 - Using Wwise with Your Source Control System [Doc](https://www.audiokinetic.com/en/library/edge/?source=Help&id=using_wwise_with_source_control_system)
 - Wwise-Unity integration causing mass wwise event ScriptableObjects to be deleted [Doc](https://www.audiokinetic.com/qa/9772/critical-integration-causing-scriptableobjects-deleted)
 
+## Integrate Nuget Packages to Unity
+
+- Integrate QuikGraph to Unity 3D [Doc](https://github.com/KeRNeLith/QuikGraph/wiki/Unity3D-Integration)
+- QuickGraph [Doc](https://www.nuget.org/packages/QuikGraph)
+- Create folder Assets/Plugin and put corresponding *.dll file under this folder
+
 
 ---
 # External Resources
