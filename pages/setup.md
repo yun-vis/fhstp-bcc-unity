@@ -6,18 +6,19 @@ classes: wide
 header:
   image: /assets/images/teaser/teaser.png
   caption: "Image credit: [**Yun**](http://yun-vis.net)"
-last_modified_at: 2023-04-25
+last_modified_at: 2025-04-20
 ---
 
 # Unity Environment Setup
 
 ## Unity 
 
-* Versin used in the class: 2021.3.21f1 
+* Version used in the class: 2022.3.61f1 
 * Installation via Unity Hub [Link](https://unity.com/unity-hub)
 
 ## JetBrains Rider as the script editor
 
+* Version used in the class: 2025.1 
 * Offical Website [Link](jetbrains.com/rider/download/)
 
 ## Preferences
@@ -26,9 +27,9 @@ last_modified_at: 2023-04-25
 Edit > Preferences > External Tools > External Script Editor
 
 ### Set up Playmode tint
-Edit > Preferences > Colors > Playmode tint
+Edit > Preferences > Colors > General: Playmode tint
 
-## Package Manager
+## Window -> Package Manager
 
 ### JetBrains Rider Editor
 ### Input System (from Lucas's lecture)
