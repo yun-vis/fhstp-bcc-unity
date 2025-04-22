@@ -19,14 +19,87 @@ last_modified_at: 2025-04-20
 * Step4 (Opt): Attach an exising script. Drag the script file to the game object in the scene panel or to the inspector
 
 
+MyMesh.cs
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// The RequireComponent attribute automatically adds required components as dependencies.
+[RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(YValue))]
+
+// MonoBehaviour is the base class that every Unity script has to be inherited.  A Unity script, that is derived from a MonoBehaviour, serves a bunch of predefined functions(Awake, Start, Update, OnTriggerEnter, etc.) that are executed when an event occurs.
+public class MyMesh : MonoBehaviour
+{
+    private Mesh _mesh;
+    private YValue _yValue;
+
+    private Vector3[] _vertices;
+    private int[] _triangles;
+
+    // First lifecycle function called when a new instance of an object is created. Always called before any Start functions. If a GameObject is inactive during start up, Awake is not called until it is made active.
+    void Awake()
+    {
+        _yValue = GetComponent<YValue>();
+        _mesh = GetComponent<MeshFilter>().mesh;
+    }
+    
+    // Start is called before the first frame update only if the script instance is enabled.
+    void Start()
+    {
+    }
+
+    // These functions are known as event functions since they are activated by Unity in response to events that occur during gameplay
+    // Update is called once per frame
+    void Update()
+    {
+        // CreateTriangleData();
+        CreateQuadData();
+        UpdateMesh();
+    }
+
+    void CreateTriangleData()
+    {
+        // Create an array of vertices
+        _vertices = new Vector3[] {new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0)};
+        
+        // Create an array of integers
+        _triangles =  new int[] {0, 1, 2};
+    }
+
+    void CreateQuadData()
+    {
+        // Create an array of vertices
+        _vertices = new Vector3[] {new Vector3(0, _yValue.value, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0), new Vector3(1, 0, 1)};
+        
+        // Create an array of integers
+        _triangles =  new int[] {0, 1, 2, 2, 1, 3};
+    }
+
+    void UpdateMesh()
+    {
+        // Clear all vertex data and all triangle indices
+        // Auto-formating Crtl+Alt+Enter
+        _mesh.Clear();
+        // Assign our vertices and triangles to mesh object
+        _mesh.vertices = _vertices;
+        _mesh.triangles = _triangles;
+        
+        _mesh.RecalculateNormals();
+    }
+}
+```
+
+## Settings to triangles
+* Add materials: Mesh Renderer -> Materials -> Default-Diffuse
+* Increase YValue to 1.0
+* Draw Mode -> Shaded Wireframe
+
 MyMesh6V.cs
 ```csharp
 using UnityEngine;
-
-// Pre-setting before scripts
-// Step1: Create an empty game object, name MeshObject
-// Step2: Add Component -> Mesh Filter (A Reference to the mesh)
-// Step3: Add Component -> Mesh Render (A Mesh Renderer component renders a mesh)
 
 // The RequireComponent attribute automatically adds required components as dependencies.
 [RequireComponent(typeof(MeshFilter))]
@@ -71,6 +144,8 @@ public class MyMesh6V : MonoBehaviour
     void CreateQuadData()
     {
         // Create an array of vertices
+        // _vertices = new Vector3[] { new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0), new Vector3(1, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 1) };
+
         _vertices = new Vector3[] { new Vector3(0, _yValue.value, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0), 
                                     new Vector3(1, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 1)};
         
@@ -81,83 +156,6 @@ public class MyMesh6V : MonoBehaviour
     void UpdateMesh()
     {
         // Clear all vertex data and all triangle indices
-        _mesh.Clear();
-        // Assign our vertices and triangles to mesh object
-        _mesh.vertices = _vertices;
-        _mesh.triangles = _triangles;
-        
-        _mesh.RecalculateNormals();
-    }
-}
-```
-
-MyMesh.cs
-```csharp
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-// Pre-setting before scripts
-// Step1: Create an empty game object, name MeshObject
-// Step2: Add Component -> Mesh Filter (A Reference to the mesh)
-// Step3: Add Component -> Mesh Render (A Mesh Renderer component renders a mesh)
-
-// The RequireComponent attribute automatically adds required components as dependencies.
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
-[RequireComponent(typeof(YValue))]
-
-// MonoBehaviour is the base class that every Unity script has to be inherited.  A Unity script, that is derived from a MonoBehaviour, serves a bunch of predefined functions(Awake, Start, Update, OnTriggerEnter, etc.) that are executed when an event occurs.
-public class MyMesh : MonoBehaviour
-{
-    private Mesh _mesh;
-    private YValue _yValue;
-
-    private Vector3[] _vertices;
-    private int[] _triangles;
-
-    void Awake()
-    {
-        _yValue = GetComponent<YValue>();
-        _mesh = GetComponent<MeshFilter>().mesh;
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // These functions are known as event functions since they are activated by Unity in response to events that occur during gameplay
-    // Update is called once per frame
-    void Update()
-    {
-        // CreateTriangleData();
-        CreateQuadData();
-        UpdateMesh();
-    }
-
-    void CreateTriangleData()
-    {
-        // Create an array of vertices
-        _vertices = new Vector3[] {new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0)};
-        
-        // Create an array of integers
-        _triangles =  new int[] {0, 1, 2};
-    }
-
-    void CreateQuadData()
-    {
-        // Create an array of vertices
-        _vertices = new Vector3[] {new Vector3(0, _yValue.value, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0), new Vector3(1, 0, 1)};
-        
-        // Create an array of integers
-        _triangles =  new int[] {0, 1, 2, 2, 1, 3};
-    }
-
-    void UpdateMesh()
-    {
-        // Clear all vertex data and all triangle indices
-        // Auto-formating Crtl+Alt+Enter
         _mesh.Clear();
         // Assign our vertices and triangles to mesh object
         _mesh.vertices = _vertices;
