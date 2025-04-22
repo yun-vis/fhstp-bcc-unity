@@ -6,7 +6,7 @@ classes: wide
 header:
   image: /assets/images/teaser/teaser.png
   caption: "Image credit: [**Yun**](http://yun-vis.net)"  
-last_modified_at: 2025-04-20
+last_modified_at: 2025-04-22
 ---
 
 # Procedural Mesh
@@ -36,56 +36,72 @@ public class MyMesh : MonoBehaviour
     private Mesh _mesh;
     private YValue _yValue;
 
-    private Vector3[] _vertices;
-    private int[] _triangles;
+    private List<Vector3> _vertices;
+    private List<int> _triangles;
 
     // First lifecycle function called when a new instance of an object is created. Always called before any Start functions. If a GameObject is inactive during start up, Awake is not called until it is made active.
     void Awake()
     {
         _yValue = GetComponent<YValue>();
         _mesh = GetComponent<MeshFilter>().mesh;
+        _vertices = new List<Vector3>();
+        _triangles = new List<int>();
     }
     
     // Start is called before the first frame update only if the script instance is enabled.
     void Start()
     {
+        CreateTriangleData();
+        // CreateQuadData();
+        UpdateMesh();
     }
 
     // These functions are known as event functions since they are activated by Unity in response to events that occur during gameplay
     // Update is called once per frame
     void Update()
     {
-        // CreateTriangleData();
-        CreateQuadData();
-        UpdateMesh();
     }
 
     void CreateTriangleData()
     {
-        // Create an array of vertices
-        _vertices = new Vector3[] {new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0)};
-        
-        // Create an array of integers
-        _triangles =  new int[] {0, 1, 2};
+        // Create an arrary of vertices
+        _vertices.Add(new Vector3(0, 0, 0));
+        _vertices.Add(new Vector3(0, 0, 1));
+        _vertices.Add(new Vector3(1, 0, 0));
+
+        // Create an integer list
+        _triangles.Add(0);
+        _triangles.Add(1);
+        _triangles.Add(2);
     }
 
     void CreateQuadData()
     {
-        // Create an array of vertices
-        _vertices = new Vector3[] {new Vector3(0, _yValue.value, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0), new Vector3(1, 0, 1)};
-        
-        // Create an array of integers
-        _triangles =  new int[] {0, 1, 2, 2, 1, 3};
+        // Create an arrary of vertices
+        _vertices.Add(new Vector3(0, 0, 0));
+        _vertices.Add(new Vector3(0, 0, 1));
+        _vertices.Add(new Vector3(1, 0, 0));
+        _vertices.Add(new Vector3(1, 0, 1));
+
+        // 1st triangle
+        _triangles.Add(0);
+        _triangles.Add(1);
+        _triangles.Add(2);
+
+        // 2nd triangle
+        _triangles.Add(1);
+        _triangles.Add(3);
+        _triangles.Add(2);
     }
 
     void UpdateMesh()
     {
         // Clear all vertex data and all triangle indices
-        // Auto-formating Crtl+Alt+Enter
         _mesh.Clear();
+
         // Assign our vertices and triangles to mesh object
-        _mesh.vertices = _vertices;
-        _mesh.triangles = _triangles;
+        _mesh.vertices = _vertices.ToArray();
+        _mesh.triangles = _triangles.ToArray();
         
         _mesh.RecalculateNormals();
     }
@@ -99,6 +115,8 @@ public class MyMesh : MonoBehaviour
 
 MyMesh6V.cs
 ```csharp
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 // The RequireComponent attribute automatically adds required components as dependencies.
@@ -112,13 +130,15 @@ public class MyMesh6V : MonoBehaviour
     private Mesh _mesh;
     private YValue _yValue;
         
-    private Vector3[] _vertices;
-    private int[] _triangles;
+    private List<Vector3> _vertices;
+    private List<int> _triangles;
 
     void Awake()
     {
         _yValue = GetComponent<YValue>();
         _mesh = GetComponent<MeshFilter>().mesh;
+        _vertices = new List<Vector3>();
+        _triangles = new List<int>();
     }
 
     // These functions are known as event functions since they are activated by Unity in response to events that occur during gameplay
@@ -134,32 +154,47 @@ public class MyMesh6V : MonoBehaviour
 
     void CreateTriangleData()
     {
-        // Create an array of vertices
-        _vertices = new Vector3[] {new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0)};
-        
-        // Create an array of integers
-        _triangles =  new int[] {0, 1, 2};
+        // Create an arrary of vertices
+        _vertices.Add(new Vector3(0, 0, 0));
+        _vertices.Add(new Vector3(0, 0, 1));
+        _vertices.Add(new Vector3(1, 0, 0));
+
+        // Create an integer list
+        _triangles.Add(0);
+        _triangles.Add(1);
+        _triangles.Add(2);
     }
 
     void CreateQuadData()
     {
-        // Create an array of vertices
-        // _vertices = new Vector3[] { new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0), new Vector3(1, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 1) };
+        // Create an arrary of vertices
+        _vertices.Add(new Vector3(0, _yValue.value, 0));
+        _vertices.Add(new Vector3(0, 0, 1));
+        _vertices.Add(new Vector3(1, 0, 0));
 
-        _vertices = new Vector3[] { new Vector3(0, _yValue.value, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0), 
-                                    new Vector3(1, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 1)};
-        
-        // Create an array of integers
-        _triangles =  new int[] {0, 1, 2, 3, 4, 5};
+        _vertices.Add(new Vector3(1, 0, 0));
+        _vertices.Add(new Vector3(0, 0, 1));
+        _vertices.Add(new Vector3(1, 0, 1));
+
+        // 1st triangle
+        _triangles.Add(0);
+        _triangles.Add(1);
+        _triangles.Add(2);
+
+        // 2nd triangle
+        _triangles.Add(3);
+        _triangles.Add(4);
+        _triangles.Add(5);
     }
 
     void UpdateMesh()
     {
         // Clear all vertex data and all triangle indices
         _mesh.Clear();
+
         // Assign our vertices and triangles to mesh object
-        _mesh.vertices = _vertices;
-        _mesh.triangles = _triangles;
+        _mesh.vertices = _vertices.ToArray();
+        _mesh.triangles = _triangles.ToArray();
         
         _mesh.RecalculateNormals();
     }
@@ -192,20 +227,22 @@ CubData.cs
 ```csharp
 using UnityEngine;
 
-public static class CubeData
+public class CubeData
 {
+    // 8 vertices for a cube
     private static readonly Vector3[] _vertices =
     {
-        new Vector3(1, 1, 1),
+        new Vector3( 1, 1, 1),
         new Vector3(-1, 1, 1),
-        new Vector3(-1, -1, 1),
-        new Vector3(1, -1, 1),
-        new Vector3(-1, 1, -1),
-        new Vector3(1, 1, -1),
-        new Vector3(1, -1, -1),
-        new Vector3(-1, -1, -1)
+        new Vector3(-1,-1, 1),
+        new Vector3( 1,-1, 1),
+        new Vector3(-1, 1,-1),
+        new Vector3( 1, 1,-1),
+        new Vector3( 1,-1,-1),
+        new Vector3(-1,-1,-1)
     };
 
+    // Vertex per face
     private static readonly int[][] _faceQuads =
     {
         new [] { 0, 1, 2, 3 },
@@ -216,12 +253,14 @@ public static class CubeData
         new [] { 3, 2, 7, 6 }
     };
 
-    public static Vector3[] FaceVertices(int dir)
+    public static Vector3[] FaceToVertices(int faceID)
     {
         Vector3[] fv = new Vector3[4];
-        for (int i = 0; i < fv.Length; i++)
+
+        for (int i = 0; i < 4; i++)
         {
-            fv[i] = _vertices[_faceQuads[dir][i]];
+            int vertexID = _faceQuads[faceID][i];
+            fv[i] = _vertices[vertexID];
         }
 
         return fv;
@@ -231,6 +270,7 @@ public static class CubeData
 
 CubeMesh.cs
 ```csharp
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -247,6 +287,8 @@ public class CubeMesh : MonoBehaviour
     void Awake()
     {
         _mesh = GetComponent<MeshFilter>().mesh;
+        _vertices = new List<Vector3>();
+        _triangles = new List<int>();
     }
 
     void Start()
@@ -266,16 +308,16 @@ public class CubeMesh : MonoBehaviour
         }
     }
 
-    void CreateFace(int dir)
+    void CreateFace(int faceID)
     {
         // Adds the elements of the specified collection to the end of the List
         int vCount = _vertices.Count;
-        _vertices.AddRange(CubeData.FaceVertices(dir));
+        _vertices.AddRange(CubeData.FaceToVertices(faceID));
 
-        _triangles.Add(vCount);
+        _triangles.Add(vCount + 0);
         _triangles.Add(vCount + 1);
         _triangles.Add(vCount + 2);
-        _triangles.Add(vCount);
+        _triangles.Add(vCount + 0);
         _triangles.Add(vCount + 2);
         _triangles.Add(vCount + 3);
     }
@@ -284,6 +326,7 @@ public class CubeMesh : MonoBehaviour
     {
         // Clear all vertex data and all triangle indices
         _mesh.Clear();
+
         // Assign our vertices and triangles to mesh object
         _mesh.vertices = _vertices.ToArray();
         _mesh.triangles = _triangles.ToArray();
