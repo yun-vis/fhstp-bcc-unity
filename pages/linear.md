@@ -6,12 +6,34 @@ classes: wide
 header:
   image: /assets/images/teaser/teaser.png
   caption: "Image credit: [**Yun**](http://yun-vis.net)"
-last_modified_at: 2023-05-02
+last_modified_at: 2025-05-04
 ---
 
-# Ray
+# Raycasting
 
-## Raycasting
+Raycasting is a method used in computer graphics to render 3D scenes by tracing light rays from a viewpoint into the scene. It's essentially the opposite of ray tracing, which traces rays from light sources to the viewer. In simpler terms, raycasting simulates how light will hit the eye or camera in a virtual environment. 
+
+## Raycasting in Unity
+
+Raycasting is a technique for detecting collisions in 3D space by simulating a "laser beam" from a point in space. It's used to determine what objects, if any, a line segment intersects with. This information can be used for various game mechanics, like shooting, selecting objects, or checking for obstacles. 
+
+* Pre-setting before scripts
+  * Step1: Create three Cube GameObeject called Wall1-Wall3. One can change the sizes of the walls to make it reasonable.
+    * Wall1: Position(1.5,0,-1.5), Scale(3,1,1)
+    * Wall2: Position(0,0,1), Scale(1,1,3), set layer in the inspector to World
+    * Wall3: Position(1.5,0,3), Scale(2,1,1)
+  * Step2: Create another Cube GameObject "RayOrigin" and attach the script Raycasting
+    * RayOrigin: Position(5,0,0)
+  * Step3: Create another Cube GameObject "RayReflection" and attach the script RaycastingReflection
+    * RayOrigin: Position(5,0,0)
+  * Step4: Reflection set to 3 and MaxLength set to 100
+  * Step5: Add "Mirror" tag to the Wall 1-3
+  * Step6: Enable LineRenderer.CornerVertices to make the line looks smoother.
+  * Step7: Enable LineRenderer.EndCapVertices to make the line looks smoother.
+  * Step8: Change the width or add material...
+    
+### Unity Layer
+Layers are a tool that allows you to separate GameObjects in your scenes. You can use layers through the UI and with scripts to edit how GameObjects within your scene interact with each other.
 
 Raycasting.cs
 ```csharp
@@ -21,25 +43,33 @@ using UnityEngine;
 
 public class Raycasting : MonoBehaviour
 {
-    Ray _ray;
+    private Ray _ray;
     // Container for hit data
     private RaycastHit _hitData;
     public LayerMask layers;
-    
+
+    // Initialization, usually instantiation of objects
+    // and setting up references to other objects.
+    private void Awake()
+    {
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         // Creates a Ray from this object, moving forward
-        _ray = new Ray(transform.position, transform.forward);
-        
+        // Vector3.left for the X-Axis, Vector3.up for the Y-Axis and Vector3.forward for the Z-Axis.
+        // _ray = new Ray(transform.position, transform.forward);
+
         // Creates a Ray from the center of the viewport
         // _ray = Camera.main.ViewportPointToRay(new Vector3 (0.5f, 0.5f, 0));
-        
+
         // Creates a Ray from the mouse position
-        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
+        // _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         layers = LayerMask.GetMask("World") | LayerMask.GetMask("Water");
         // layers = 1<<9;
+        // Debug.Log("test!");
     }
 
     // Update is called once per frame
@@ -47,16 +77,16 @@ public class Raycasting : MonoBehaviour
     {
         FireRay();
     }
-    
+
     void FireRay()
     {
         _ray = new Ray(transform.position, transform.forward);
-        // Visualize the ray
+        // Visualize the ray in debug
         Debug.DrawRay(_ray.origin, _ray.direction * 10);
 
-        // one of the most common ways to use Raycast is using the Physics Class, which returns a boolean true or false, depending on if the Ray hit anything.
+        // One of the most common ways to use Raycast is using the Physics Class, which returns a boolean true or false, depending on if the Ray hit anything.
         // The out keyword in Unity is used to return extra information from a function.
-        if (Physics.Raycast(_ray, out _hitData, 10,layers))
+        if (Physics.Raycast(_ray, out _hitData, 10, layers))
         {
             Vector3 hitPosition = _hitData.point;
             float hitDistance = _hitData.distance;
@@ -64,8 +94,9 @@ public class Raycasting : MonoBehaviour
             string name = _hitData.collider.name;
             // Gets a Game Object reference from its Transform
             GameObject hitObject = _hitData.transform.gameObject;
-        
-            Debug.Log("layers = " + layers.value);
+
+            // Debug.Log("hitted object name = " + name);
+            Debug.Log("hitted object name = " + hitObject.name);
         }
     }
 }
@@ -80,27 +111,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Pre-setting before scripts
-// Step1: Create 3 cube game objects, name Wall 1-3 and adjust the sizes.
-// Step2: Create a cube game object, name Origin and attach the script
-// Step3: Reflection set to 3 and MaxLength set to 100
-// Step4: Add "Mirror" tag to the Wall 1-3
-// Step5: Enable LineRenderer.CornerVertices to make the line looks smoother.
-// Step6: Enable LineRenderer.EndCapVertices to make the line looks smoother.
-// Step7: Change the width or add material...
-
 [RequireComponent(typeof(LineRenderer))]
 public class RaycastReflection : MonoBehaviour
 {
     [SerializeField]
-    int reflections;
+    private int _reflections;
     [SerializeField]
-    float maxLength;
+    private float _maxLength;
 
     private LineRenderer _lineRenderer;
     private Ray _ray;
     private RaycastHit _hitData;
-    private Vector3 _direction;
+    // private Vector3 _direction;
 
     void Awake()
     {
@@ -121,9 +143,9 @@ public class RaycastReflection : MonoBehaviour
         _lineRenderer.positionCount = 1;
         // Set the position of a vertex in the line.
         _lineRenderer.SetPosition(0, transform.position);
-        float remainingLength = maxLength;
+        float remainingLength = _maxLength;
 
-        for (int i = 0; i < reflections; i++)
+        for (int i = 0; i < _reflections; i++)
         {
             if(Physics.Raycast(_ray.origin, _ray.direction, out _hitData, remainingLength))
             {
