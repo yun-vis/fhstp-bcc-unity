@@ -56,19 +56,21 @@ using UnityEngine;
 public class Rotation : MonoBehaviour
 {
     // For animation
-    float degreesPerSecond = 20;
+    private float _degreesPerSecond = 20;
+    private Transform _parentTransform;
 
     // Initialization, usually instantiation of objects
     // and setting up references to other objects.
     private void Awake()
     {
+        _parentTransform = transform.parent;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         // Change object position
-        transform.position = new Vector3(0, 5, 0);
+        transform.position = new Vector3(0, 0, 0);
 
         // Change object rotation in Euler angles
         // The rotation as Euler angles in degrees.
@@ -116,9 +118,9 @@ public class Rotation : MonoBehaviour
 
         // Local Rotation
         // With/without roatating the parent object Container -30 degrees around the X-Axis
-        transform.localEulerAngles = new Vector3(0, 0, -30);
+        // transform.localEulerAngles = new Vector3(0, 0, -30);
         // same as above
-        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -30));
+        // transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -30));
 
         // Creating a parent object is an easy way to move the pivot point of an object.
     }
@@ -126,27 +128,30 @@ public class Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateAroundCenter();
+        RotateAroundPivot();
         // RotateAroundPoint();
-        // RotateOrbit();
-        // RotateOrbitSlant();
     }
 
-    void RotateAroundCenter()
+    void RotateAroundPivot()
     {
         // Time.deltaTime (the duration of the last frame) to make sure that the rotation is smooth and consistent.
         // This is to make sure that, even if the framerate changes, the amount of movement over time remains the same.
         // In this case, it changes the amount of rotation from 20 degrees per frame to 20 degrees per second.
-        transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+        // transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime, Space.Self);
+        // Space.Self means that the rotation is relative to the object’s local space.
+        transform.Rotate(new Vector3(0, _degreesPerSecond, 0) * Time.deltaTime, Space.Self);
     }
 
     void RotateAroundPoint()
     {
-        Vector3 pivotPoint = new Vector3(-0.5f, 0, 0.5f);
+        // Debug.Log("Pivot Point: " + pivotPoint);
+        // Vector3 pivotPoint = new Vector3(0, 0, 0);
+        Vector3 pivotPoint = new Vector3(-1.5f, 0, 0.5f);
+        // Vector3 pivotPoint = _parentTransform.position;
 
         // Rotates around the pivot point and the Y-Axis by 90 degrees
         // Vector3.left for the X-Axis, Vector3.up for the Y-Axis and Vector3.forward for the Z-Axis.
-        transform.RotateAround(pivotPoint, Vector3.up, degreesPerSecond * Time.deltaTime);
+        transform.RotateAround(pivotPoint, Vector3.up, _degreesPerSecond * Time.deltaTime);
     }
 }
 ```
