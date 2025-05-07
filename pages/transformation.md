@@ -74,7 +74,7 @@ public class Rotation : MonoBehaviour
 
         // Change object rotation in Euler angles
         // The rotation as Euler angles in degrees.
-        transform.eulerAngles = new Vector3(0, 45, 0);
+        // transform.eulerAngles = new Vector3(0, 45, 0);
         // transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 45, 0);
 
         // There are in principle 2 types of rotations in CG. 
@@ -94,7 +94,7 @@ public class Rotation : MonoBehaviour
         // Instead of working in Quaternions, you can convert a Vector 3 Euler Angle rotation into a Quaternion.
         // A Quaternion that stores the rotation of the Transform in world space.
         // equal to transform.eulerAngles =  new Vector3(0, 45, 0);
-        transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
+        // transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
         // Quaternion.operator *
         // https://docs.unity3d.com/ScriptReference/Quaternion-operator_multiply.html
         // transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0)) * Quaternion.Euler(new Vector3(0, 45, 0));
@@ -115,19 +115,32 @@ public class Rotation : MonoBehaviour
 
         // World/Global Rotation
         // With/without roatating the parent object Container -30 degrees around the X-Axis
-        transform.eulerAngles = new Vector3(0, 45, 0);
+        // transform.eulerAngles = new Vector3(0, 45, 0);
         // same as above
-        // transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
+        transform.rotation = Quaternion.Euler(new Vector3(0,45, 0));
 
         // Local Rotation
         // With/without roatating the parent object Container -30 degrees around the X-Axis
         // Debug.Log(transform.localRotation.eulerAngles.y);
         // transform.localEulerAngles = new Vector3(0, 0, transform.localRotation.eulerAngles.y-30);
-        // transform.localEulerAngles = new Vector3(0, 0, -30);
+        // transform.localEulerAngles = new Vector3(0, 30, 0);
+        transform.localEulerAngles = new Vector3(0, 45, 0);
         // same as above
         // transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -30));
 
         // Creating a parent object is an easy way to move the pivot point of an object.
+        // case 1: 
+        transform.parent.rotation = Quaternion.Euler(new Vector3(0, 15, 0));
+        transform.localRotation = Quaternion.Euler(new Vector3(0, 30, 0));
+        // The game object will end up with 45 degrees (rotated along y-axis.) This will equal to
+ 
+        // case 2: 
+        transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
+  
+        // case 3: 
+        transform.parent.rotation = Quaternion.Euler(new Vector3(0, 15, 0));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
+        // because in case 3, the angle in global space overwrite the rotation from the parent of the gameobject.
     }
 
     // Update is called once per frame
