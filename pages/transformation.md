@@ -75,6 +75,7 @@ public class Rotation : MonoBehaviour
         // Change object rotation in Euler angles
         // The rotation as Euler angles in degrees.
         transform.eulerAngles = new Vector3(0, 45, 0);
+        // transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 45, 0);
 
         // There are in principle 2 types of rotations in CG. 
         // One is using Euler angle, and the other is using Quaternion. 
@@ -94,6 +95,9 @@ public class Rotation : MonoBehaviour
         // A Quaternion that stores the rotation of the Transform in world space.
         // equal to transform.eulerAngles =  new Vector3(0, 45, 0);
         transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
+        // Quaternion.operator *
+        // https://docs.unity3d.com/ScriptReference/Quaternion-operator_multiply.html
+        // transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0)) * Quaternion.Euler(new Vector3(0, 45, 0));
 
 
         // Generally speaking, Unity uses Quaternions because they’re efficient and avoid
@@ -113,11 +117,12 @@ public class Rotation : MonoBehaviour
         // With/without roatating the parent object Container -30 degrees around the X-Axis
         transform.eulerAngles = new Vector3(0, 45, 0);
         // same as above
-        transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
-
+        // transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
 
         // Local Rotation
         // With/without roatating the parent object Container -30 degrees around the X-Axis
+        // Debug.Log(transform.localRotation.eulerAngles.y);
+        // transform.localEulerAngles = new Vector3(0, 0, transform.localRotation.eulerAngles.y-30);
         // transform.localEulerAngles = new Vector3(0, 0, -30);
         // same as above
         // transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -30));
@@ -128,7 +133,7 @@ public class Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateAroundPivot();
+        // RotateAroundPivot();
         // RotateAroundPoint();
     }
 
