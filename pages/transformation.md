@@ -6,7 +6,7 @@ classes: wide
 header:
   image: /assets/images/teaser/teaser.png
   caption: "Image credit: [**Yun**](http://yun-vis.net)"
-last_modified_at: 2025-05-04
+last_modified_at: 2025-05-09
 ---
 
 # GameObjects
@@ -56,7 +56,7 @@ using UnityEngine;
 public class Rotation : MonoBehaviour
 {
     // For animation
-    private float _degreesPerSecond = 20;
+    private float _degreesPerSecond = 20.0f;
     private Transform _parentTransform;
 
     // Initialization, usually instantiation of objects
@@ -74,7 +74,7 @@ public class Rotation : MonoBehaviour
 
         // Change object rotation in Euler angles
         // The rotation as Euler angles in degrees.
-        // transform.eulerAngles = new Vector3(0, 45, 0);
+        transform.eulerAngles = new Vector3(0, 45, 0);
         // transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 45, 0);
 
         // There are in principle 2 types of rotations in CG. 
@@ -94,7 +94,7 @@ public class Rotation : MonoBehaviour
         // Instead of working in Quaternions, you can convert a Vector 3 Euler Angle rotation into a Quaternion.
         // A Quaternion that stores the rotation of the Transform in world space.
         // equal to transform.eulerAngles =  new Vector3(0, 45, 0);
-        // transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
         // Quaternion.operator *
         // https://docs.unity3d.com/ScriptReference/Quaternion-operator_multiply.html
         // transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0)) * Quaternion.Euler(new Vector3(0, 45, 0));
@@ -140,7 +140,7 @@ public class Rotation : MonoBehaviour
         // case 3: 
         transform.parent.rotation = Quaternion.Euler(new Vector3(0, 15, 0));
         transform.rotation = Quaternion.Euler(new Vector3(0, 45, 0));
-        // because in case 3, the angle in global space overwrite the rotation from the parent of the gameobject.
+        // because in case 3, the angle in global space overwrite the angle in local space.
     }
 
     // Update is called once per frame
@@ -185,22 +185,22 @@ using UnityEngine;
 public class SolarSystem : MonoBehaviour
 {
     // For animation
-    float degreesPerSecond = 20;
-    public Transform ObjectToOrbit;
-    public Vector3 Direction;
-    public float Angle;
-    public float Radius;
+    private float degreesPerSecond = 20.0f;
+    private Transform _parentTransform;
+    private Vector3 _direction;
+    private float _angle;
+    private float _radius;
 
     // Initialization
-    private void Awake()
+    void Awake()
     {
         // transform.position = new Vector3(0, 0, 0);
-        ObjectToOrbit = transform.parent.transform;
+        _parentTransform = transform.parent;
 
         // Unit vector
-        Direction = (transform.position - ObjectToOrbit.transform.position).normalized;
+        _direction = (transform.position - _parentTransform.transform.position).normalized;
         // Distance between the parent and the object
-        Radius = Vector3.Distance(ObjectToOrbit.transform.position, transform.position);
+        _radius = Vector3.Distance(_parentTransform.transform.position, transform.position);
     }
 
     // Start is called before the first frame update
@@ -215,30 +215,30 @@ public class SolarSystem : MonoBehaviour
         RotateOrbitSlant();
     }
 
-    void RotateOrbit()
+    internal void RotateOrbit()
     {
-        Debug.Log( ObjectToOrbit.position );
+        Debug.Log(_parentTransform.position);
         // Revolution
-        transform.RotateAround(ObjectToOrbit.position, Vector3.up, degreesPerSecond * Time.deltaTime);
+        transform.RotateAround(_parentTransform.position, Vector3.up, degreesPerSecond * Time.deltaTime);
         // Rotation
         // Difference with RotateOrbitSlant(): the parent angle will be added to children angle
         // transform.Rotate( Vector3.up, 0.5f);
         // transform.Rotate( Vector3.up, 0.0f);
     }
 
-    void RotateOrbitSlant()
+    internal void RotateOrbitSlant()
     {
-        Angle += degreesPerSecond * Time.deltaTime;
-        Angle %= 360;
+        _angle += degreesPerSecond * Time.deltaTime;
+        _angle %= 360;
         // Debug.Log("angle = " + angle);
-     
+
         // Rotate a vector by multiplying it by a Quaternion
         // Vector3.forward Z-Axis unit vector
-        Vector3 orbit = Vector3.forward * Radius;
+        Vector3 orbit = Vector3.forward * _radius;
         // orbit = Quaternion.Euler(0, angle, 0) * orbit;
-        orbit = Quaternion.LookRotation(Direction) * Quaternion.Euler(0, Angle, 0) * orbit;
+        orbit = Quaternion.LookRotation(_direction) * Quaternion.Euler(0, _angle, 0) * orbit;
         // Revolution
-        transform.position = ObjectToOrbit.transform.position + orbit;
+        transform.position = _parentTransform.position + orbit;
         // Rotation
         // transform.Rotate( Vector3.up, 0.5f);
     }
