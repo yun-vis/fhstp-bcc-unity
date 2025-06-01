@@ -14,5 +14,7 @@ main:
     url: /pages/deformation
   - title: "Animation"
     url: /pages/animation
+  - title: "VR"
+    url: /pages/vr
 
 
